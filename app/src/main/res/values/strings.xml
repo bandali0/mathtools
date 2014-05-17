@@ -5,8 +5,13 @@
     <string name="action_settings">Settings</string>
 
     <string name="vectors">Vectors</string>
+    <string name="fa_vectors">{fa-arrow-up}</string>
     <string name="geometry">Geometry</string>
+    <string name="fa_geometry">{fa-cube}</string>
     <string name="trigonometry">Trigonometry</string>
+    <string name="fa_trigonometry">{fa-circle-thin}</string>
     <string name="calculus">Calculus</string>
+    <string name="fa_calculus">{fa-book}</string>
+
 
 </resources>

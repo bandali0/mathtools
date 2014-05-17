@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.IconTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
@@ -59,7 +59,8 @@ public class MainFragment extends BaseFragment{
         MainSmallCard card = new MainSmallCard(this.getActivity());
         card.setTitle(getString(R.string.vectors));
         card.count = 1;
-        card.setResourceIdThumbnail(R.drawable.ic_vectors);
+        card.setIconTextViewTextResource(R.string.fa_vectors);
+        card.setIconTextViewTextColor(0xFFFF4444);
         card.init();
         cards.add(card);
 
@@ -67,7 +68,8 @@ public class MainFragment extends BaseFragment{
         card = new MainSmallCard(this.getActivity());
         card.setTitle(getString(R.string.geometry));
         card.count = 2;
-        card.setResourceIdThumbnail(R.drawable.ic_geometry);
+        card.setIconTextViewTextResource(R.string.fa_geometry);
+        card.setIconTextViewTextColor(0xFF33B5E5);
         card.init();
         cards.add(card);
 
@@ -75,7 +77,8 @@ public class MainFragment extends BaseFragment{
         card = new MainSmallCard(this.getActivity());
         card.setTitle(getString(R.string.trigonometry));
         card.count = 3;
-        card.setResourceIdThumbnail(R.drawable.ic_trigonometry);
+        card.setIconTextViewTextResource(R.string.fa_trigonometry);
+        card.setIconTextViewTextColor(0xFFFFBB33);
         card.init();
         cards.add(card);
 
@@ -83,7 +86,8 @@ public class MainFragment extends BaseFragment{
         card = new MainSmallCard(this.getActivity());
         card.setTitle(getString(R.string.calculus));
         card.count = 4;
-        card.setResourceIdThumbnail(R.drawable.ic_calculus);
+        card.setIconTextViewTextResource(R.string.fa_calculus);
+        card.setIconTextViewTextColor(0xFF99CC00);
         card.init();
         cards.add(card);
 
@@ -94,7 +98,8 @@ public class MainFragment extends BaseFragment{
     public class MainSmallCard extends Card {
 
         protected TextView mTitle;
-        protected int resourceIdThumbnail;
+        protected int iconTextViewTextResource;
+        protected int iconTextViewTextColor;
         protected int count;
 
         protected String title;
@@ -110,17 +115,6 @@ public class MainFragment extends BaseFragment{
         }
 
         private void init() {
-
-            // Add thumbnail
-            CardThumbnail cardThumbnail = new CardThumbnail(mContext);
-
-            if (resourceIdThumbnail==0)
-                cardThumbnail.setDrawableResource(R.drawable.ic_launcher);
-            else{
-                cardThumbnail.setDrawableResource(resourceIdThumbnail);
-            }
-
-            addCardThumbnail(cardThumbnail);
 
             switch (count) {
                 case 1: // Vectors
@@ -151,9 +145,15 @@ public class MainFragment extends BaseFragment{
 
             // Retrieve elements
             mTitle = (TextView) parent.findViewById(R.id.carddemo_myapps_main_inner_title);
+            IconTextView iTV = (IconTextView) parent.findViewById(R.id.card_icon);
 
             if (mTitle != null)
                 mTitle.setText(title);
+
+            if (iTV != null) {
+                iTV.setText(getText(iconTextViewTextResource));
+                iTV.setTextColor(iconTextViewTextColor);
+            }
 
         }
 
@@ -166,13 +166,20 @@ public class MainFragment extends BaseFragment{
             this.title = title;
         }
 
-
-        public int getResourceIdThumbnail() {
-            return resourceIdThumbnail;
+        public void setIconTextViewTextResource(int id) {
+            iconTextViewTextResource = id;
         }
 
-        public void setResourceIdThumbnail(int resourceIdThumbnail) {
-            this.resourceIdThumbnail = resourceIdThumbnail;
+        public int getIconTextViewTextResource() {
+            return iconTextViewTextResource;
+        }
+
+        public void setIconTextViewTextColor(int id) {
+            iconTextViewTextColor = id;
+        }
+
+        public int getIconTextViewTextColor() {
+            return iconTextViewTextColor;
         }
     }
 }

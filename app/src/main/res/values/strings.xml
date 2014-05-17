@@ -29,4 +29,29 @@
     <string name="mygplus">Google+</string>
     <string name="mygplus_desc">+AminBandali</string>
 
+    <!-- About -->
+    <string name="title_about"><![CDATA[
+        <b>MathTools</b>&nbsp;<font color="#888888">v%1$s</font>
+    ]]></string>
+    <string name="about_ok">OK</string>
+    <string name="about_body"><![CDATA[
+        <b>MathTools App</b><br>
+        Author: <a href="http://aminbandali.com">Amin Bandali</a><br>
+        Get: <a href="https://github.com/aminb/mathtools">Source on GitHub</a><br>
+        <br><br>
+        <b>Many thanks to these open source tools:</b><br>
+        <b><a href="https://github.com/gabrielemariotti/cardslib">Card Library</a></b><br>
+        <i>by Gabriele Mariotti</i><br><br>
+        <b><a href="https://github.com/astuetz/PagerSlidingTabStrip">PagerSlidingTabStrip</a></b><br>
+        <i>by Andreas Stütz</i><br><br>
+        <b><a href="https://github.com/JoanZapata/android-iconify/">Android Iconify</a></b><br>
+        <i>by Joan Zapata</i><br><br>
+        <b><a href="http://commons.apache.org/math/">Apache Commons Math</a></b><br>
+        <i>by The Apache Software Foundation</i><br><br>
+
+        <b>Thanks for some ideas and code:</b><br>
+        <b><a href="https://github.com/gabrielemariotti">Gabriele Mariotti</a></b><br>
+
+    ]]></string>
+
 </resources>

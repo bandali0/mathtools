@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.aminbandali.mathtools.app.R;
+import com.aminbandali.mathtools.app.Utils;
 import com.aminbandali.mathtools.app.activity.FeedbackActivity;
 
 
@@ -38,9 +39,10 @@ public class MainActivity extends FragmentActivity {
             case R.id.action_feedback:
                 Intent intent_feedback = new Intent(this, FeedbackActivity.class);
                 startActivity(intent_feedback);
-                break;
+                return true;
             case R.id.action_about:
-                break;
+                Utils.showAbout(this);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

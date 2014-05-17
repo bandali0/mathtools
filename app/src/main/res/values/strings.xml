@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">MathTools</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="vectors">Vectors</string>
+    <string name="geometry">Geometry</string>
+    <string name="trigonometry">Trigonometry</string>
+    <string name="calculus">Calculus</string>
 
 </resources>

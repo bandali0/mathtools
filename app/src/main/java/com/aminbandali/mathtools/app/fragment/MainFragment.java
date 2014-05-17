@@ -41,7 +41,7 @@ public class MainFragment extends BaseFragment{
 
     private void initCards() {
 
-        //Init an array of Cards
+        // Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
 
         cards = addToolsCards(cards);

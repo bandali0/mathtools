@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- General / Menu -->
     <string name="app_name">MathTools</string>
     <string name="action_settings">Settings</string>
     <string name="action_feedback">Feedback</string>
     <string name="action_about">About</string>
 
+    <!-- MainFragment Navigation -->
     <string name="vectors">Vectors</string>
     <string name="fa_vectors">{fa-arrow-up}</string>
     <string name="geometry">Geometry</string>
@@ -15,5 +17,16 @@
     <string name="calculus">Calculus</string>
     <string name="fa_calculus">{fa-book}</string>
 
+    <!-- FeedbackFragment -->
+    <string name="getintouch">Get in touch!</string>
+    <string name="feedback_desc">If you spotted a problem, there is a specific functionality that\'s missing and you think it fits well in the app or you simply got a suggestion, feel free to shoot me an email or leave a review/comment on app\'s page on Google Play!</string>
+    <string name="mt_on_gplay">Google Play</string>
+    <string name="mt_on_gplay_desc">Leave a review/comment</string>
+    <string name="sendmeanemail">Email</string>
+    <string name="sendmeanemail_desc">me\@aminbandali.com</string>
+    <string name="mytwitter">Twitter</string>
+    <string name="mytwitter_desc">\@aminban</string>
+    <string name="mygplus">Google+</string>
+    <string name="mygplus_desc">+AminBandali</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.aminbandali.mathtools.app;
+package com.aminbandali.mathtools.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.aminbandali.mathtools.app.R;
 import com.aminbandali.mathtools.app.activity.FeedbackActivity;
 
 

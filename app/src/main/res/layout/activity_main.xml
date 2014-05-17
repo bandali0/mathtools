@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aminbandali.mathtools.app.MainActivity">
+    tools:context="com.aminbandali.mathtools.app.activity.MainActivity">
 
     <fragment android:name="com.aminbandali.mathtools.app.fragment.MainFragment"
         android:layout_width="match_parent"

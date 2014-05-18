@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     tools:context="com.aminbandali.mathtools.app.activity.MainActivity">
 
-    <fragment android:name="com.aminbandali.mathtools.app.fragment.MainFragment"
+    <FrameLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragmain"
-        ></fragment>
+        android:layout_height="match_parent" >
+    </FrameLayout>
 
 </RelativeLayout>

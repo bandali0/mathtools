@@ -3,7 +3,6 @@ package com.aminbandali.mathtools.app.fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +20,17 @@ import java.util.Map;
 /**
  * Created by amin on 8/26/13.
  */
-public class FeedbackFragment extends Fragment
+public class FeedbackFragment extends BaseFragment
 {
     private static final String TAG = "FeedbackFragment";
     public FeedbackFragment()
     {
         super();
+    }
+
+    @Override
+    public int getTitleResourceId() {
+        return R.string.action_feedback;
     }
 
     @Override

@@ -23,4 +23,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:19.+'
     compile 'com.github.gabrielemariotti.cards:library:1.6.0'
     compile 'com.joanzapata.android:android-iconify:1.0.+'
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
 }

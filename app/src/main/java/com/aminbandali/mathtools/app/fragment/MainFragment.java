@@ -2,6 +2,7 @@ package com.aminbandali.mathtools.app.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,7 +119,20 @@ public class MainFragment extends BaseFragment{
 
             switch (count) {
                 case 1: // Vectors
+                    // Add ClickListener
+                    setOnClickListener(new OnCardClickListener() {
+                        @Override
+                        public void onClick(Card card, View view) {
+                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
+                                    .beginTransaction();
+                            Bundle args = new Bundle();
+                            args.putInt("titleId", R.string.vectors);
+                            args.putStringArray("titles", new String[] {"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
 
+                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
+                            tx.commit();
+                        }
+                    });
                     break;
 
                 case 2: // Geometry

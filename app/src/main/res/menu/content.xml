@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_cheat_sheet"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_list"
+        android:title="@string/action_cheat_sheet"/>
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_feedback"
+        android:title="@string/action_feedback"
+        android:orderInCategory="300"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_about"
+        android:title="@string/action_about"
+        android:orderInCategory="400"
+        app:showAsAction="never" />
+</menu>

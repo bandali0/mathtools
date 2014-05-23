@@ -128,7 +128,7 @@ public class MainFragment extends BaseFragment{
                             Bundle args = new Bundle();
                             args.putInt("titleId", R.string.vectors);
                             args.putStringArray("titles", new String[] {"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
-
+                            tx.addToBackStack(null);
                             tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
                             tx.commit();
                         }

@@ -125,6 +125,7 @@ public class MainFragment extends BaseFragment{
                         public void onClick(Card card, View view) {
                             FragmentTransaction tx = getActivity().getSupportFragmentManager()
                                     .beginTransaction();
+                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
                             Bundle args = new Bundle();
                             args.putInt("titleId", R.string.vectors);
                             args.putStringArray("titles", new String[] {"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});

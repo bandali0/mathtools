@@ -1,5 +1,6 @@
 package com.aminbandali.mathtools.app.fragment;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
 import com.astuetz.PagerSlidingTabStrip;
+import com.joanzapata.android.iconify.IconDrawable;
+import com.joanzapata.android.iconify.Iconify;
 
 /**
  * Created by amin on 5/18/14.
@@ -61,6 +64,10 @@ public class ContentFragment extends BaseFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.content, menu);
+        Drawable aboutDrawable = new IconDrawable(getActivity(), Iconify.IconValue.fa_book)
+                .colorRes(R.color.ab_item)
+                .actionBarSize();
+        menu.findItem(R.id.action_cheat_sheet).setIcon(aboutDrawable);
     }
 
     @Override

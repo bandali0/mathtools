@@ -42,7 +42,7 @@ public class MainActivity extends FragmentActivity {
             case R.id.action_settings:
                 break;
             case R.id.action_feedback:
-                Intent intent_feedback = new Intent(this, FeedbackActivity.class);
+                Intent intent_feedback = new Intent(this, FeedbackActivity_.class);
                 startActivity(intent_feedback);
                 return true;
             case R.id.action_about:

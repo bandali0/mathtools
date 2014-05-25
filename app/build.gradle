@@ -1,4 +1,5 @@
 apply plugin: 'android'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 19
@@ -18,7 +19,16 @@ android {
     }
 }
 
+apt {
+    arguments {
+        androidManifestFile variant.processResources.manifestFile
+        resourcePackageName "com.aminbandali.mathtools.app"
+    }
+}
+
 dependencies {
+    apt "org.androidannotations:androidannotations:3.0+"
+    compile "org.androidannotations:androidannotations-api:3.0+"
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:19.+'
     compile 'com.github.gabrielemariotti.cards:library:1.6.0'

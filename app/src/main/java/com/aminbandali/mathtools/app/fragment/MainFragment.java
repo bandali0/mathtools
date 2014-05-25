@@ -1,3 +1,21 @@
+/*
+ * MainFragment.java
+ * Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
+ *
+ * MathTools is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * MathTools is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.aminbandali.mathtools.app.fragment;
 
 import android.content.Context;
@@ -18,9 +36,7 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
-/**
- * Created by amin on 5/16/14.
- */
+
 public class MainFragment extends BaseFragment{
     @Override
     public int getTitleResourceId() {

@@ -1,0 +1,9 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="&amp;#36;file.fileName&#10;Copyright (C) &amp;#36;today.year Amin Bandali &lt;me@aminbandali.com&gt;&#10;&#10;&amp;#36;project.name is free software: you can redistribute it and/or modify it&#10;under the terms of the GNU General Public License as published by the&#10;Free Software Foundation, either version 3 of the License, or&#10;(at your option) any later version.&#10;&#10;&amp;#36;project.name is distributed in the hope that it will be useful, but&#10;WITHOUT ANY WARRANTY; without even the implied warranty of&#10;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#10;See the GNU General Public License for more details.&#10;&#10;You should have received a copy of the GNU General Public License along&#10;with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;." />
+    <option name="keyword" value="Copyright" />
+    <option name="allowReplaceKeyword" value="" />
+    <option name="myName" value="Amin Bandali" />
+    <option name="myLocal" value="true" />
+  </copyright>
+</component>

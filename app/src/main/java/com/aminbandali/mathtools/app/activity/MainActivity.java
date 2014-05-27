@@ -24,18 +24,18 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import com.aminbandali.mathtools.app.R;
 import com.aminbandali.mathtools.app.Utils;
 import com.aminbandali.mathtools.app.fragment.MainFragment;
-import org.androidannotations.annotations.EActivity;
 
 
-@EActivity (R.layout.activity_main)
 public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         FragmentTransaction tx = getSupportFragmentManager()
                 .beginTransaction();
         tx.replace(R.id.main, new MainFragment());

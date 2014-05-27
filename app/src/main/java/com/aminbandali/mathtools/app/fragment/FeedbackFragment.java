@@ -35,9 +35,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class FeedbackFragment extends BaseFragment
 {
+    @InjectView(R.id.lVfeedback) ListView listView;
+
     private static final String TAG = "FeedbackFragment";
     public FeedbackFragment()
     {
@@ -55,16 +60,17 @@ public class FeedbackFragment extends BaseFragment
     {
         View view = inflater.inflate(R.layout.fragment_feedback, container, false);
 
-        final ListView listview = (ListView) view.findViewById(R.id.lVfeedback);
+        ButterKnife.inject(this, view);
+
         ArrayList<Map<String, String>> list = buildData();
         String[] from = { "name", "desc" };
         int[] to = { android.R.id.text1, android.R.id.text2 };
 
         SimpleAdapter adapter = new SimpleAdapter(getActivity(), list,
                 android.R.layout.simple_list_item_2, from, to);
-        listview.setAdapter(adapter);
+        listView.setAdapter(adapter);
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {

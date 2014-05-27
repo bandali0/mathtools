@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.IconTextView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +33,17 @@ import com.aminbandali.mathtools.app.R;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 
 public class MainFragment extends BaseFragment{
+    @InjectView(R.id.fragment_main_cardslist)
+    ListView listView;
+
     @Override
     public int getTitleResourceId() {
         return R.string.app_name;
@@ -45,7 +51,9 @@ public class MainFragment extends BaseFragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        ButterKnife.inject(this, view);
+        return view;
     }
 
     @Override
@@ -65,7 +73,6 @@ public class MainFragment extends BaseFragment{
 
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
-        CardListView listView = (CardListView) getActivity().findViewById(R.id.fragment_main_cardslist);
         if (listView!=null){
             listView.setAdapter(mCardArrayAdapter);
         }

@@ -17,12 +17,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.FeedbackActivity_"
+            android:name="com.aminbandali.mathtools.app.activity.FeedbackActivity"
             android:label="@string/action_feedback"
-            android:parentActivityName=".activity.MainActivity_">
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity_" />
+                android:value=".MainActivity" />
         </activity>
     </application>
 

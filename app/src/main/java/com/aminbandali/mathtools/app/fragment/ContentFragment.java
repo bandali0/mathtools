@@ -38,6 +38,9 @@ import com.astuetz.PagerSlidingTabStrip;
 import com.joanzapata.android.iconify.IconDrawable;
 import com.joanzapata.android.iconify.Iconify;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class ContentFragment extends BaseFragment {
 
@@ -52,8 +55,11 @@ public class ContentFragment extends BaseFragment {
         return titleId;
     }
 
-    private PagerSlidingTabStrip tabs;
-    private ViewPager pager;
+    @InjectView(R.id.tabs)
+    protected PagerSlidingTabStrip tabs;
+
+    @InjectView(R.id.pager)
+    protected ViewPager pager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,10 +70,9 @@ public class ContentFragment extends BaseFragment {
 
         setRetainInstance(true);
         View view = inflater.inflate(R.layout.fragment_content, container, false);
-        tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         setHasOptionsMenu(true);
+        ButterKnife.inject(this, view);
         tabs.setIndicatorColor(0xFFC74B46);
-        pager = (ViewPager) view.findViewById(R.id.pager);
         pager.setAdapter(new ContentPagerAdapter(getActivity().getSupportFragmentManager()));
         final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
 				.getDisplayMetrics());

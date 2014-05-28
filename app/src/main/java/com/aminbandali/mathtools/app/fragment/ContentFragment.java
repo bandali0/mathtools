@@ -18,7 +18,6 @@
 
 package com.aminbandali.mathtools.app.fragment;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -31,12 +30,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
 import com.astuetz.PagerSlidingTabStrip;
-import com.joanzapata.android.iconify.IconDrawable;
-import com.joanzapata.android.iconify.Iconify;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -135,31 +131,4 @@ public class ContentFragment extends BaseFragment {
 
     }
 
-    public static class VectorsFragment extends BaseFragment
-    {
-
-        public int getTitleResourceId() {
-            return R.string.vectors;
-        }
-
-        private static final String TAG = "VectorsFragment";
-        public VectorsFragment()
-        {
-            super();
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState)
-        {
-            View view = inflater.inflate(R.layout.page, container, false);
-            View text = view.findViewById(android.R.id.text1);
-            if(text != null && text instanceof TextView)
-            {
-                ((TextView)text).setText(titles[getArguments().getInt("position")]);
-            }
-            return view;
-        }
-
-    }
 }

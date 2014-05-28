@@ -85,10 +85,10 @@ public class ContentFragment extends BaseFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.content, menu);
-        Drawable aboutDrawable = new IconDrawable(getActivity(), Iconify.IconValue.fa_book)
-                .colorRes(R.color.ab_item)
-                .actionBarSize();
-        menu.findItem(R.id.action_cheat_sheet).setIcon(aboutDrawable);
+//        Drawable aboutDrawable = new IconDrawable(getActivity(), Iconify.IconValue.fa_book)
+//                .colorRes(R.color.ab_item)
+//                .actionBarSize();
+//        menu.findItem(R.id.action_cheat_sheet).setIcon(aboutDrawable);
     }
 
     @Override

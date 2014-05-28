@@ -6,5 +6,6 @@
         android:id="@+id/action_cheat_sheet"
         app:showAsAction="always"
         android:showAsAction="always"
-        android:title="@string/action_cheat_sheet"/>
+        android:title="@string/action_cheat_sheet"
+        android:icon="@drawable/ic_action_cheat_sheet"/>
 </menu>

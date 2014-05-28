@@ -19,7 +19,13 @@
 package com.aminbandali.mathtools.app.fragment;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.TransitionDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +68,51 @@ public class MainFragment extends BaseFragment{
 
         initCards();
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        changeColor(0xFF0099CC);
+    }
+
+    private void changeColor(int newColor) {
+        // change ActionBar color just if an ActionBar is available
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+
+            Drawable colorDrawable = new ColorDrawable(newColor);
+            LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable });
+
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                ld.setCallback(drawableCallback);
+            } else {
+                getActivity().getActionBar().setBackgroundDrawable(ld);
+            }
+
+            // http://stackoverflow.com/questions/11002691/actionbar-setbackgrounddrawable-nulling-background-from-thread-handler
+            getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+            getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+
+        }
+    }
+
+    private final Handler handler = new Handler();
+    private Drawable.Callback drawableCallback = new Drawable.Callback() {
+        @Override
+        public void invalidateDrawable(Drawable who) {
+            getActivity().getActionBar().setBackgroundDrawable(who);
+        }
+
+        @Override
+        public void scheduleDrawable(Drawable who, Runnable what, long when) {
+            handler.postAtTime(what, when);
+        }
+
+        @Override
+        public void unscheduleDrawable(Drawable who, Runnable what) {
+            handler.removeCallbacks(what);
+        }
+    };
 
 
     private void initCards() {
@@ -151,7 +202,8 @@ public class MainFragment extends BaseFragment{
                             tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
                             Bundle args = new Bundle();
                             args.putInt("titleId", R.string.vectors);
-                            args.putStringArray("titles", new String[] {"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
+                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
+                            args.putInt("fragmentColor", 0xFFCC0000);
                             tx.addToBackStack(null);
                             tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
                             tx.commit();

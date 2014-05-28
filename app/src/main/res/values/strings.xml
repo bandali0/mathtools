@@ -32,7 +32,7 @@
 
     <!-- About -->
     <string name="title_about"><![CDATA[
-        <b><font color="#FFFFFF">MathTools</font></b>&nbsp;<font color="#CCCCCC">v%1$s</font>
+        <b><font color="#FFFFFF">MathTools</font></b>&nbsp;<font color="#DDDDDD">v%1$s</font>
     ]]></string>
     <string name="about_ok">OK</string>
     <string name="about_body"><![CDATA[

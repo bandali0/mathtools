@@ -49,6 +49,7 @@ public class ContentFragment extends BaseFragment {
     private int titleId;
     private static String[] titles;
     private int currentColor;
+    private String className;
 
     public ContentFragment() {
 
@@ -74,6 +75,7 @@ public class ContentFragment extends BaseFragment {
         titleId = getArguments().getInt("titleId");
         titles = getArguments().getStringArray("titles");
         currentColor = getArguments().getInt("fragmentColor");
+        className = getArguments().getString("className");
 
         setRetainInstance(true);
         View view = inflater.inflate(R.layout.fragment_content, container, false);
@@ -85,7 +87,7 @@ public class ContentFragment extends BaseFragment {
 				.getDisplayMetrics());
 		pager.setPageMargin(pageMargin);
         tabs.setViewPager(pager);
-//		getSherlockActivity().getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.holo_orange_light)));
+
         return view;
     }
 
@@ -196,7 +198,8 @@ public class ContentFragment extends BaseFragment {
         {
             Bundle args = new Bundle();
             args.putInt("position", position);
-            return Fragment.instantiate(getActivity(), VectorsFragment.class.getName(), args);
+            args.putInt("titleId", titleId);
+            return Fragment.instantiate(getActivity(), className, args);
         }
 
         @Override

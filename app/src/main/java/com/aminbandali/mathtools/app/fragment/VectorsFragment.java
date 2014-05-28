@@ -30,7 +30,10 @@ public class VectorsFragment extends BaseFragment
 {
 
     public int getTitleResourceId() {
-        return R.string.vectors;
+        if (getArguments().getInt("titleId") != 0)
+            return getArguments().getInt("titleId");
+        else
+            return 0;
     }
 
     public VectorsFragment()

@@ -204,6 +204,7 @@ public class MainFragment extends BaseFragment{
                             args.putInt("titleId", R.string.vectors);
                             args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
                             args.putInt("fragmentColor", 0xFFCC0000);
+                            args.putString("className", VectorsFragment.class.getName());
                             tx.addToBackStack(null);
                             tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
                             tx.commit();
@@ -212,19 +213,63 @@ public class MainFragment extends BaseFragment{
                     break;
 
                 case 2: // Geometry
-                    // Add ClickListener
                     setOnClickListener(new OnCardClickListener() {
                         @Override
                         public void onClick(Card card, View view) {
-                            Toast.makeText(getContext(), "card=" + title, Toast.LENGTH_SHORT).show();
+                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
+                                    .beginTransaction();
+                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+                            Bundle args = new Bundle();
+                            args.putInt("titleId", R.string.geometry);
+                            // TODO: Geometry titles
+                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
+                            args.putInt("fragmentColor", 0xFF33B5E5);
+                            args.putString("className", VectorsFragment.class.getName()); // TODO: GeometryFragment
+                            tx.addToBackStack(null);
+                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
+                            tx.commit();
                         }
                     });
                     break;
 
                 case 3: // Trigonometry
+                    setOnClickListener(new OnCardClickListener() {
+                        @Override
+                        public void onClick(Card card, View view) {
+                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
+                                    .beginTransaction();
+                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+                            Bundle args = new Bundle();
+                            args.putInt("titleId", R.string.trigonometry);
+                            // TODO: Trigonometry titles
+                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
+                            args.putInt("fragmentColor", 0xFFFFBB33);
+                            args.putString("className", VectorsFragment.class.getName()); // TODO: TrigonometryFragment
+                            tx.addToBackStack(null);
+                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
+                            tx.commit();
+                        }
+                    });
                     break;
 
                 case 4: // Calculus
+                    setOnClickListener(new OnCardClickListener() {
+                        @Override
+                        public void onClick(Card card, View view) {
+                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
+                                    .beginTransaction();
+                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+                            Bundle args = new Bundle();
+                            args.putInt("titleId", R.string.calculus);
+                            // TODO: Calculus titles
+                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
+                            args.putInt("fragmentColor", 0xFF99CC00);
+                            args.putString("className", VectorsFragment.class.getName()); // TODO: CalculusFragment
+                            tx.addToBackStack(null);
+                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
+                            tx.commit();
+                        }
+                    });
                     break;
             }
 

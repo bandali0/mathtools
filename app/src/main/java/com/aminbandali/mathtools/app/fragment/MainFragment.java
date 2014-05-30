@@ -50,6 +50,8 @@ public class MainFragment extends BaseFragment{
     @InjectView(R.id.fragment_main_cardslist)
     ListView listView;
 
+    boolean firstOnResume = true;
+
     @Override
     public int getTitleResourceId() {
         return R.string.app_name;
@@ -72,7 +74,9 @@ public class MainFragment extends BaseFragment{
     @Override
     public void onResume() {
         super.onResume();
-        changeColor(0xFF0099CC);
+        if (!firstOnResume)
+            changeColor(0xFF0099CC);
+        firstOnResume = false;
     }
 
     private void changeColor(int newColor) {

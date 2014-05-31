@@ -70,8 +70,7 @@ public class ContentFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         titleId = getArguments().getInt("titleId");
         titles = getArguments().getStringArray("titles");
         currentColor = getArguments().getInt("fragmentColor");
@@ -86,7 +85,7 @@ public class ContentFragment extends BaseFragment {
 //        final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
 //				.getDisplayMetrics());
 //		pager.setPageMargin(pageMargin);
-        pager.setOffscreenPageLimit(titles.length-1);
+        pager.setOffscreenPageLimit(titles.length - 1);
         tabs.setViewPager(pager);
 
         return view;
@@ -101,7 +100,7 @@ public class ContentFragment extends BaseFragment {
 
             Drawable colorDrawable = new ColorDrawable(newColor);
             Drawable bottomDrawable = getResources().getDrawable(R.drawable.actionbar_bottom);
-            LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable, bottomDrawable });
+            LayerDrawable ld = new LayerDrawable(new Drawable[]{colorDrawable, bottomDrawable});
 
             if (oldBackground == null) {
 
@@ -113,7 +112,7 @@ public class ContentFragment extends BaseFragment {
 
             } else {
 
-                TransitionDrawable td = new TransitionDrawable(new Drawable[] { oldBackground, ld });
+                TransitionDrawable td = new TransitionDrawable(new Drawable[]{oldBackground, ld});
 
                 // workaround for broken ActionBarContainer drawable handling on
                 // pre-API 17 builds
@@ -178,7 +177,7 @@ public class ContentFragment extends BaseFragment {
         switch (item.getItemId()) {
 
             case R.id.action_cheat_sheet:
-                pager.setCurrentItem((titles.length)-1);
+                pager.setCurrentItem((titles.length) - 1);
                 return true;
 
         }
@@ -189,14 +188,12 @@ public class ContentFragment extends BaseFragment {
     public class ContentPagerAdapter extends FragmentStatePagerAdapter {
 
 
-        public ContentPagerAdapter(FragmentManager fm)
-        {
+        public ContentPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
-        public Fragment getItem(int position)
-        {
+        public Fragment getItem(int position) {
             Bundle args = new Bundle();
             args.putInt("position", position);
             args.putInt("titleId", titleId);
@@ -204,14 +201,12 @@ public class ContentFragment extends BaseFragment {
         }
 
         @Override
-        public int getCount()
-        {
+        public int getCount() {
             return titles.length;
         }
 
         @Override
-        public CharSequence getPageTitle(int position)
-        {
+        public CharSequence getPageTitle(int position) {
             return titles[position];
         }
 

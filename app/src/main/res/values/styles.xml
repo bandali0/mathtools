@@ -9,7 +9,7 @@
 
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="MathToolsTheme">
+    <style name="AppTheme" parent="Theme.Mtactionbar">
         <!-- Customize your theme here. -->
         <item name="android:windowAnimationStyle">@style/Animation.MathTools.Activity</item>
         <item name="android:actionOverflowButtonStyle">@style/MathTools.ActionButton.Overflow</item>

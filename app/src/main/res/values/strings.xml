@@ -65,4 +65,10 @@
     <string name="eqsymmetric">Symmetric</string>
     <string name="eqstandard">Standard</string>
 
+    <string name="vectors_products">Products</string>
+    <string name="vectors_projections">Projections</string>
+    <string name="vectors_lines">Lines</string>
+    <string name="vectors_planes">Planes</string>
+    <string name="cheat_sheet">Cheat Sheet</string>
+
 </resources>

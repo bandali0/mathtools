@@ -19,6 +19,7 @@
 package com.aminbandali.mathtools.app.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -36,6 +37,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aminbandali.mathtools.app.R;
+import com.aminbandali.mathtools.app.activity.ContentActivity;
+import com.aminbandali.mathtools.app.activity.FeedbackActivity;
 
 import java.util.ArrayList;
 
@@ -151,17 +154,19 @@ public class MainFragment extends BaseFragment{
                     setOnClickListener(new OnCardClickListener() {
                         @Override
                         public void onClick(Card card, View view) {
-                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
-                                    .beginTransaction();
-                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-                            Bundle args = new Bundle();
-                            args.putInt("titleId", R.string.vectors);
-                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
-                            args.putInt("fragmentColor", 0xFFCC0000);
-                            args.putString("className", VectorsFragment.class.getName());
-                            tx.addToBackStack(null);
-                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
-                            tx.commit();
+//                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
+//                                    .beginTransaction();
+//                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+//                            Bundle args = new Bundle();
+//                            args.putInt("titleId", R.string.vectors);
+//                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
+//                            args.putInt("fragmentColor", 0xFFCC0000);
+//                            args.putString("className", VectorsFragment.class.getName());
+//                            tx.addToBackStack(null);
+//                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
+//                            tx.commit();
+                            Intent intent_content = new Intent(mContext, ContentActivity.class);
+                            startActivity(intent_content);
                         }
                     });
                     break;

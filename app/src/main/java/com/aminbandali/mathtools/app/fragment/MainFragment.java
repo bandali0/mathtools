@@ -50,8 +50,6 @@ public class MainFragment extends BaseFragment{
     @InjectView(R.id.fragment_main_cardslist)
     ListView listView;
 
-    boolean firstOnResume = true;
-
     @Override
     public int getTitleResourceId() {
         return R.string.app_name;
@@ -70,54 +68,6 @@ public class MainFragment extends BaseFragment{
 
         initCards();
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (!firstOnResume)
-            changeColor(0xFF0099CC);
-        firstOnResume = false;
-    }
-
-    private void changeColor(int newColor) {
-        // change ActionBar color just if an ActionBar is available
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-
-            Drawable colorDrawable = new ColorDrawable(newColor);
-            LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable });
-
-
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                ld.setCallback(drawableCallback);
-            } else {
-                getActivity().getActionBar().setBackgroundDrawable(ld);
-            }
-
-            // http://stackoverflow.com/questions/11002691/actionbar-setbackgrounddrawable-nulling-background-from-thread-handler
-            getActivity().getActionBar().setDisplayShowTitleEnabled(false);
-            getActivity().getActionBar().setDisplayShowTitleEnabled(true);
-
-        }
-    }
-
-    private final Handler handler = new Handler();
-    private Drawable.Callback drawableCallback = new Drawable.Callback() {
-        @Override
-        public void invalidateDrawable(Drawable who) {
-            getActivity().getActionBar().setBackgroundDrawable(who);
-        }
-
-        @Override
-        public void scheduleDrawable(Drawable who, Runnable what, long when) {
-            handler.postAtTime(what, when);
-        }
-
-        @Override
-        public void unscheduleDrawable(Drawable who, Runnable what) {
-            handler.removeCallbacks(what);
-        }
-    };
-
 
     private void initCards() {
 

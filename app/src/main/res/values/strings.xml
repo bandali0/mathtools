@@ -55,4 +55,14 @@
 
     ]]></string>
 
+    <string name="space">Space:</string>
+    <string name="twodspace">2D Space</string>
+    <string name="threedspace">3D Space</string>
+    <string name="clear">Clear</string>
+    <string name="eqformat">Equation format:</string>
+    <string name="eqvector">Vector</string>
+    <string name="eqparametric">Parametric</string>
+    <string name="eqsymmetric">Symmetric</string>
+    <string name="eqstandard">Standard</string>
+
 </resources>

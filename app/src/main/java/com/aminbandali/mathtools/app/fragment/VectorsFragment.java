@@ -45,12 +45,12 @@ public class VectorsFragment extends BaseFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.page, container, false);
-        View text = view.findViewById(android.R.id.text1);
-        if(text != null && text instanceof TextView)
-        {
-            ((TextView)text).setText("Fragment " + getArguments().getInt("position"));
-        }
+        View view = inflater.inflate(R.layout.fragment_vectors_lines, container, false);
+//        View text = view.findViewById(android.R.id.text1);
+//        if(text != null && text instanceof TextView)
+//        {
+//            ((TextView)text).setText("Fragment " + getArguments().getInt("position"));
+//        }
         return view;
     }
 

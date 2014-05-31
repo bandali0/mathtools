@@ -83,9 +83,10 @@ public class ContentFragment extends BaseFragment {
         ButterKnife.inject(this, view);
         tabs.setIndicatorColor(currentColor);
         pager.setAdapter(new ContentPagerAdapter(getActivity().getSupportFragmentManager()));
-        final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
-				.getDisplayMetrics());
-		pager.setPageMargin(pageMargin);
+//        final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
+//				.getDisplayMetrics());
+//		pager.setPageMargin(pageMargin);
+        pager.setOffscreenPageLimit(titles.length-1);
         tabs.setViewPager(pager);
 
         return view;

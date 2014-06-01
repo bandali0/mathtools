@@ -18,280 +18,66 @@
   ~ with this program. If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fragment_products_scrollview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
-    <RelativeLayout
-        android:id="@+id/lineslayout"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        >
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/linestextView1"
+        <TableRow
+            android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/space" />
+            android:gravity="center_horizontal" >
 
-        <RadioGroup
-            android:id="@+id/linesradioGroup1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/linestextView1"
-            android:layout_toRightOf="@id/linestextView1"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/linesradio2d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/twodspace" />
-
-            <RadioButton
-                android:id="@+id/linesradio3d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/threedspace" />
-        </RadioGroup>
-
-        <LinearLayout
-            android:id="@+id/lineseqs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/linestextView1"
-            android:layout_below="@id/linestextView1"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/linestextView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/eqformat" />
             <RadioGroup
-                android:id="@+id/linesradioGroup2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="4dp" >
+                android:orientation="horizontal">
                 <RadioButton
-                    android:id="@+id/linesradiovec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="@string/eqvector" />
-
+                    android:id="@+id/rB2D"
+                    android:textSize="15sp"
+                    android:text="@string/twodspace"/>
                 <RadioButton
-                    android:id="@+id/linesradioparam"
+                    android:checked="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/eqparametric" />
-                <RadioButton
-                    android:id="@+id/linesradiosymm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/eqsymmetric" />
-
-                <RadioButton
-                    android:id="@+id/linesradiostandard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/eqstandard" />
-
+                    android:id="@+id/rB3D"
+                    android:textSize="15sp"
+                    android:text="@string/threedspace"/>
             </RadioGroup>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linesll1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/linestextView1"
-            android:layout_below="@id/lineseqs"
-            android:weightSum="6" >
-
-            <EditText
-                android:id="@+id/linestextx1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestexty1"
-                >
-
-                <requestFocus />
-            </EditText>
-
-            <EditText
-                android:id="@+id/linestexty1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestextx2"
-                 />
-
-            <EditText
-                android:id="@+id/linestextz1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestextx2"
-                android:visibility="invisible"
-                 />
-
-            <EditText
-                android:id="@+id/linestextx2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestexty2"
-                 />
-
-            <EditText
-                android:id="@+id/linestexty2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestextx3"
-                 />
-
-            <EditText
-                android:id="@+id/linestextz2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestextx3"
-                android:visibility="invisible"
-                 />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linesll2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/linestextView1"
-            android:layout_below="@id/linesll1"
-            android:weightSum="6" >
-
-            <EditText
-                android:id="@+id/linestextx3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestexty3"
-                 />
-
-            <EditText
-                android:id="@+id/linestexty3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestextx4"
-                 />
-
-            <EditText
-                android:id="@+id/linestextz3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestextx4"
-                android:visibility="invisible"
-                 />
-
-            <EditText
-                android:id="@+id/linestextx4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:nextFocusDown="@+id/linestexty4"
-                 />
-
-            <EditText
-                android:id="@+id/linestexty4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                 />
-
-            <EditText
-                android:id="@+id/linestextz4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:visibility="invisible"
-                 />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linesll3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/linestextView1"
-            android:layout_below="@id/linesll2"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            android:weightSum="3" >
-
-            <Button
-                android:id="@+id/btnlinescalc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:enabled="false"
-                android:padding="0dp"
-                android:text="Analyze" />
-
-            <Button
-                android:id="@+id/btnlinesclear"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="@string/clear" />
-        </LinearLayout>
-
-        <View
-            android:id="@+id/linesview1"
-            android:layout_width="fill_parent"
-            android:layout_height="2dip"
-            android:layout_below="@id/linesll3"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="1dp"
-            android:background="@android:color/holo_blue_dark" />
-
-        <TextView
-            android:id="@+id/linestVanswer"
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/linesview1"
-            android:layout_below="@+id/linesview1"
-            android:layout_marginTop="25dp"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </RelativeLayout>
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal" >
 
-</ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/eq_form"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:tag="-1"
+                android:id="@+id/sEqForm" />
+
+        </TableRow>
+    </TableLayout>
+
+
+
+
+
+</LinearLayout>

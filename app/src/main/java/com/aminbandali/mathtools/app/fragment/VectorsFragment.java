@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
 
@@ -45,7 +44,7 @@ public class VectorsFragment extends BaseFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.fragment_vectors_lines, container, false);
+        View view = inflater.inflate(R.layout.fragment_vectors_lines_old, container, false);
 //        View text = view.findViewById(android.R.id.text1);
 //        if(text != null && text instanceof TextView)
 //        {

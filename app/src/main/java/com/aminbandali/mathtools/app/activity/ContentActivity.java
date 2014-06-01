@@ -47,13 +47,22 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class ContentActivity extends BaseActivity implements ActionBar.TabListener{
+
+    public static final String ARG_TITLE_ID = "titleId";
+    public static final String ARG_TITLES = "titles";
+
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
+    private int titleId;
+    private static String[] titles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+
+        titleId = getIntent().getExtras().getInt(ARG_TITLE_ID);
+        titles = getIntent().getExtras().getStringArray(ARG_TITLES);
 
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -72,6 +81,7 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
             @Override
             public void onPageSelected(int position) {
                 mActionBar.setSelectedNavigationItem(position);
+                mActionBar.setSubtitle(titles[position]);
             }
         });
 
@@ -86,6 +96,9 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+
+        mActionBar.setTitle(titleId);
+        mActionBar.setSubtitle(titles[0]);
     }
 
     @Override
@@ -148,26 +161,13 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
 
         @Override
         public int getCount() {
-            // Show 6 total pages.
-            return 5;
+            return titles.length;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             Locale l = Locale.getDefault();
-            switch (position) {
-                case 0:
-                    return getString(R.string.vectors_products).toUpperCase(l);
-                case 1:
-                    return getString(R.string.vectors_projections).toUpperCase(l);
-                case 2:
-                    return getString(R.string.vectors_lines).toUpperCase(l);
-                case 3:
-                    return getString(R.string.vectors_planes).toUpperCase(l);
-                case 4:
-                    return getString(R.string.cheat_sheet).toUpperCase(l);
-            }
-            return null;
+            return titles[position].toUpperCase(l);
         }
 
         // Register the fragment when the item is instantiated

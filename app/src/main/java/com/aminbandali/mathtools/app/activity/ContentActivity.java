@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -211,6 +212,9 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
+        // Sparse array to keep track of registered fragments in memory
+        private SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
+
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -244,6 +248,26 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
                     return getString(R.string.cheat_sheet).toUpperCase(l);
             }
             return null;
+        }
+
+        // Register the fragment when the item is instantiated
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+            registeredFragments.put(position, fragment);
+            return fragment;
+        }
+
+        // Unregister when the item is inactive
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            registeredFragments.remove(position);
+            super.destroyItem(container, position, object);
+        }
+
+        // Returns the fragment for the position (if instantiated)
+        public Fragment getRegisteredFragment(int position) {
+            return registeredFragments.get(position);
         }
     }
 

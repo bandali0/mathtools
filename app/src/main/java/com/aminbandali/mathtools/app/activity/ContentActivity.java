@@ -19,21 +19,29 @@
 package com.aminbandali.mathtools.app.activity;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
 import java.util.Locale;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 
 public class ContentActivity extends BaseActivity implements ActionBar.TabListener{
     SectionsPagerAdapter mSectionsPagerAdapter;
@@ -125,6 +133,18 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        private static final String STATE_EQ_FORM_TEXT = "eq_form_text";
+        private static final String STATE_EQ_FORM_TAG = "eq_form_tag";
+
+        @InjectView(R.id.rB2D)
+        RadioButton rB2D;
+
+        @InjectView(R.id.rB3D)
+        RadioButton rB3D;
+
+        @InjectView(R.id.sEqForm)
+        TextView eqForm;
+
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -143,10 +163,49 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_content_temp, container, false);
-            TextView tV = (TextView) rootView.findViewById(R.id.section_label);
-            tV.setText("This is section " + getArguments().getInt(ARG_SECTION_NUMBER));
+            View rootView = inflater.inflate(R.layout.fragment_vectors_lines, container, false);
+            ButterKnife.inject(this, rootView);
+            doInit();
             return rootView;
+        }
+
+        private void doInit() {
+            rB2D.setText(Html.fromHtml(getResources().getString(R.string.r2)));
+            rB3D.setText(Html.fromHtml(getResources().getString(R.string.r3)));
+        }
+
+        @OnClick(R.id.sEqForm)
+        void chooseEqForm(final TextView tV) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            builder.setItems(R.array.eq_forms_array, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // The 'which' argument contains the index position
+                    // of the selected item
+                    tV.setText(getResources().getStringArray(R.array.eq_forms_array)[which]);
+                    tV.setTag(which);
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+
+        @Override
+        public void onSaveInstanceState(Bundle outState) {
+            super.onSaveInstanceState(outState);
+            outState.putString(STATE_EQ_FORM_TEXT, eqForm.getText().toString());
+            outState.putString(STATE_EQ_FORM_TAG, eqForm.getTag().toString());
+        }
+
+        @Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            if (savedInstanceState != null) {
+                eqForm.setText(savedInstanceState.getString(STATE_EQ_FORM_TEXT));
+                eqForm.setTag(savedInstanceState.getString(STATE_EQ_FORM_TAG));
+            }
         }
     }
 

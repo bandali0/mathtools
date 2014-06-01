@@ -59,7 +59,7 @@
     <string name="twodspace">2D Space</string>
     <string name="threedspace">3D Space</string>
     <string name="clear">Clear</string>
-    <string name="eqformat">Equation format:</string>
+    <string name="eq_form">\u00A0\u00A0Equation Form\u00A0\u00A0</string>
     <string name="eqvector">Vector</string>
     <string name="eqparametric">Parametric</string>
     <string name="eqsymmetric">Symmetric</string>
@@ -70,5 +70,16 @@
     <string name="vectors_lines">Lines</string>
     <string name="vectors_planes">Planes</string>
     <string name="cheat_sheet">Cheat Sheet</string>
+
+    <string name="r2">R&lt;sup&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sup&gt;</string>
+    <string name="r3">R&lt;sup&gt;&lt;small&gt;3&lt;/small&gt;&lt;/sup&gt;</string>
+
+    <string-array name="eq_forms_array">
+        <item>Vector</item>
+        <item>Parametric</item>
+        <item>Symmetric</item>
+        <item>Standard</item>
+    </string-array>
+
 
 </resources>

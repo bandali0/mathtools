@@ -99,6 +99,13 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
 
         mActionBar.setTitle(titleId);
         mActionBar.setSubtitle(titles[0]);
+        getActionbarSubtitle().setTextColor(getResources().getColor(R.color.actionbar_subtitle_text_color));
+    }
+
+    public TextView getActionbarSubtitle() {
+
+        TextView title = title = (TextView) this.findViewById(com.android.internal.R.id.action_bar_subtitle);// for default action bar
+        return title;
     }
 
     @Override

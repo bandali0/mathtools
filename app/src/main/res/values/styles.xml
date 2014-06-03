@@ -12,7 +12,7 @@
     <style name="AppTheme" parent="Theme.Mtactionbar">
         <!-- Customize your theme here. -->
         <item name="android:windowAnimationStyle">@style/Animation.MathTools.Activity</item>
-        <item name="android:actionOverflowButtonStyle">@style/MathTools.ActionButton.Overflow</item>
+        <!--<item name="android:actionOverflowButtonStyle">@style/MathTools.ActionButton.Overflow</item>-->
     </style>
 
     <style name="carddemo_myapps_main_inner_title">

@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.fragment;
+package com.aminbandali.mathtools.app.fragment.vector;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -35,7 +35,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class PlaceholderFragment extends Fragment {
+public class LinesFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -58,15 +58,15 @@ public class PlaceholderFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static PlaceholderFragment newInstance(int sectionNumber) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static LinesFragment newInstance(int sectionNumber) {
+        LinesFragment fragment = new LinesFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public PlaceholderFragment() {
+    public LinesFragment() {
     }
 
     @Override

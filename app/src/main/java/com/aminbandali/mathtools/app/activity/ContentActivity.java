@@ -19,32 +19,22 @@
 package com.aminbandali.mathtools.app.activity;
 
 import android.app.ActionBar;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.fragment.PlaceholderFragment;
+import com.aminbandali.mathtools.app.fragment.vector.LinesFragment;
 
 import java.util.Locale;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
 
 public class ContentActivity extends BaseActivity implements ActionBar.TabListener{
 
@@ -161,7 +151,7 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return LinesFragment.newInstance(position + 1);
         }
 
         @Override

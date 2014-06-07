@@ -103,9 +103,7 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
     }
 
     public TextView getActionbarSubtitle() {
-
-        TextView title = title = (TextView) this.findViewById(com.android.internal.R.id.action_bar_subtitle);// for default action bar
-        return title;
+        return (TextView) this.findViewById(com.android.internal.R.id.action_bar_subtitle);// for default action bar
     }
 
     @Override

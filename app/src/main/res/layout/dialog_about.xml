@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:divider="?android:dividerVertical"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@color/mathtoolstheme_color"
     android:showDividers="middle">
 
     <TextView android:id="@+id/app_name_and_version"

@@ -147,6 +147,8 @@ public class MainFragment extends BaseFragment{
         }
 
         private void init() {
+            final Intent intent_content = new Intent(mContext, ContentActivity.class);
+            final Bundle args = new Bundle();
 
             switch (count) {
                 case 1: // Vectors
@@ -154,18 +156,6 @@ public class MainFragment extends BaseFragment{
                     setOnClickListener(new OnCardClickListener() {
                         @Override
                         public void onClick(Card card, View view) {
-//                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
-//                                    .beginTransaction();
-//                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-//                            Bundle args = new Bundle();
-//                            args.putInt("titleId", R.string.vectors);
-//                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
-//                            args.putInt("fragmentColor", 0xFFCC0000);
-//                            args.putString("className", VectorsFragment.class.getName());
-//                            tx.addToBackStack(null);
-//                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
-//                            tx.commit();
-                            Intent intent_content = new Intent(mContext, ContentActivity.class);
                             Bundle args = new Bundle();
                             args.putInt(ContentActivity.ARG_TITLE_ID, R.string.vectors);
                             args.putStringArray(ContentActivity.ARG_TITLES,
@@ -177,61 +167,43 @@ public class MainFragment extends BaseFragment{
                     break;
 
                 case 2: // Geometry
+                    // Add ClickListener
                     setOnClickListener(new OnCardClickListener() {
                         @Override
                         public void onClick(Card card, View view) {
-                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
-                                    .beginTransaction();
-                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-                            Bundle args = new Bundle();
-                            args.putInt("titleId", R.string.geometry);
-                            // TODO: Geometry titles
-                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
-                            args.putInt("fragmentColor", 0xFF33B5E5);
-                            args.putString("className", VectorsFragment.class.getName()); // TODO: GeometryFragment
-                            tx.addToBackStack(null);
-                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
-                            tx.commit();
+                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.geometry);
+                            args.putStringArray(ContentActivity.ARG_TITLES,
+                                    new String[]{"Cheat Sheet"});
+                            intent_content.putExtras(args);
+                            startActivity(intent_content);
                         }
                     });
                     break;
 
                 case 3: // Trigonometry
+                    // Add ClickListener
                     setOnClickListener(new OnCardClickListener() {
                         @Override
                         public void onClick(Card card, View view) {
-                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
-                                    .beginTransaction();
-                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-                            Bundle args = new Bundle();
-                            args.putInt("titleId", R.string.trigonometry);
-                            // TODO: Trigonometry titles
-                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
-                            args.putInt("fragmentColor", 0xFFFFBB33);
-                            args.putString("className", VectorsFragment.class.getName()); // TODO: TrigonometryFragment
-                            tx.addToBackStack(null);
-                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
-                            tx.commit();
+                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.trigonometry);
+                            args.putStringArray(ContentActivity.ARG_TITLES,
+                                    new String[]{"Cheat Sheet"});
+                            intent_content.putExtras(args);
+                            startActivity(intent_content);
                         }
                     });
                     break;
 
                 case 4: // Calculus
+                    // Add ClickListener
                     setOnClickListener(new OnCardClickListener() {
                         @Override
                         public void onClick(Card card, View view) {
-                            FragmentTransaction tx = getActivity().getSupportFragmentManager()
-                                    .beginTransaction();
-                            tx.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-                            Bundle args = new Bundle();
-                            args.putInt("titleId", R.string.calculus);
-                            // TODO: Calculus titles
-                            args.putStringArray("titles", new String[]{"Products", "Projection", "Lines", "Planes", "Cheat Sheet"});
-                            args.putInt("fragmentColor", 0xFF99CC00);
-                            args.putString("className", VectorsFragment.class.getName()); // TODO: CalculusFragment
-                            tx.addToBackStack(null);
-                            tx.replace(R.id.main, ContentFragment.instantiate(getContext(), ContentFragment.class.getName(), args));
-                            tx.commit();
+                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.calculus);
+                            args.putStringArray(ContentActivity.ARG_TITLES,
+                                    new String[]{"Cheat Sheet"});
+                            intent_content.putExtras(args);
+                            startActivity(intent_content);
                         }
                     });
                     break;

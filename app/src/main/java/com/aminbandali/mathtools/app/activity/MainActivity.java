@@ -25,7 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.Utils;
+import com.aminbandali.mathtools.app.util.Utils;
 import com.aminbandali.mathtools.app.fragment.MainFragment;
 
 

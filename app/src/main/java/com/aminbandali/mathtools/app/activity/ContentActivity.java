@@ -150,8 +150,22 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return LinesFragment.newInstance(position + 1);
+            // Return a Fragment (defined as a static inner class below).
+            Fragment fragment;
+
+            switch (position) {
+                case 0:
+                    fragment = new LinesFragment();
+                    break;
+                default:
+                    fragment = new LinesFragment();
+            }
+
+            Bundle args = new Bundle();
+            args.putInt(LinesFragment.ARG_SECTION_NUMBER, position + 1);
+            fragment.setArguments(args);
+            return fragment;
+
         }
 
         @Override

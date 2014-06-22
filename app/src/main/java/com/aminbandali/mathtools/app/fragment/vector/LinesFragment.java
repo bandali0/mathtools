@@ -40,7 +40,7 @@ public class LinesFragment extends Fragment {
      * The fragment argument representing the section number for this
      * fragment.
      */
-    private static final String ARG_SECTION_NUMBER = "section_number";
+    public static final String ARG_SECTION_NUMBER = "section_number";
 
     private static final String STATE_EQ_FORM_TEXT = "eq_form_text";
     private static final String STATE_EQ_FORM_TAG = "eq_form_tag";
@@ -53,18 +53,6 @@ public class LinesFragment extends Fragment {
 
     @InjectView(R.id.sEqForm)
     TextView eqForm;
-
-    /**
-     * Returns a new instance of this fragment for the given section
-     * number.
-     */
-    public static LinesFragment newInstance(int sectionNumber) {
-        LinesFragment fragment = new LinesFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     public LinesFragment() {
     }

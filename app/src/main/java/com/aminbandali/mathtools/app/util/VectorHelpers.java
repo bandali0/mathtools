@@ -18,7 +18,7 @@
 
 package com.aminbandali.mathtools.app.util;
 
-public class vecFunctions {
+public class VectorHelpers {
 	public static double calcDotProduct (double[][] arrNum) {
     	switch (arrNum.length * arrNum[0].length) {
 		case 4:

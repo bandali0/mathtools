@@ -21,7 +21,7 @@ package com.aminbandali.mathtools.app.util;
 import org.apache.commons.math3.geometry.euclidean.threed.Line;
 import org.apache.commons.math3.geometry.euclidean.threed.Vector3D;
 //import android.util.Log;
-import static com.aminbandali.mathtools.app.util.vecFunctions.*;
+import static com.aminbandali.mathtools.app.util.VectorHelpers.*;
 
 public class Line3D {
 	

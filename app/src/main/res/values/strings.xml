@@ -74,6 +74,19 @@
     <string name="r2">R&lt;sup&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sup&gt;</string>
     <string name="r3">R&lt;sup&gt;&lt;small&gt;3&lt;/small&gt;&lt;/sup&gt;</string>
 
+    <string name="x1">x&lt;sub&gt;&lt;small&gt;1&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="y1">y&lt;sub&gt;&lt;small&gt;1&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="z1">z&lt;sub&gt;&lt;small&gt;1&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="x2">x&lt;sub&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="y2">y&lt;sub&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="z2">z&lt;sub&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="x3">x&lt;sub&gt;&lt;small&gt;3&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="y3">y&lt;sub&gt;&lt;small&gt;3&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="z3">z&lt;sub&gt;&lt;small&gt;3&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="x4">x&lt;sub&gt;&lt;small&gt;4&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="y4">y&lt;sub&gt;&lt;small&gt;4&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="z4">z&lt;sub&gt;&lt;small&gt;4&lt;/small&gt;&lt;/sub&gt;</string>
+
     <string-array name="eq_forms_array">
         <item>Vector</item>
         <item>Parametric</item>

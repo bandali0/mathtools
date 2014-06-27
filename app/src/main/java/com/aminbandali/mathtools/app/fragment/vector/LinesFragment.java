@@ -87,6 +87,22 @@ public class LinesFragment extends Fragment {
     private void doInit() {
         rB2D.setText(Html.fromHtml(getResources().getString(R.string.r2)));
         rB3D.setText(Html.fromHtml(getResources().getString(R.string.r3)));
+
+        x1.setHint(Html.fromHtml(getResources().getString(R.string.x1)));
+        y1.setHint(Html.fromHtml(getResources().getString(R.string.y1)));
+        z1.setHint(Html.fromHtml(getResources().getString(R.string.z1)));
+
+        x2.setHint(Html.fromHtml(getResources().getString(R.string.x2)));
+        y2.setHint(Html.fromHtml(getResources().getString(R.string.y2)));
+        z2.setHint(Html.fromHtml(getResources().getString(R.string.z2)));
+
+        x3.setHint(Html.fromHtml(getResources().getString(R.string.x3)));
+        y3.setHint(Html.fromHtml(getResources().getString(R.string.y3)));
+        z3.setHint(Html.fromHtml(getResources().getString(R.string.z3)));
+
+        x4.setHint(Html.fromHtml(getResources().getString(R.string.x3)));
+        y4.setHint(Html.fromHtml(getResources().getString(R.string.y3)));
+        z4.setHint(Html.fromHtml(getResources().getString(R.string.z3)));
     }
 
     @OnClick(R.id.sEqForm)

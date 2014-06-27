@@ -60,7 +60,7 @@ public class LinesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_vectors_lines, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_vectors_products, container, false);
         ButterKnife.inject(this, rootView);
         doInit();
         return rootView;

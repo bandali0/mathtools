@@ -32,12 +32,16 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
+import com.aminbandali.mathtools.app.util.Line2D;
+
+import org.apache.commons.math3.geometry.euclidean.twod.Line;
+import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class LinesFragment extends Fragment {
+public class ProductsFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -46,6 +50,11 @@ public class LinesFragment extends Fragment {
 
     private static final String STATE_EQ_FORM_TEXT = "eq_form_text";
     private static final String STATE_EQ_FORM_TAG = "eq_form_tag";
+
+    private enum Space{
+        space2D, space3D
+    }
+    private Space space = Space.space2D;
 
     @InjectView(R.id.rB2D)
     RadioButton rB2D;
@@ -56,23 +65,23 @@ public class LinesFragment extends Fragment {
     @InjectView(R.id.sEqForm)
     TextView eqForm;
 
-    @InjectView(R.id.linesll1) LinearLayout row1;
-    @InjectView(R.id.linestextx1) EditText x1;
-    @InjectView(R.id.linestexty1) EditText y1;
-    @InjectView(R.id.linestextz1) EditText z1;
-    @InjectView(R.id.linestextx2) EditText x2;
-    @InjectView(R.id.linestexty2) EditText y2;
-    @InjectView(R.id.linestextz2) EditText z2;
+    @InjectView(R.id.productsll1) LinearLayout row1;
+    @InjectView(R.id.productstextx1) EditText x1;
+    @InjectView(R.id.productstexty1) EditText y1;
+    @InjectView(R.id.productstextz1) EditText z1;
+    @InjectView(R.id.productstextx2) EditText x2;
+    @InjectView(R.id.productstexty2) EditText y2;
+    @InjectView(R.id.productstextz2) EditText z2;
 
-    @InjectView(R.id.linesll2) LinearLayout row2;
-    @InjectView(R.id.linestextx3) EditText x3;
-    @InjectView(R.id.linestexty3) EditText y3;
-    @InjectView(R.id.linestextz3) EditText z3;
-    @InjectView(R.id.linestextx4) EditText x4;
-    @InjectView(R.id.linestexty4) EditText y4;
-    @InjectView(R.id.linestextz4) EditText z4;
+    @InjectView(R.id.productsll2) LinearLayout row2;
+    @InjectView(R.id.productstextx3) EditText x3;
+    @InjectView(R.id.productstexty3) EditText y3;
+    @InjectView(R.id.productstextz3) EditText z3;
+    @InjectView(R.id.productstextx4) EditText x4;
+    @InjectView(R.id.productstexty4) EditText y4;
+    @InjectView(R.id.productstextz4) EditText z4;
 
-    public LinesFragment() {
+    public ProductsFragment() {
     }
 
     @Override
@@ -100,9 +109,9 @@ public class LinesFragment extends Fragment {
         y3.setHint(Html.fromHtml(getResources().getString(R.string.y3)));
         z3.setHint(Html.fromHtml(getResources().getString(R.string.z3)));
 
-        x4.setHint(Html.fromHtml(getResources().getString(R.string.x3)));
-        y4.setHint(Html.fromHtml(getResources().getString(R.string.y3)));
-        z4.setHint(Html.fromHtml(getResources().getString(R.string.z3)));
+        x4.setHint(Html.fromHtml(getResources().getString(R.string.x4)));
+        y4.setHint(Html.fromHtml(getResources().getString(R.string.y4)));
+        z4.setHint(Html.fromHtml(getResources().getString(R.string.z4)));
     }
 
     @OnClick(R.id.sEqForm)
@@ -131,6 +140,7 @@ public class LinesFragment extends Fragment {
         z4.setVisibility(View.GONE);
         row1.setWeightSum(4);
         row2.setWeightSum(4);
+        space = Space.space2D;
     }
     @OnClick(R.id.rB3D)
     void chooseR3Space(RadioButton rB) {
@@ -140,6 +150,47 @@ public class LinesFragment extends Fragment {
         z4.setVisibility(View.VISIBLE);
         row1.setWeightSum(6);
         row2.setWeightSum(6);
+        space = Space.space3D;
+    }
+
+    @OnClick(R.id.btnproductscalc)
+    void calculate() {
+
+        float x1 = Float.parseFloat(this.x1.getText().toString()),
+              y1 = Float.parseFloat(this.y1.getText().toString()),
+              x2 = Float.parseFloat(this.x2.getText().toString()),
+              y2 = Float.parseFloat(this.y2.getText().toString()),
+              x3 = Float.parseFloat(this.x3.getText().toString()),
+              y3 = Float.parseFloat(this.y3.getText().toString()),
+              x4 = Float.parseFloat(this.x4.getText().toString()),
+              y4 = Float.parseFloat(this.y4.getText().toString());
+
+        if (space == Space.space2D) {
+            Line line1 = new Line(new Vector2D(x1, y1), new Vector2D(x2, y2));
+            Line line2 = new Line(new Vector2D(x3, y3), new Vector2D(x4, y4));
+
+            if (line1.isParallelTo(line2)) {
+                String result = String.format("These lines are parallel.\nTheir distance: %f units", line1.distance(new Vector2D(x3, y3)));
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage(result)
+                        .setTitle("Result");
+                builder.setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+            else {
+
+            }
+
+        }
+        else { // space == Space.space3D
+
+        }
     }
 
     @Override

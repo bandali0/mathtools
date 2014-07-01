@@ -32,7 +32,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.fragment.vector.LinesFragment;
+import com.aminbandali.mathtools.app.fragment.vector.ProductsFragment;
 
 import java.util.Locale;
 
@@ -155,14 +155,14 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
 
             switch (position) {
                 case 0:
-                    fragment = new LinesFragment();
+                    fragment = new ProductsFragment();
                     break;
                 default:
-                    fragment = new LinesFragment();
+                    fragment = new ProductsFragment();
             }
 
             Bundle args = new Bundle();
-            args.putInt(LinesFragment.ARG_SECTION_NUMBER, position + 1);
+            args.putInt(ProductsFragment.ARG_SECTION_NUMBER, position + 1);
             fragment.setArguments(args);
             return fragment;
 

@@ -22,6 +22,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -33,6 +34,7 @@ import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
 import com.aminbandali.mathtools.app.fragment.vector.ProductsFragment;
+import com.aminbandali.mathtools.app.util.Utils;
 
 import java.util.Locale;
 
@@ -114,6 +116,13 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
                 mViewPager.setCurrentItem((mSectionsPagerAdapter.getCount()) - 1);
                 return true;
             case R.id.action_settings:
+                break;
+            case R.id.action_feedback:
+                Intent intent_feedback = new Intent(this, FeedbackActivity.class);
+                startActivity(intent_feedback);
+                return true;
+            case R.id.action_about:
+                Utils.showAbout(this);
                 return true;
 
         }

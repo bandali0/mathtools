@@ -30,6 +30,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.text.TextWatcher;
+import android.text.Editable;
+import android.widget.Button;
 
 import com.aminbandali.mathtools.app.R;
 import com.aminbandali.mathtools.app.util.Line2D;
@@ -81,6 +84,8 @@ public class ProductsFragment extends Fragment {
     @InjectView(R.id.productstexty4) EditText y4;
     @InjectView(R.id.productstextz4) EditText z4;
 
+    @InjectView(R.id.btnproductsclear) Button btnClear;
+
     public ProductsFragment() {
     }
 
@@ -112,6 +117,20 @@ public class ProductsFragment extends Fragment {
         x4.setHint(Html.fromHtml(getResources().getString(R.string.x4)));
         y4.setHint(Html.fromHtml(getResources().getString(R.string.y4)));
         z4.setHint(Html.fromHtml(getResources().getString(R.string.z4)));
+        
+        // set up TextWatcher for all EditTexts
+        x1.addTextChangedListener(new MTWatcher());
+        y1.addTextChangedListener(new MTWatcher());
+        z1.addTextChangedListener(new MTWatcher());
+        x2.addTextChangedListener(new MTWatcher());
+        y2.addTextChangedListener(new MTWatcher());
+        z2.addTextChangedListener(new MTWatcher());
+        x3.addTextChangedListener(new MTWatcher());
+        y3.addTextChangedListener(new MTWatcher());
+        z3.addTextChangedListener(new MTWatcher());
+        x4.addTextChangedListener(new MTWatcher());
+        y4.addTextChangedListener(new MTWatcher());
+        z4.addTextChangedListener(new MTWatcher());
     }
 
     @OnClick(R.id.sEqForm)
@@ -153,45 +172,45 @@ public class ProductsFragment extends Fragment {
         space = Space.space3D;
     }
 
-    @OnClick(R.id.btnproductscalc)
-    void calculate() {
+/*    @OnClick(R.id.btnproductscalc)*/
+    //void calculate() {
 
-        float x1 = Float.parseFloat(this.x1.getText().toString()),
-              y1 = Float.parseFloat(this.y1.getText().toString()),
-              x2 = Float.parseFloat(this.x2.getText().toString()),
-              y2 = Float.parseFloat(this.y2.getText().toString()),
-              x3 = Float.parseFloat(this.x3.getText().toString()),
-              y3 = Float.parseFloat(this.y3.getText().toString()),
-              x4 = Float.parseFloat(this.x4.getText().toString()),
-              y4 = Float.parseFloat(this.y4.getText().toString());
+        //float x1 = Float.parseFloat(this.x1.getText().toString()),
+              //y1 = Float.parseFloat(this.y1.getText().toString()),
+              //x2 = Float.parseFloat(this.x2.getText().toString()),
+              //y2 = Float.parseFloat(this.y2.getText().toString()),
+              //x3 = Float.parseFloat(this.x3.getText().toString()),
+              //y3 = Float.parseFloat(this.y3.getText().toString()),
+              //x4 = Float.parseFloat(this.x4.getText().toString()),
+              //y4 = Float.parseFloat(this.y4.getText().toString());
 
-        if (space == Space.space2D) {
-            Line line1 = new Line(new Vector2D(x1, y1), new Vector2D(x2, y2));
-            Line line2 = new Line(new Vector2D(x3, y3), new Vector2D(x4, y4));
+        //if (space == Space.space2D) {
+            //Line line1 = new Line(new Vector2D(x1, y1), new Vector2D(x2, y2));
+            //Line line2 = new Line(new Vector2D(x3, y3), new Vector2D(x4, y4));
 
-            if (line1.isParallelTo(line2)) {
-                String result = String.format("These lines are parallel.\nTheir distance: %f units", line1.distance(new Vector2D(x3, y3)));
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage(result)
-                        .setTitle("Result");
-                builder.setPositiveButton("OK",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+            //if (line1.isParallelTo(line2)) {
+                //String result = String.format("These lines are parallel.\nTheir distance: %f units", line1.distance(new Vector2D(x3, y3)));
+                //AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                //builder.setMessage(result)
+                        //.setTitle("Result");
+                //builder.setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    //@Override
+                    //public void onClick(DialogInterface dialogInterface, int i) {
 
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-            else {
+                    //}
+                //});
+                //AlertDialog dialog = builder.create();
+                //dialog.show();
+            //}
+            //else {
 
-            }
+            //}
 
-        }
-        else { // space == Space.space3D
+        //}
+        //else { // space == Space.space3D
 
-        }
-    }
+        //}
+/*    }*/
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -208,4 +227,28 @@ public class ProductsFragment extends Fragment {
             eqForm.setTag(savedInstanceState.getString(STATE_EQ_FORM_TAG));
         }
     }
+    
+    public class MTWatcher implements TextWatcher {
+        public void afterTextChanged(Editable s) {}
+
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (space == Space.space2D) {
+                if (x1.getText().length() > 0 && y1.getText().length() > 0 &&
+                        x2.getText().length() > 0 && y2.getText().length() > 0 &&
+                        x3.getText().length() > 0 && y3.getText().length() > 0 &&
+                        x4.getText().length() > 0 && y4.getText().length() > 0 )
+                    btnClear.setEnabled(true);
+                else
+                    if (btnClear.isEnabled())
+                        btnClear.setEnabled(false);
+            }
+            else { // space == Space.space3D
+            
+            }
+        }
+    }
 }
+

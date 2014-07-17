@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.util;
+package com.aminbandali.mathtools.app.math;
 
 public class VectorHelpers {
 	public static double calcDotProduct (double[][] arrNum) {

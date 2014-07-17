@@ -16,12 +16,12 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.util;
+package com.aminbandali.mathtools.app.math;
 
 import org.apache.commons.math3.geometry.euclidean.threed.Line;
 import org.apache.commons.math3.geometry.euclidean.threed.Vector3D;
 //import android.util.Log;
-import static com.aminbandali.mathtools.app.util.VectorHelpers.*;
+
 
 public class Line3D {
 	
@@ -172,11 +172,11 @@ public class Line3D {
 			d1xd2[0] = getDirxn();
 			d1xd2[1] = ln.getDirxn();
 			double[] cross = new double[3];
-			cross = calcCrossProduct(d1xd2);
+			cross = VectorHelpers.calcCrossProduct(d1xd2);
 			double[][] scalarproj = {{0, 0, 0}, {0, 0, 0}};
 			scalarproj[1] = cross;
 			scalarproj[0] = p1p2;
-			double result = calcScalarProjection(scalarproj);
+			double result = VectorHelpers.calcScalarProjection(scalarproj);
 			return result;
 		}
 		else
@@ -194,8 +194,8 @@ public class Line3D {
 		double[][] cross = {{0,0,0},{0,0,0}};
 		cross[0] = getDirxn();
 		cross[1] = ln.getDirxn();
-		dot[1] = calcCrossProduct(cross);
-		double result = calcDotProduct(dot);
+		dot[1] = VectorHelpers.calcCrossProduct(cross);
+		double result = VectorHelpers.calcDotProduct(dot);
 		if (result != 0)
 			return true;
 		else

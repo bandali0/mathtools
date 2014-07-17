@@ -66,14 +66,6 @@ public class ProductsFragment extends Fragment {
     @InjectView(R.id.productstexty2) EditText y2;
     @InjectView(R.id.productstextz2) EditText z2;
 
-    @InjectView(R.id.productsll2) LinearLayout row2;
-    @InjectView(R.id.productstextx3) EditText x3;
-    @InjectView(R.id.productstexty3) EditText y3;
-    @InjectView(R.id.productstextz3) EditText z3;
-    @InjectView(R.id.productstextx4) EditText x4;
-    @InjectView(R.id.productstexty4) EditText y4;
-    @InjectView(R.id.productstextz4) EditText z4;
-
     @InjectView(R.id.btnproductsclear) Button btnClear;
 
     public ProductsFragment() {
@@ -99,14 +91,6 @@ public class ProductsFragment extends Fragment {
         x2.setHint(Html.fromHtml(getResources().getString(R.string.x2)));
         y2.setHint(Html.fromHtml(getResources().getString(R.string.y2)));
         z2.setHint(Html.fromHtml(getResources().getString(R.string.z2)));
-
-        x3.setHint(Html.fromHtml(getResources().getString(R.string.x3)));
-        y3.setHint(Html.fromHtml(getResources().getString(R.string.y3)));
-        z3.setHint(Html.fromHtml(getResources().getString(R.string.z3)));
-
-        x4.setHint(Html.fromHtml(getResources().getString(R.string.x4)));
-        y4.setHint(Html.fromHtml(getResources().getString(R.string.y4)));
-        z4.setHint(Html.fromHtml(getResources().getString(R.string.z4)));
         
         // set up TextWatcher for all EditTexts
         x1.addTextChangedListener(new MTWatcher());
@@ -115,51 +99,34 @@ public class ProductsFragment extends Fragment {
         x2.addTextChangedListener(new MTWatcher());
         y2.addTextChangedListener(new MTWatcher());
         z2.addTextChangedListener(new MTWatcher());
-        x3.addTextChangedListener(new MTWatcher());
-        y3.addTextChangedListener(new MTWatcher());
-        z3.addTextChangedListener(new MTWatcher());
-        x4.addTextChangedListener(new MTWatcher());
-        y4.addTextChangedListener(new MTWatcher());
-        z4.addTextChangedListener(new MTWatcher());
     }
 
     @OnClick(R.id.rB2D)
     void chooseR2Space(RadioButton rB) {
         z1.setVisibility(View.GONE);
         z2.setVisibility(View.GONE);
-        z3.setVisibility(View.GONE);
-        z4.setVisibility(View.GONE);
         row1.setWeightSum(4);
-        row2.setWeightSum(4);
         space = Space.space2D;
     }
     @OnClick(R.id.rB3D)
     void chooseR3Space(RadioButton rB) {
         z1.setVisibility(View.VISIBLE);
         z2.setVisibility(View.VISIBLE);
-        z3.setVisibility(View.VISIBLE);
-        z4.setVisibility(View.VISIBLE);
         row1.setWeightSum(6);
-        row2.setWeightSum(6);
         space = Space.space3D;
     }
 
     private boolean allEditTextsFilled() {
         if (space == Space.space2D)
             return x1.getText().length() > 0 && y1.getText().length() > 0 &&
-                    x2.getText().length() > 0 && y2.getText().length() > 0 &&
-                    x3.getText().length() > 0 && y3.getText().length() > 0 &&
-                    x4.getText().length() > 0 && y4.getText().length() > 0;
+                    x2.getText().length() > 0 && y2.getText().length() > 0;
 
         // else: space == Space.space3D
         return x1.getText().length() > 0 && y1.getText().length() > 0 && z1.getText().length() > 0 &&
-                x2.getText().length() > 0 && y2.getText().length() > 0 && z2.getText().length() > 0 &&
-                x3.getText().length() > 0 && y3.getText().length() > 0 && z3.getText().length() > 0 &&
-                x4.getText().length() > 0 && y4.getText().length() > 0 && z4.getText().length() > 0;
+                x2.getText().length() > 0 && y2.getText().length() > 0 && z2.getText().length() > 0;
     }
 
-    private void analyzeInputs(List<Double> in1, List<Double> in2,
-                               List<Double> in3, List<Double> in4) {
+    private void analyzeInputs(List<Double> in1, List<Double> in2) {
 
         // TODO: actually implement it
     }
@@ -175,28 +142,20 @@ public class ProductsFragment extends Fragment {
                 btnClear.setEnabled(true);
 
                 List<Double> one = new ArrayList<Double>(),
-                        two = new ArrayList<Double>(),
-                        three = new ArrayList<Double>(),
-                        four = new ArrayList<Double>();
+                        two = new ArrayList<Double>();
 
                 if (space == Space.space2D) {
                     one.add(Double.parseDouble(x1.getText().toString()));
                     one.add(Double.parseDouble(y1.getText().toString()));
                     two.add(Double.parseDouble(x2.getText().toString()));
                     two.add(Double.parseDouble(y2.getText().toString()));
-                    three.add(Double.parseDouble(x3.getText().toString()));
-                    three.add(Double.parseDouble(y3.getText().toString()));
-                    four.add(Double.parseDouble(x4.getText().toString()));
-                    four.add(Double.parseDouble(y4.getText().toString()));
 
                     if (space == Space.space3D) {
                         one.add(Double.parseDouble(z1.getText().toString()));
                         two.add(Double.parseDouble(z2.getText().toString()));
-                        three.add(Double.parseDouble(z3.getText().toString()));
-                        four.add(Double.parseDouble(z4.getText().toString()));
                     }
 
-                    analyzeInputs(one, two, three, four);
+                    analyzeInputs(one, two);
                 }
             }
             else

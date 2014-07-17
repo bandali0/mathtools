@@ -57,23 +57,6 @@
             </RadioGroup>
 
         </TableRow>
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="@string/eq_form"
-                style="@android:style/Widget.Holo.Light.Spinner"
-                android:tag="-1"
-                android:id="@+id/sEqForm" />
-
-        </TableRow>
     </TableLayout>
 
 
@@ -141,69 +124,6 @@
             android:nextFocusDown="@+id/productstextx3"
             android:visibility="gone"
             />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/productsll2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-
-        android:weightSum="4" >
-
-        <EditText
-            android:id="@+id/productstextx3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstexty3"
-            />
-
-        <EditText
-            android:id="@+id/productstexty3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstextx4"
-            />
-
-        <EditText
-            android:id="@+id/productstextz3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstextx4"
-            android:visibility="gone"
-            />
-
-        <EditText
-            android:id="@+id/productstextx4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstexty4"
-            />
-
-        <EditText
-            android:id="@+id/productstexty4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal|numberSigned"
-            />
-
-        <EditText
-            android:id="@+id/productstextz4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal|numberSigned"
-            android:visibility="gone"
-            />
-
     </LinearLayout>
 
     <Button

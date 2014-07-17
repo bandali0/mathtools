@@ -1,5 +1,5 @@
 /*
- * PlaceholderFragment.java
+ * ProductsFragment.java
  * Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
  *
  * MathTools is free software: you can redistribute it and/or modify it
@@ -18,9 +18,7 @@
 
 package com.aminbandali.mathtools.app.fragment.vector;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -29,7 +27,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.text.TextWatcher;
 import android.text.Editable;
 import android.widget.Button;
@@ -50,9 +47,6 @@ public class ProductsFragment extends Fragment {
      */
     public static final String ARG_SECTION_NUMBER = "section_number";
 
-    private static final String STATE_EQ_FORM_TEXT = "eq_form_text";
-    private static final String STATE_EQ_FORM_TAG = "eq_form_tag";
-
     private enum Space{
         space2D, space3D
     }
@@ -63,9 +57,6 @@ public class ProductsFragment extends Fragment {
 
     @InjectView(R.id.rB3D)
     RadioButton rB3D;
-
-    @InjectView(R.id.sEqForm)
-    TextView eqForm;
 
     @InjectView(R.id.productsll1) LinearLayout row1;
     @InjectView(R.id.productstextx1) EditText x1;
@@ -132,24 +123,6 @@ public class ProductsFragment extends Fragment {
         z4.addTextChangedListener(new MTWatcher());
     }
 
-    @OnClick(R.id.sEqForm)
-    void chooseEqForm(final TextView tV) {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        builder.setItems(R.array.eq_forms_array, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // The 'which' argument contains the index position
-                // of the selected item
-                tV.setText(getResources().getStringArray(R.array.eq_forms_array)[which]);
-                tV.setTag(which);
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
     @OnClick(R.id.rB2D)
     void chooseR2Space(RadioButton rB) {
         z1.setVisibility(View.GONE);
@@ -169,22 +142,6 @@ public class ProductsFragment extends Fragment {
         row1.setWeightSum(6);
         row2.setWeightSum(6);
         space = Space.space3D;
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(STATE_EQ_FORM_TEXT, eqForm.getText().toString());
-        outState.putString(STATE_EQ_FORM_TAG, eqForm.getTag().toString());
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        if (savedInstanceState != null) {
-            eqForm.setText(savedInstanceState.getString(STATE_EQ_FORM_TEXT));
-            eqForm.setTag(savedInstanceState.getString(STATE_EQ_FORM_TAG));
-        }
     }
 
     private boolean allEditTextsFilled() {

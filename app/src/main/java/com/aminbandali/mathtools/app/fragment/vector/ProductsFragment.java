@@ -35,10 +35,9 @@ import android.text.Editable;
 import android.widget.Button;
 
 import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.util.Line2D;
 
-import org.apache.commons.math3.geometry.euclidean.twod.Line;
-import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -172,46 +171,6 @@ public class ProductsFragment extends Fragment {
         space = Space.space3D;
     }
 
-/*    @OnClick(R.id.btnproductscalc)*/
-    //void calculate() {
-
-        //float x1 = Float.parseFloat(this.x1.getText().toString()),
-              //y1 = Float.parseFloat(this.y1.getText().toString()),
-              //x2 = Float.parseFloat(this.x2.getText().toString()),
-              //y2 = Float.parseFloat(this.y2.getText().toString()),
-              //x3 = Float.parseFloat(this.x3.getText().toString()),
-              //y3 = Float.parseFloat(this.y3.getText().toString()),
-              //x4 = Float.parseFloat(this.x4.getText().toString()),
-              //y4 = Float.parseFloat(this.y4.getText().toString());
-
-        //if (space == Space.space2D) {
-            //Line line1 = new Line(new Vector2D(x1, y1), new Vector2D(x2, y2));
-            //Line line2 = new Line(new Vector2D(x3, y3), new Vector2D(x4, y4));
-
-            //if (line1.isParallelTo(line2)) {
-                //String result = String.format("These lines are parallel.\nTheir distance: %f units", line1.distance(new Vector2D(x3, y3)));
-                //AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                //builder.setMessage(result)
-                        //.setTitle("Result");
-                //builder.setPositiveButton("OK",new DialogInterface.OnClickListener() {
-                    //@Override
-                    //public void onClick(DialogInterface dialogInterface, int i) {
-
-                    //}
-                //});
-                //AlertDialog dialog = builder.create();
-                //dialog.show();
-            //}
-            //else {
-
-            //}
-
-        //}
-        //else { // space == Space.space3D
-
-        //}
-/*    }*/
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -227,6 +186,26 @@ public class ProductsFragment extends Fragment {
             eqForm.setTag(savedInstanceState.getString(STATE_EQ_FORM_TAG));
         }
     }
+
+    private boolean allEditTextsFilled() {
+        if (space == Space.space2D)
+            return x1.getText().length() > 0 && y1.getText().length() > 0 &&
+                    x2.getText().length() > 0 && y2.getText().length() > 0 &&
+                    x3.getText().length() > 0 && y3.getText().length() > 0 &&
+                    x4.getText().length() > 0 && y4.getText().length() > 0;
+
+        // else: space == Space.space3D
+        return x1.getText().length() > 0 && y1.getText().length() > 0 && z1.getText().length() > 0 &&
+                x2.getText().length() > 0 && y2.getText().length() > 0 && z2.getText().length() > 0 &&
+                x3.getText().length() > 0 && y3.getText().length() > 0 && z3.getText().length() > 0 &&
+                x4.getText().length() > 0 && y4.getText().length() > 0 && z4.getText().length() > 0;
+    }
+
+    private void analyzeInputs(List<Double> in1, List<Double> in2,
+                               List<Double> in3, List<Double> in4) {
+
+        // TODO: actually implement it
+    }
     
     public class MTWatcher implements TextWatcher {
         public void afterTextChanged(Editable s) {}
@@ -235,19 +214,37 @@ public class ProductsFragment extends Fragment {
         }
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (space == Space.space2D) {
-                if (x1.getText().length() > 0 && y1.getText().length() > 0 &&
-                        x2.getText().length() > 0 && y2.getText().length() > 0 &&
-                        x3.getText().length() > 0 && y3.getText().length() > 0 &&
-                        x4.getText().length() > 0 && y4.getText().length() > 0 )
-                    btnClear.setEnabled(true);
-                else
-                    if (btnClear.isEnabled())
-                        btnClear.setEnabled(false);
+            if (allEditTextsFilled()) {
+                btnClear.setEnabled(true);
+
+                List<Double> one = new ArrayList<Double>(),
+                        two = new ArrayList<Double>(),
+                        three = new ArrayList<Double>(),
+                        four = new ArrayList<Double>();
+
+                if (space == Space.space2D) {
+                    one.add(Double.parseDouble(x1.getText().toString()));
+                    one.add(Double.parseDouble(y1.getText().toString()));
+                    two.add(Double.parseDouble(x2.getText().toString()));
+                    two.add(Double.parseDouble(y2.getText().toString()));
+                    three.add(Double.parseDouble(x3.getText().toString()));
+                    three.add(Double.parseDouble(y3.getText().toString()));
+                    four.add(Double.parseDouble(x4.getText().toString()));
+                    four.add(Double.parseDouble(y4.getText().toString()));
+
+                    if (space == Space.space3D) {
+                        one.add(Double.parseDouble(z1.getText().toString()));
+                        two.add(Double.parseDouble(z2.getText().toString()));
+                        three.add(Double.parseDouble(z3.getText().toString()));
+                        four.add(Double.parseDouble(z4.getText().toString()));
+                    }
+
+                    analyzeInputs(one, two, three, four);
+                }
             }
-            else { // space == Space.space3D
-            
-            }
+            else
+                if (btnClear.isEnabled())
+                    btnClear.setEnabled(false);
         }
     }
 }

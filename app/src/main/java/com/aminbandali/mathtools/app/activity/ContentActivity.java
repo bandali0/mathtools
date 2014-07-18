@@ -33,7 +33,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
+import com.aminbandali.mathtools.app.fragment.vector.LinesFragment;
 import com.aminbandali.mathtools.app.fragment.vector.ProductsFragment;
+import com.aminbandali.mathtools.app.fragment.vector.ProjectionsFragment;
 import com.aminbandali.mathtools.app.util.Utils;
 
 import java.util.Locale;
@@ -165,6 +167,12 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
             switch (position) {
                 case 0:
                     fragment = new ProductsFragment();
+                    break;
+                case 1:
+                    fragment = new ProjectionsFragment();
+                    break;
+                case 2:
+                    fragment = new LinesFragment();
                     break;
                 default:
                     fragment = new ProductsFragment();

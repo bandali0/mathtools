@@ -41,7 +41,7 @@
         Get: <a href="https://github.com/aminb/mathtools">Source on GitHub</a><br>
         <br><br>
         Special thanks to <i>awesome</i> <b>Michael Cook</b><br>
-        for the beautiful app logo and artwork!<br>
+        for the beautiful app logo!<br>
         <b><a href="https://www.google.com/+michaelcook">+MichaelCook</a></b><br>
         <b><a href="https://plus.google.com/102718493746376292361">+Cookicons</a></b><br><br>
         <b>Thanks to these open source tools:</b><br>
@@ -94,6 +94,8 @@
         <item>Symmetric</item>
         <item>Standard</item>
     </string-array>
+
+    <string name="got_it">Got It!</string>
 
 
 </resources>

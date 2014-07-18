@@ -30,6 +30,7 @@ import android.widget.RadioButton;
 import android.text.TextWatcher;
 import android.text.Editable;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
 
@@ -57,6 +58,9 @@ public class ProductsFragment extends Fragment {
 
     @InjectView(R.id.rB3D)
     RadioButton rB3D;
+
+    @InjectView(R.id.result)
+    TextView tVResult;
 
     @InjectView(R.id.productsll1) LinearLayout row1;
     @InjectView(R.id.productstextx1) EditText x1;
@@ -105,6 +109,8 @@ public class ProductsFragment extends Fragment {
     void chooseR2Space(RadioButton rB) {
         z1.setVisibility(View.GONE);
         z2.setVisibility(View.GONE);
+        y1.setNextFocusDownId(R.id.productstextx2);
+        y2.setNextFocusDownId(R.id.btnproductsclear);
         row1.setWeightSum(4);
         space = Space.space2D;
     }
@@ -112,8 +118,22 @@ public class ProductsFragment extends Fragment {
     void chooseR3Space(RadioButton rB) {
         z1.setVisibility(View.VISIBLE);
         z2.setVisibility(View.VISIBLE);
+        y1.setNextFocusDownId(R.id.productstextz1);
+        y2.setNextFocusDownId(R.id.productstextz2);
         row1.setWeightSum(6);
         space = Space.space3D;
+    }
+
+    @OnClick(R.id.btnproductsclear)
+    void clearAll() {
+        x1.setText("");
+        x2.setText("");
+        y1.setText("");
+        y2.setText("");
+        z1.setText("");
+        z2.setText("");
+        tVResult.setText("");
+        x1.requestFocus();
     }
 
     private boolean allEditTextsFilled() {
@@ -126,9 +146,20 @@ public class ProductsFragment extends Fragment {
                 x2.getText().length() > 0 && y2.getText().length() > 0 && z2.getText().length() > 0;
     }
 
+    private boolean allEditTextsEmpty() {
+        if (space == Space.space2D)
+            return !(x1.getText().length() > 0 || y1.getText().length() > 0 ||
+                    x2.getText().length() > 0 || y2.getText().length() > 0);
+
+        // else: space == Space.space3D
+        return !(x1.getText().length() > 0 || y1.getText().length() > 0 || z1.getText().length() > 0 ||
+                x2.getText().length() > 0 || y2.getText().length() > 0 || z2.getText().length() > 0);
+    }
+
     private void analyzeInputs(List<Double> in1, List<Double> in2) {
 
         // TODO: actually implement it
+        tVResult.setText("Test");
     }
     
     public class MTWatcher implements TextWatcher {
@@ -139,28 +170,31 @@ public class ProductsFragment extends Fragment {
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (allEditTextsFilled()) {
-                btnClear.setEnabled(true);
+                if (!btnClear.isEnabled())
+                    btnClear.setEnabled(true);
 
                 List<Double> one = new ArrayList<Double>(),
                         two = new ArrayList<Double>();
 
-                if (space == Space.space2D) {
-                    one.add(Double.parseDouble(x1.getText().toString()));
-                    one.add(Double.parseDouble(y1.getText().toString()));
-                    two.add(Double.parseDouble(x2.getText().toString()));
-                    two.add(Double.parseDouble(y2.getText().toString()));
+                one.add(Double.parseDouble(x1.getText().toString()));
+                one.add(Double.parseDouble(y1.getText().toString()));
+                two.add(Double.parseDouble(x2.getText().toString()));
+                two.add(Double.parseDouble(y2.getText().toString()));
 
-                    if (space == Space.space3D) {
-                        one.add(Double.parseDouble(z1.getText().toString()));
-                        two.add(Double.parseDouble(z2.getText().toString()));
-                    }
-
-                    analyzeInputs(one, two);
+                if (space == Space.space3D) {
+                    one.add(Double.parseDouble(z1.getText().toString()));
+                    two.add(Double.parseDouble(z2.getText().toString()));
                 }
+
+                analyzeInputs(one, two);
             }
-            else
-                if (btnClear.isEnabled())
+
+            else {
+                if (!btnClear.isEnabled())
+                    btnClear.setEnabled(true);
+                if (allEditTextsEmpty())
                     btnClear.setEnabled(false);
+            }
         }
     }
 }

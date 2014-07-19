@@ -116,15 +116,18 @@ public class ProductsFragment extends Fragment {
         y2.setNextFocusDownId(R.id.btnproductsclear);
         row1.setWeightSum(4);
         space = Space.space2D;
+        inputChanged();
     }
     @OnClick(R.id.rB3D)
     void chooseR3Space(RadioButton rB) {
         z1.setVisibility(View.VISIBLE);
         z2.setVisibility(View.VISIBLE);
+        tVResult.setText("");
         y1.setNextFocusDownId(R.id.productstextz1);
         y2.setNextFocusDownId(R.id.productstextz2);
         row1.setWeightSum(6);
         space = Space.space3D;
+        inputChanged();
     }
 
     @OnClick(R.id.btnproductsclear)
@@ -183,32 +186,36 @@ public class ProductsFragment extends Fragment {
         }
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (allEditTextsFilled()) {
-                if (!btnClear.isEnabled())
-                    btnClear.setEnabled(true);
+            inputChanged();
+        }
+    }
 
-                List<Double> one = new ArrayList<Double>(),
-                        two = new ArrayList<Double>();
+    private void inputChanged() {
+        if (allEditTextsFilled()) {
+            if (!btnClear.isEnabled())
+                btnClear.setEnabled(true);
 
-                one.add(Double.parseDouble(x1.getText().toString()));
-                one.add(Double.parseDouble(y1.getText().toString()));
-                two.add(Double.parseDouble(x2.getText().toString()));
-                two.add(Double.parseDouble(y2.getText().toString()));
+            List<Double> one = new ArrayList<Double>(),
+                    two = new ArrayList<Double>();
 
-                if (space == Space.space3D) {
-                    one.add(Double.parseDouble(z1.getText().toString()));
-                    two.add(Double.parseDouble(z2.getText().toString()));
-                }
+            one.add(Double.parseDouble(x1.getText().toString()));
+            one.add(Double.parseDouble(y1.getText().toString()));
+            two.add(Double.parseDouble(x2.getText().toString()));
+            two.add(Double.parseDouble(y2.getText().toString()));
 
-                analyzeInputs(one, two);
+            if (space == Space.space3D) {
+                one.add(Double.parseDouble(z1.getText().toString()));
+                two.add(Double.parseDouble(z2.getText().toString()));
             }
 
-            else {
-                if (!btnClear.isEnabled())
-                    btnClear.setEnabled(true);
-                if (allEditTextsEmpty())
-                    btnClear.setEnabled(false);
-            }
+            analyzeInputs(one, two);
+        }
+
+        else {
+            if (!btnClear.isEnabled())
+                btnClear.setEnabled(true);
+            if (allEditTextsEmpty())
+                btnClear.setEnabled(false);
         }
     }
 }

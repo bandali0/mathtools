@@ -34,7 +34,9 @@ import android.widget.TextView;
 
 import com.aminbandali.mathtools.app.R;
 import com.aminbandali.mathtools.app.math.VectorHelpers;
+import com.aminbandali.mathtools.app.util.Utils;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,10 +161,16 @@ public class ProductsFragment extends Fragment {
 
     private void analyzeInputs(List<Double> in1, List<Double> in2) {
 
-        String result = "a . b = " + VectorHelpers.calcDotProduct(in1, in2);
+        String result = "a . b = " + new DecimalFormat("###.######").format(VectorHelpers.calcDotProduct(in1, in2));
 
-        if ( in1.size() == 3 )
-            result += "\n a x b = " + VectorHelpers.calcCrossProduct(in1, in2);
+        if ( in1.size() == 3 ) {
+            double[] resultCrossProduct = VectorHelpers.calcCrossProduct(in1, in2);
+
+            result += String.format("\n\na x b = (%s, %s, %s)",
+                    new DecimalFormat("###.######").format(resultCrossProduct[0]),
+                    new DecimalFormat("###.######").format(resultCrossProduct[1]),
+                    new DecimalFormat("###.######").format(resultCrossProduct[2]));
+        }
 
         tVResult.setText(result);
 

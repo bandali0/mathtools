@@ -18,7 +18,9 @@
 
 package com.aminbandali.mathtools.app.fragment;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -101,7 +103,8 @@ public class MainFragment extends BaseFragment{
         card.setTitle(getString(R.string.geometry));
         card.count = 2;
         card.setIconTextViewTextResource(R.string.fa_geometry);
-        card.setIconTextViewTextColor(0xFF33B5E5);
+//        card.setIconTextViewTextColor(0xFF33B5E5);
+        card.setIconTextViewTextColor(0xFF777777);
         card.init();
         cards.add(card);
 
@@ -110,7 +113,8 @@ public class MainFragment extends BaseFragment{
         card.setTitle(getString(R.string.trigonometry));
         card.count = 3;
         card.setIconTextViewTextResource(R.string.fa_trigonometry);
-        card.setIconTextViewTextColor(0xFFFFBB33);
+//        card.setIconTextViewTextColor(0xFFFFBB33);
+        card.setIconTextViewTextColor(0xFF777777);
         card.init();
         cards.add(card);
 
@@ -119,7 +123,8 @@ public class MainFragment extends BaseFragment{
         card.setTitle(getString(R.string.calculus));
         card.count = 4;
         card.setIconTextViewTextResource(R.string.fa_calculus);
-        card.setIconTextViewTextColor(0xFF99CC00);
+//        card.setIconTextViewTextColor(0xFF99CC00);
+        card.setIconTextViewTextColor(0xFF777777);
         card.init();
         cards.add(card);
 
@@ -166,47 +171,62 @@ public class MainFragment extends BaseFragment{
                     });
                     break;
 
-                case 2: // Geometry
-                    // Add ClickListener
+//                case 2: // Geometry
+//                    // Add ClickListener
+//                    setOnClickListener(new OnCardClickListener() {
+//                        @Override
+//                        public void onClick(Card card, View view) {
+//                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.geometry);
+//                            args.putStringArray(ContentActivity.ARG_TITLES,
+//                                    new String[]{"Cheat Sheet"});
+//                            intent_content.putExtras(args);
+//                            startActivity(intent_content);
+//                        }
+//                    });
+//                    break;
+//
+//                case 3: // Trigonometry
+//                    // Add ClickListener
+//                    setOnClickListener(new OnCardClickListener() {
+//                        @Override
+//                        public void onClick(Card card, View view) {
+//                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.trigonometry);
+//                            args.putStringArray(ContentActivity.ARG_TITLES,
+//                                    new String[]{"Cheat Sheet"});
+//                            intent_content.putExtras(args);
+//                            startActivity(intent_content);
+//                        }
+//                    });
+//                    break;
+//
+//                case 4: // Calculus
+//                    // Add ClickListener
+//                    setOnClickListener(new OnCardClickListener() {
+//                        @Override
+//                        public void onClick(Card card, View view) {
+//                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.calculus);
+//                            args.putStringArray(ContentActivity.ARG_TITLES,
+//                                    new String[]{"Cheat Sheet"});
+//                            intent_content.putExtras(args);
+//                            startActivity(intent_content);
+//                        }
+//                    });
+//                    break;
+                default:
                     setOnClickListener(new OnCardClickListener() {
                         @Override
                         public void onClick(Card card, View view) {
-                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.geometry);
-                            args.putStringArray(ContentActivity.ARG_TITLES,
-                                    new String[]{"Cheat Sheet"});
-                            intent_content.putExtras(args);
-                            startActivity(intent_content);
+                            new AlertDialog.Builder(getContext())
+                                    .setTitle("Coming Soon")
+                                    .setMessage("Gray sections will be gradually added in future releases.")
+                                    .setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // continue with delete
+                                        }
+                                    })
+                                    .show();
                         }
                     });
-                    break;
-
-                case 3: // Trigonometry
-                    // Add ClickListener
-                    setOnClickListener(new OnCardClickListener() {
-                        @Override
-                        public void onClick(Card card, View view) {
-                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.trigonometry);
-                            args.putStringArray(ContentActivity.ARG_TITLES,
-                                    new String[]{"Cheat Sheet"});
-                            intent_content.putExtras(args);
-                            startActivity(intent_content);
-                        }
-                    });
-                    break;
-
-                case 4: // Calculus
-                    // Add ClickListener
-                    setOnClickListener(new OnCardClickListener() {
-                        @Override
-                        public void onClick(Card card, View view) {
-                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.calculus);
-                            args.putStringArray(ContentActivity.ARG_TITLES,
-                                    new String[]{"Cheat Sheet"});
-                            intent_content.putExtras(args);
-                            startActivity(intent_content);
-                        }
-                    });
-                    break;
             }
 
         }

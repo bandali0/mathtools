@@ -40,7 +40,11 @@
         Author: <a href="http://aminbandali.com">Amin Bandali</a><br>
         Get: <a href="https://github.com/aminb/mathtools">Source on GitHub</a><br>
         <br><br>
-        <b>Many thanks to these open source tools:</b><br>
+        Special thanks to <i>awesome</i> <b>Michael Cook</b><br>
+        for the beautiful app logo!<br>
+        <b><a href="https://www.google.com/+michaelcook">+MichaelCook</a></b><br>
+        <b><a href="https://plus.google.com/102718493746376292361">+Cookicons</a></b><br><br>
+        <b>Thanks to these open source tools:</b><br>
         <b><a href="https://github.com/gabrielemariotti/cardslib">Card Library</a></b><br>
         <i>by Gabriele Mariotti</i><br><br>
         <b><a href="https://github.com/astuetz/PagerSlidingTabStrip">PagerSlidingTabStrip</a></b><br>
@@ -49,9 +53,6 @@
         <i>by Joan Zapata</i><br><br>
         <b><a href="http://commons.apache.org/math/">Apache Commons Math</a></b><br>
         <i>by The Apache Software Foundation</i><br><br>
-
-        <b>Thanks for some ideas and code:</b><br>
-        <b><a href="https://github.com/gabrielemariotti">Gabriele Mariotti</a></b><br>
 
     ]]></string>
 
@@ -93,6 +94,8 @@
         <item>Symmetric</item>
         <item>Standard</item>
     </string-array>
+
+    <string name="got_it">Got It!</string>
 
 
 </resources>

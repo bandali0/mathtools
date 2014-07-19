@@ -164,17 +164,20 @@ public class ProjectionsFragment extends Fragment {
 
     private void analyzeInputs(List<Double> in1, List<Double> in2) {
 
-        String result = "a . b = " + new DecimalFormat("###.######").format(VectorHelpers.calcDotProduct(in1, in2));
+        String result = "x onto y (scalar):\n" +
+                new DecimalFormat("###.######").format(VectorHelpers.calcScalarProjection(in1, in2));
 
-        if ( in1.size() == 3 ) {
-            double[] resultCrossProduct = VectorHelpers.calcCrossProduct(in1, in2);
 
-            result += String.format("\n\na x b = (%s, %s, %s)",
-                    new DecimalFormat("###.######").format(resultCrossProduct[0]),
-                    new DecimalFormat("###.######").format(resultCrossProduct[1]),
-                    new DecimalFormat("###.######").format(resultCrossProduct[2]));
-        }
+        double[] resultVectorProjection = VectorHelpers.calcVectorProjection(in1, in2);
 
+        result += String.format("\n\nx onto y (vector):\n(%s, %s",
+                new DecimalFormat("###.######").format(resultVectorProjection[0]),
+                new DecimalFormat("###.######").format(resultVectorProjection[1]));
+
+        if (in1.size() == 3)
+            result += ", " + new DecimalFormat("###.######").format(resultVectorProjection[2]);
+
+        result += ")";
         tVResult.setText(result);
 
     }

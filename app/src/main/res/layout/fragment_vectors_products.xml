@@ -26,38 +26,47 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vector_multiplication"
+        android:textColor="@color/mathtoolstheme_color"
+        android:fontFamily="sans-serif-light"
+        android:textSize="24sp"
+        android:layout_marginBottom="32dp"/>
 
-        <TableRow
-            android:id="@+id/tableRow1"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
-
-            <RadioGroup
+            android:textSize="17sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="12dp"
+            android:text="Vector Space:"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:id="@+id/rB2D"
-                    android:textSize="15sp"
-                    android:text="@string/twodspace"/>
-                <RadioButton
-                    android:checked="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rB3D"
-                    android:textSize="15sp"
-                    android:text="@string/threedspace"/>
-            </RadioGroup>
-
-        </TableRow>
-    </TableLayout>
+                android:checked="true"
+                android:id="@+id/rB2D"
+                android:textSize="15sp"
+                android:layout_marginRight="8dp"
+                android:text="@string/twodspace"/>
+            <RadioButton
+                android:checked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rB3D"
+                android:textSize="15sp"
+                android:text="@string/threedspace"/>
+        </RadioGroup>
+        </LinearLayout>
 
 
     <LinearLayout
@@ -131,6 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
+        android:layout_marginTop="12dp"
         android:text="@string/clear" />
 
     <TextView

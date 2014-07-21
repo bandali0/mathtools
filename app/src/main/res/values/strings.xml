@@ -32,7 +32,7 @@
 
     <!-- About -->
     <string name="title_about"><![CDATA[
-        <b><i><font color="#FFFFFF">MATHTools</font></i></b>&nbsp;<font color="#DDDDDD">v%1$s</font>
+        <b><i><font color="#FFFFFF">MATHTools</font></i></b>&nbsp;<small><font color="#EEEEEE">v%1$s</font></small>
     ]]></string>
     <string name="about_ok">OK</string>
     <string name="about_body"><![CDATA[
@@ -88,6 +88,13 @@
     <string name="y4">y&lt;sub&gt;&lt;small&gt;4&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="z4">z&lt;sub&gt;&lt;small&gt;4&lt;/small&gt;&lt;/sub&gt;</string>
 
+    <string name="ax">a&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="ay">a&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="az">a&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="bx">b&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="by">b&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="bz">b&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
+
     <string-array name="eq_forms_array">
         <item>Vector</item>
         <item>Parametric</item>
@@ -96,6 +103,9 @@
     </string-array>
 
     <string name="got_it">Got It</string>
+
+    <string name="vector_multiplication">Vector Multiplication</string>
+    <string name="vector_projection">Vector Projection</string>
 
 
 </resources>

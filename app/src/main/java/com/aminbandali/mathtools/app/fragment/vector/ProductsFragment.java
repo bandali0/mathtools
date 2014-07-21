@@ -91,13 +91,13 @@ public class ProductsFragment extends Fragment {
         rB2D.setText(Html.fromHtml(getResources().getString(R.string.r2)));
         rB3D.setText(Html.fromHtml(getResources().getString(R.string.r3)));
 
-        x1.setHint(Html.fromHtml(getResources().getString(R.string.x1)));
-        y1.setHint(Html.fromHtml(getResources().getString(R.string.y1)));
-        z1.setHint(Html.fromHtml(getResources().getString(R.string.z1)));
+        x1.setHint(Html.fromHtml(getResources().getString(R.string.ax)));
+        y1.setHint(Html.fromHtml(getResources().getString(R.string.ay)));
+        z1.setHint(Html.fromHtml(getResources().getString(R.string.az)));
 
-        x2.setHint(Html.fromHtml(getResources().getString(R.string.x2)));
-        y2.setHint(Html.fromHtml(getResources().getString(R.string.y2)));
-        z2.setHint(Html.fromHtml(getResources().getString(R.string.z2)));
+        x2.setHint(Html.fromHtml(getResources().getString(R.string.bx)));
+        y2.setHint(Html.fromHtml(getResources().getString(R.string.by)));
+        z2.setHint(Html.fromHtml(getResources().getString(R.string.bz)));
         
         // set up TextWatcher for all EditTexts
         x1.addTextChangedListener(new MTWatcher());
@@ -195,20 +195,25 @@ public class ProductsFragment extends Fragment {
             if (!btnClear.isEnabled())
                 btnClear.setEnabled(true);
 
-            List<Double> one = new ArrayList<Double>(),
-                    two = new ArrayList<Double>();
+            try {
+                List<Double> one = new ArrayList<Double>(),
+                        two = new ArrayList<Double>();
 
-            one.add(Double.parseDouble(x1.getText().toString()));
-            one.add(Double.parseDouble(y1.getText().toString()));
-            two.add(Double.parseDouble(x2.getText().toString()));
-            two.add(Double.parseDouble(y2.getText().toString()));
+                one.add(Double.parseDouble(x1.getText().toString()));
+                one.add(Double.parseDouble(y1.getText().toString()));
+                two.add(Double.parseDouble(x2.getText().toString()));
+                two.add(Double.parseDouble(y2.getText().toString()));
 
-            if (space == Space.space3D) {
-                one.add(Double.parseDouble(z1.getText().toString()));
-                two.add(Double.parseDouble(z2.getText().toString()));
+                if (space == Space.space3D) {
+                    one.add(Double.parseDouble(z1.getText().toString()));
+                    two.add(Double.parseDouble(z2.getText().toString()));
+                }
+
+                analyzeInputs(one, two);
+                
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
-
-            analyzeInputs(one, two);
         }
 
         else {

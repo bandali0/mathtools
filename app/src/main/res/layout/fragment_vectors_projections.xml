@@ -70,73 +70,73 @@
 
 
     <LinearLayout
-        android:id="@+id/productsll1"
+        android:id="@+id/projectionsll1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:weightSum="4" >
 
         <EditText
-            android:id="@+id/productstextx1"
+            android:id="@+id/projectionstextx1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstexty1"
+            android:nextFocusDown="@+id/projectionstexty1"
             >
 
             <requestFocus />
         </EditText>
 
         <EditText
-            android:id="@+id/productstexty1"
+            android:id="@+id/projectionstexty1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstextx2"
+            android:nextFocusDown="@+id/projectionstextx2"
             />
 
         <EditText
-            android:id="@+id/productstextz1"
+            android:id="@+id/projectionstextz1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstextx2"
+            android:nextFocusDown="@+id/projectionstextx2"
             android:visibility="gone"
             />
 
         <EditText
-            android:id="@+id/productstextx2"
+            android:id="@+id/projectionstextx2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstexty2"
+            android:nextFocusDown="@+id/projectionstexty2"
             />
 
         <EditText
-            android:id="@+id/productstexty2"
+            android:id="@+id/projectionstexty2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstextx3"
+            android:nextFocusDown="@+id/projectionstextx3"
             />
 
         <EditText
-            android:id="@+id/productstextz2"
+            android:id="@+id/projectionstextz2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
-            android:nextFocusDown="@+id/productstextx3"
+            android:nextFocusDown="@+id/projectionstextx3"
             android:visibility="gone"
             />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnproductsclear"
+        android:id="@+id/btnprojectionsclear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"

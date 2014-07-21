@@ -88,6 +88,13 @@
     <string name="y4">y&lt;sub&gt;&lt;small&gt;4&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="z4">z&lt;sub&gt;&lt;small&gt;4&lt;/small&gt;&lt;/sub&gt;</string>
 
+    <string name="ax">a&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="ay">a&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="az">a&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="bx">b&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="by">b&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="bz">b&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
+
     <string-array name="eq_forms_array">
         <item>Vector</item>
         <item>Parametric</item>

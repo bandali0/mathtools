@@ -104,5 +104,8 @@
 
     <string name="got_it">Got It</string>
 
+    <string name="vector_multiplication">Vector Multiplication</string>
+    <string name="vector_projection">Vector Projection</string>
+
 
 </resources>

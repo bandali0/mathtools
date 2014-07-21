@@ -36,7 +36,9 @@ public abstract class BaseActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActionBar = getActionBar();
-        changeColor(R.color.mathtoolstheme_color);
+
+        if (!this.getClass().isAssignableFrom(ContentActivity.class))
+            changeColor(R.color.mathtoolstheme_color);
     }
 
     private void changeColor(int newColor) {

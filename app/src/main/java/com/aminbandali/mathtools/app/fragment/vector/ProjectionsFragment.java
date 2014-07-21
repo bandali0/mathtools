@@ -198,20 +198,25 @@ public class ProjectionsFragment extends Fragment {
             if (!btnClear.isEnabled())
                 btnClear.setEnabled(true);
 
-            List<Double> one = new ArrayList<Double>(),
-                    two = new ArrayList<Double>();
+            try {
+                List<Double> one = new ArrayList<Double>(),
+                        two = new ArrayList<Double>();
 
-            one.add(Double.parseDouble(x1.getText().toString()));
-            one.add(Double.parseDouble(y1.getText().toString()));
-            two.add(Double.parseDouble(x2.getText().toString()));
-            two.add(Double.parseDouble(y2.getText().toString()));
+                one.add(Double.parseDouble(x1.getText().toString()));
+                one.add(Double.parseDouble(y1.getText().toString()));
+                two.add(Double.parseDouble(x2.getText().toString()));
+                two.add(Double.parseDouble(y2.getText().toString()));
 
-            if (space == Space.space3D) {
-                one.add(Double.parseDouble(z1.getText().toString()));
-                two.add(Double.parseDouble(z2.getText().toString()));
+                if (space == Space.space3D) {
+                    one.add(Double.parseDouble(z1.getText().toString()));
+                    two.add(Double.parseDouble(z2.getText().toString()));
+                }
+
+                analyzeInputs(one, two);
+
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
-
-            analyzeInputs(one, two);
         }
 
         else {

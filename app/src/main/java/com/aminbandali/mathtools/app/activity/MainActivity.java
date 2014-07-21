@@ -56,8 +56,6 @@ public class MainActivity extends BaseActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_settings:
-                break;
             case R.id.action_feedback:
                 Intent intent_feedback = new Intent(this, FeedbackActivity.class);
                 startActivity(intent_feedback);

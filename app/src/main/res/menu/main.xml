@@ -1,17 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.aminbandali.mathtools.app.activity.MainActivity" >
-    <item android:id="@+id/action_settings"
-        android:enabled="false"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
-    <item android:id="@+id/action_feedback"
+    <item
+        android:id="@+id/action_feedback"
+        android:showAsAction="always"
         android:title="@string/action_feedback"
-        android:orderInCategory="200"
-        android:showAsAction="never" />
-    <item android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_start_conversation"/>
+    <item
+        android:id="@+id/action_about"
+        android:showAsAction="always"
         android:title="@string/action_about"
-        android:orderInCategory="300"
-        android:showAsAction="never" />
+        android:orderInCategory="200"
+        android:icon="@android:drawable/ic_menu_info_details"/>
 </menu>

@@ -40,7 +40,7 @@ public class Line2D {
 		ptA = new Vector2D(pointA);
 		double[] pointB = calcPtB(pointA, dirxnVector);
 		ptB = new Vector2D(pointB);
-		line = new Line(ptA, ptB);
+		line = new Line(ptA, ptB, .0000001);
 	}
 
     // create two points to build a line object; given X and Y parameters
@@ -53,7 +53,7 @@ public class Line2D {
 		ptb[1] = Yparam[0] * 3 + Yparam[1]; // calculate an y value for point B
 		ptA = new Vector2D(pta);
 		ptB = new Vector2D(ptb);
-		line = new Line(ptA, ptB);
+		line = new Line(ptA, ptB, .0000001);
 	}
 
     // point and direction vector constructor

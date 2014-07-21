@@ -75,7 +75,7 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
             @Override
             public void onPageSelected(int position) {
                 mActionBar.setSelectedNavigationItem(position);
-                mActionBar.setSubtitle(titles[position]);
+//                mActionBar.setSubtitle(titles[position]);
             }
         });
 
@@ -92,13 +92,13 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
         }
 
         mActionBar.setTitle(titleId);
-        mActionBar.setSubtitle(titles[0]);
-        getActionbarSubtitle().setTextColor(getResources().getColor(R.color.actionbar_subtitle_text_color));
+//        mActionBar.setSubtitle(titles[0]);
+//        getActionbarSubtitle().setTextColor(getResources().getColor(R.color.actionbar_subtitle_text_color));
     }
 
-    public TextView getActionbarSubtitle() {
-        return (TextView) this.findViewById(com.android.internal.R.id.action_bar_subtitle);// for default action bar
-    }
+//    public TextView getActionbarSubtitle() {
+//        return (TextView) this.findViewById(com.android.internal.R.id.action_bar_subtitle);// for default action bar
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

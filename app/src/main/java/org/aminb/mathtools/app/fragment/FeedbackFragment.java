@@ -102,14 +102,14 @@ public class FeedbackFragment extends BaseFragment
             case 3:
                 Intent emailintent = new Intent(Intent.ACTION_SEND);
                 emailintent.setType("message/rfc822");
-                emailintent.putExtra(Intent.EXTRA_EMAIL, new String[]{"me@aminbandali.com"});
+                emailintent.putExtra(Intent.EXTRA_EMAIL, new String[]{"me@aminb.org"});
                 emailintent.putExtra(Intent.EXTRA_SUBJECT, "Math Tools Feedback");
                 emailintent.putExtra(Intent.EXTRA_TEXT, "Hi Amin, I use Math Tools and here's my feedback:\n\n");
                 try {
                     startActivity(Intent.createChooser(emailintent, "Shoot me an Email!"));
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                    Uri mailuri = Uri.parse("mailto://me@aminbandali.com");
+                    Uri mailuri = Uri.parse("mailto://me@aminb.org");
                     Intent emailbrowserintent = new Intent(Intent.ACTION_VIEW, mailuri);
                     startActivity(emailbrowserintent);
                     break;

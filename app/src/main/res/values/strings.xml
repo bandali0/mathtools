@@ -24,7 +24,7 @@
     <string name="mt_on_gplay">Google Play</string>
     <string name="mt_on_gplay_desc">Leave a review/comment</string>
     <string name="sendmeanemail">Email</string>
-    <string name="sendmeanemail_desc">me\@aminbandali.com</string>
+    <string name="sendmeanemail_desc">me\@aminb.org</string>
     <string name="mytwitter">Twitter</string>
     <string name="mytwitter_desc">\@aminban</string>
     <string name="mygplus">Google+</string>
@@ -37,7 +37,7 @@
     <string name="about_ok">OK</string>
     <string name="about_body"><![CDATA[
         <b><i>MATHTools</i> App</b><br>
-        Author: <a href="http://aminbandali.com">Amin Bandali</a><br>
+        Author: <a href="http://aminb.org">Amin Bandali</a><br>
         Get: <a href="https://github.com/aminb/mathtools">Source on GitHub</a><br>
         <br><br>
         Special thanks to <i>awesome</i> <b>Michael Cook</b><br>

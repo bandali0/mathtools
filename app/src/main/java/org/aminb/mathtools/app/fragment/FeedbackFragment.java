@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.fragment;
+package org.aminb.mathtools.app.fragment;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -29,7 +29,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.aminbandali.mathtools.app.R;
+import org.aminb.mathtools.app.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

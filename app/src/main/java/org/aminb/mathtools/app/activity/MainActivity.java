@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.activity;
+package org.aminb.mathtools.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,9 +24,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.util.Utils;
-import com.aminbandali.mathtools.app.fragment.MainFragment;
+import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.fragment.MainFragment;
+import org.aminb.mathtools.app.util.Utils;
 
 
 public class MainActivity extends BaseActivity {

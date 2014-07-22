@@ -4,7 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-        <fragment android:name="com.aminbandali.mathtools.app.fragment.FeedbackFragment"
+        <fragment android:name="org.aminb.mathtools.app.fragment.FeedbackFragment"
             android:id="@+id/feedback_fragment"
             android:layout_weight="1"
             android:layout_height="match_parent"

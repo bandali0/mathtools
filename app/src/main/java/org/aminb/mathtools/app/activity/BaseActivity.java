@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.activity;
+package org.aminb.mathtools.app.activity;
 
 import android.app.ActionBar;
 import android.graphics.drawable.ColorDrawable;
@@ -27,7 +27,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 
-import com.aminbandali.mathtools.app.R;
+import org.aminb.mathtools.app.R;
 
 public abstract class BaseActivity extends FragmentActivity {
     protected ActionBar mActionBar;

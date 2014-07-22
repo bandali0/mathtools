@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.android.internal;
+package org.aminb.mathtools.app.util;
 
 public class R {
     public static final class id {

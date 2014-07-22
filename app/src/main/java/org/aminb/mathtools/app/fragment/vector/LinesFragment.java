@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.fragment.vector;
+package org.aminb.mathtools.app.fragment.vector;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -34,7 +34,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.aminbandali.mathtools.app.R;
+import org.aminb.mathtools.app.R;
 
 import java.util.ArrayList;
 import java.util.List;

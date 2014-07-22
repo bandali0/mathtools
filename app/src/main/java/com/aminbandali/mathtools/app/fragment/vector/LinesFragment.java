@@ -67,21 +67,21 @@ public class LinesFragment extends Fragment {
     @InjectView(R.id.sEqForm)
     TextView eqForm;
 
-    @InjectView(R.id.productsll1) LinearLayout row1;
-    @InjectView(R.id.productstextx1) EditText x1;
-    @InjectView(R.id.productstexty1) EditText y1;
-    @InjectView(R.id.productstextz1) EditText z1;
-    @InjectView(R.id.productstextx2) EditText x2;
-    @InjectView(R.id.productstexty2) EditText y2;
-    @InjectView(R.id.productstextz2) EditText z2;
+    @InjectView(R.id.linesll1) LinearLayout row1;
+    @InjectView(R.id.linestextx1) EditText x1;
+    @InjectView(R.id.linestexty1) EditText y1;
+    @InjectView(R.id.linestextz1) EditText z1;
+    @InjectView(R.id.linestextx2) EditText x2;
+    @InjectView(R.id.linestexty2) EditText y2;
+    @InjectView(R.id.linestextz2) EditText z2;
 
-    @InjectView(R.id.productsll2) LinearLayout row2;
-    @InjectView(R.id.productstextx3) EditText x3;
-    @InjectView(R.id.productstexty3) EditText y3;
-    @InjectView(R.id.productstextz3) EditText z3;
-    @InjectView(R.id.productstextx4) EditText x4;
-    @InjectView(R.id.productstexty4) EditText y4;
-    @InjectView(R.id.productstextz4) EditText z4;
+    @InjectView(R.id.linesll2) LinearLayout row2;
+    @InjectView(R.id.linestextx3) EditText x3;
+    @InjectView(R.id.linestexty3) EditText y3;
+    @InjectView(R.id.linestextz3) EditText z3;
+    @InjectView(R.id.linestextx4) EditText x4;
+    @InjectView(R.id.linestexty4) EditText y4;
+    @InjectView(R.id.linestextz4) EditText z4;
 
     @InjectView(R.id.btnproductsclear) Button btnClear;
 

@@ -65,15 +65,15 @@ public class ProjectionsFragment extends Fragment {
     @InjectView(R.id.result)
     TextView tVResult;
 
-    @InjectView(R.id.productsll1) LinearLayout row1;
-    @InjectView(R.id.productstextx1) EditText x1;
-    @InjectView(R.id.productstexty1) EditText y1;
-    @InjectView(R.id.productstextz1) EditText z1;
-    @InjectView(R.id.productstextx2) EditText x2;
-    @InjectView(R.id.productstexty2) EditText y2;
-    @InjectView(R.id.productstextz2) EditText z2;
+    @InjectView(R.id.projectionsll1) LinearLayout row1;
+    @InjectView(R.id.projectionstextx1) EditText x1;
+    @InjectView(R.id.projectionstexty1) EditText y1;
+    @InjectView(R.id.projectionstextz1) EditText z1;
+    @InjectView(R.id.projectionstextx2) EditText x2;
+    @InjectView(R.id.projectionstexty2) EditText y2;
+    @InjectView(R.id.projectionstextz2) EditText z2;
 
-    @InjectView(R.id.btnproductsclear) Button btnClear;
+    @InjectView(R.id.btnprojectionsclear) Button btnClear;
 
     public ProjectionsFragment() {
     }
@@ -112,8 +112,8 @@ public class ProjectionsFragment extends Fragment {
     void chooseR2Space(RadioButton rB) {
         z1.setVisibility(View.GONE);
         z2.setVisibility(View.GONE);
-        y1.setNextFocusDownId(R.id.productstextx2);
-        y2.setNextFocusDownId(R.id.btnproductsclear);
+        y1.setNextFocusDownId(R.id.projectionstextx2);
+        y2.setNextFocusDownId(R.id.btnprojectionsclear);
         row1.setWeightSum(4);
         space = Space.space2D;
         inputChanged();
@@ -123,14 +123,14 @@ public class ProjectionsFragment extends Fragment {
         z1.setVisibility(View.VISIBLE);
         z2.setVisibility(View.VISIBLE);
         tVResult.setText("");
-        y1.setNextFocusDownId(R.id.productstextz1);
-        y2.setNextFocusDownId(R.id.productstextz2);
+        y1.setNextFocusDownId(R.id.projectionstextz1);
+        y2.setNextFocusDownId(R.id.projectionstextz2);
         row1.setWeightSum(6);
         space = Space.space3D;
         inputChanged();
     }
 
-    @OnClick(R.id.btnproductsclear)
+    @OnClick(R.id.btnprojectionsclear)
     void clearAll() {
         x1.setText("");
         x2.setText("");

@@ -117,8 +117,6 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
             case R.id.action_cheat_sheet:
                 mViewPager.setCurrentItem((mSectionsPagerAdapter.getCount()) - 1);
                 return true;
-            case R.id.action_settings:
-                break;
             case R.id.action_feedback:
                 Intent intent_feedback = new Intent(this, FeedbackActivity.class);
                 startActivity(intent_feedback);

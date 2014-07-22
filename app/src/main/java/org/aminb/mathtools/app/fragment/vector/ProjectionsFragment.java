@@ -1,6 +1,6 @@
 /*
  * ProjectionsFragment.java
- * Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
+ * Copyright (C) 2014 Amin Bandali <me@aminb.org>
  *
  * MathTools is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the

@@ -35,7 +35,9 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.math.VectorHelpers;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +85,10 @@ public class LinesFragment extends Fragment {
     @InjectView(R.id.linestexty4) EditText y4;
     @InjectView(R.id.linestextz4) EditText z4;
 
-    @InjectView(R.id.btnproductsclear) Button btnClear;
+    @InjectView(R.id.btnlinesclear) Button btnClear;
+
+    @InjectView(R.id.result)
+    TextView tVResult;
 
     public LinesFragment() {
     }
@@ -156,9 +161,14 @@ public class LinesFragment extends Fragment {
         z2.setVisibility(View.GONE);
         z3.setVisibility(View.GONE);
         z4.setVisibility(View.GONE);
+        y1.setNextFocusDownId(R.id.linestextx2);
+        y2.setNextFocusDownId(R.id.linestextx3);
+        y3.setNextFocusDownId(R.id.linestextx4);
+        y4.setNextFocusDownId(R.id.btnlinesclear);
         row1.setWeightSum(4);
         row2.setWeightSum(4);
         space = Space.space2D;
+        inputChanged();
     }
     @OnClick(R.id.rB3D)
     void chooseR3Space(RadioButton rB) {
@@ -166,9 +176,27 @@ public class LinesFragment extends Fragment {
         z2.setVisibility(View.VISIBLE);
         z3.setVisibility(View.VISIBLE);
         z4.setVisibility(View.VISIBLE);
+        tVResult.setText("");
+        y1.setNextFocusDownId(R.id.linestextz1);
+        y2.setNextFocusDownId(R.id.linestextz2);
+        y3.setNextFocusDownId(R.id.linestextz3);
+        y4.setNextFocusDownId(R.id.linestextz4);
         row1.setWeightSum(6);
         row2.setWeightSum(6);
         space = Space.space3D;
+        inputChanged();
+    }
+
+    @OnClick(R.id.btnlinesclear)
+    void clearAll() {
+        x1.setText("");
+        x2.setText("");
+        y1.setText("");
+        y2.setText("");
+        z1.setText("");
+        z2.setText("");
+        tVResult.setText("");
+        x1.requestFocus();
     }
 
     @Override
@@ -201,12 +229,36 @@ public class LinesFragment extends Fragment {
                 x4.getText().length() > 0 && y4.getText().length() > 0 && z4.getText().length() > 0;
     }
 
-    private void analyzeInputs(List<Double> in1, List<Double> in2,
-                               List<Double> in3, List<Double> in4) {
+    private boolean allEditTextsEmpty() {
+        if (space == Space.space2D)
+            return !(x1.getText().length() > 0 || y1.getText().length() > 0 ||
+                    x2.getText().length() > 0 || y2.getText().length() > 0);
 
-        // TODO: actually implement it
+        // else: space == Space.space3D
+        return !(x1.getText().length() > 0 || y1.getText().length() > 0 || z1.getText().length() > 0 ||
+                x2.getText().length() > 0 || y2.getText().length() > 0 || z2.getText().length() > 0);
     }
-    
+
+    private void analyzeInputs(List<Double> in1, List<Double> in2) {
+
+        String result = "x onto y (scalar):\n" +
+                new DecimalFormat("###.######").format(VectorHelpers.calcScalarProjection(in1, in2));
+
+
+        double[] resultVectorProjection = VectorHelpers.calcVectorProjection(in1, in2);
+
+        result += String.format("\n\nx onto y (vector):\n(%s, %s",
+                new DecimalFormat("###.######").format(resultVectorProjection[0]),
+                new DecimalFormat("###.######").format(resultVectorProjection[1]));
+
+        if (in1.size() == 3)
+            result += ", " + new DecimalFormat("###.######").format(resultVectorProjection[2]);
+
+        result += ")";
+        tVResult.setText(result);
+
+    }
+
     public class MTWatcher implements TextWatcher {
         public void afterTextChanged(Editable s) {}
 
@@ -214,38 +266,43 @@ public class LinesFragment extends Fragment {
         }
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (allEditTextsFilled()) {
-                btnClear.setEnabled(true);
-
-                List<Double> one = new ArrayList<Double>(),
-                        two = new ArrayList<Double>(),
-                        three = new ArrayList<Double>(),
-                        four = new ArrayList<Double>();
-
-                if (space == Space.space2D) {
-                    one.add(Double.parseDouble(x1.getText().toString()));
-                    one.add(Double.parseDouble(y1.getText().toString()));
-                    two.add(Double.parseDouble(x2.getText().toString()));
-                    two.add(Double.parseDouble(y2.getText().toString()));
-                    three.add(Double.parseDouble(x3.getText().toString()));
-                    three.add(Double.parseDouble(y3.getText().toString()));
-                    four.add(Double.parseDouble(x4.getText().toString()));
-                    four.add(Double.parseDouble(y4.getText().toString()));
-
-                    if (space == Space.space3D) {
-                        one.add(Double.parseDouble(z1.getText().toString()));
-                        two.add(Double.parseDouble(z2.getText().toString()));
-                        three.add(Double.parseDouble(z3.getText().toString()));
-                        four.add(Double.parseDouble(z4.getText().toString()));
-                    }
-
-                    analyzeInputs(one, two, three, four);
-                }
-            }
-            else
-                if (btnClear.isEnabled())
-                    btnClear.setEnabled(false);
+            inputChanged();
         }
     }
+
+    private void inputChanged() {
+        if (allEditTextsFilled()) {
+            if (!btnClear.isEnabled())
+                btnClear.setEnabled(true);
+
+            try {
+                List<Double> one = new ArrayList<Double>(),
+                        two = new ArrayList<Double>();
+
+                one.add(Double.parseDouble(x1.getText().toString()));
+                one.add(Double.parseDouble(y1.getText().toString()));
+                two.add(Double.parseDouble(x2.getText().toString()));
+                two.add(Double.parseDouble(y2.getText().toString()));
+
+                if (space == Space.space3D) {
+                    one.add(Double.parseDouble(z1.getText().toString()));
+                    two.add(Double.parseDouble(z2.getText().toString()));
+                }
+
+                analyzeInputs(one, two);
+
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else {
+            if (!btnClear.isEnabled())
+                btnClear.setEnabled(true);
+            if (allEditTextsEmpty())
+                btnClear.setEnabled(false);
+        }
+    }
+
 }
 

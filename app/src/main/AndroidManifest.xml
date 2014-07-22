@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name="org.aminb.mathtools.app.activity.ContentActivity"
-            android:parentActivityName="org.aminb.mathtools.app.activity.MainActivity">
+            android:parentActivityName="org.aminb.mathtools.app.activity.MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

@@ -23,7 +23,7 @@
         <activity
             android:name="org.aminb.mathtools.app.activity.ContentActivity"
             android:parentActivityName="org.aminb.mathtools.app.activity.MainActivity"
-            android:windowSoftInputMode="stateUnspecified|adjustPan">
+            android:windowSoftInputMode="stateUnchanged|adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

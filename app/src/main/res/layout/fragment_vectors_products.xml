@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="@string/vector_multiplication"
         android:textColor="@color/mathtoolstheme_color"
-        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
         android:textSize="24sp"
         android:layout_marginBottom="16dp"/>
 
@@ -45,7 +45,7 @@
             android:textSize="17sp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="12dp"
-            android:text="Vector Space:"/>
+            android:text="@string/vector_space"/>
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

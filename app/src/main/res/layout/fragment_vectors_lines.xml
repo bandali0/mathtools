@@ -25,7 +25,7 @@
 
     <LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:text="@string/line_analyzer"
         android:textColor="@color/mathtoolstheme_color"
-        android:fontFamily="sans-serif-light"
         android:textSize="24sp"
         android:layout_marginBottom="32dp"/>
 
@@ -87,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:text="@string/eqvector"
                 style="@android:style/Widget.Holo.Light.Spinner"
                 android:tag="0"
@@ -237,7 +236,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
-        android:fontFamily="sans-serif-light"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginLeft="4dp"
         android:id="@+id/result"/>

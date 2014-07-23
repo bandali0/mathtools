@@ -114,6 +114,7 @@
             android:id="@+id/linesll1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:weightSum="4" >
 
             <EditText
@@ -207,6 +208,7 @@
                 android:id="@+id/linesll2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:weightSum="4" >
 
                 <EditText

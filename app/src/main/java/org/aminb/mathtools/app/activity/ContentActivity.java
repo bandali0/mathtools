@@ -1,6 +1,6 @@
 /*
  * ContentActivity.java
- * Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
+ * Copyright (C) 2014 Amin Bandali <me@aminb.org>
  *
  * MathTools is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.activity;
+package org.aminb.mathtools.app.activity;
 
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -30,13 +30,12 @@ import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.fragment.vector.LinesFragment;
-import com.aminbandali.mathtools.app.fragment.vector.ProductsFragment;
-import com.aminbandali.mathtools.app.fragment.vector.ProjectionsFragment;
-import com.aminbandali.mathtools.app.util.Utils;
+import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.fragment.vector.LinesFragment;
+import org.aminb.mathtools.app.fragment.vector.ProductsFragment;
+import org.aminb.mathtools.app.fragment.vector.ProjectionsFragment;
+import org.aminb.mathtools.app.util.Utils;
 
 import java.util.Locale;
 
@@ -97,7 +96,7 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
     }
 
 //    public TextView getActionbarSubtitle() {
-//        return (TextView) this.findViewById(com.android.internal.R.id.action_bar_subtitle);// for default action bar
+//        return (TextView) this.findViewById(R.id.action_bar_subtitle);// for default action bar
 //    }
 
     @Override

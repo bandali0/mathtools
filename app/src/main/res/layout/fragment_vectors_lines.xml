@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ fragment_vectors_products.xml
-  ~ Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
+  ~ fragment_vectors_lines.xml
+  ~ Copyright (C) 2014 Amin Bandali <me@aminb.org>
   ~
   ~ MathTools is free software: you can redistribute it and/or modify it
   ~ under the terms of the GNU General Public License as published by the
@@ -18,55 +18,28 @@
   ~ with this program. If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical" android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingLeft="@dimen/activity_horizontal_margin"
-android:paddingRight="@dimen/activity_horizontal_margin"
-android:paddingTop="@dimen/activity_vertical_margin"
-android:paddingBottom="@dimen/activity_vertical_margin">
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/line_analyzer"
-    android:textColor="@color/mathtoolstheme_color"
-    android:fontFamily="sans-serif-light"
-    android:textSize="24sp"
-    android:layout_marginBottom="32dp"/>
-
-<LinearLayout
+<ScrollView
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:id="@+id/linesScrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:layout_marginTop="2dp"
-        android:layout_marginRight="12dp"
-        android:text="@string/vector_space"/>
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:id="@+id/rB2D"
-            android:textSize="15sp"
-            android:layout_marginRight="8dp"
-            android:text="@string/twodspace"/>
-        <RadioButton
-            android:checked="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rB3D"
-            android:textSize="15sp"
-            android:text="@string/threedspace"/>
-    </RadioGroup>
-</LinearLayout>
+        android:text="@string/line_analyzer"
+        android:textColor="@color/mathtoolstheme_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,162 +51,245 @@ android:paddingBottom="@dimen/activity_vertical_margin">
             android:textSize="17sp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="12dp"
-            android:text="@string/eq_form"/>
+            android:text="@string/vector_space"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:id="@+id/rB2D"
+                android:textSize="15sp"
+                android:layout_marginRight="8dp"
+                android:text="@string/twodspace"/>
+            <RadioButton
+                android:checked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rB3D"
+                android:textSize="15sp"
+                android:text="@string/threedspace"/>
+        </RadioGroup>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/eq_form"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:text="@string/eqvector"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:tag="0"
+                android:id="@+id/sEqForm" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="@string/eqvector"
-            style="@android:style/Widget.Holo.Light.Spinner"
-            android:tag="0"
-            android:id="@+id/sEqForm" />
+            android:text="@string/first_line"
+            android:textStyle="bold"
+            android:textColor="@color/mathtoolstheme_color"
+            android:textSize="19sp"/>
+
+        <LinearLayout
+            android:id="@+id/linesll1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" >
+
+            <EditText
+                android:id="@+id/linestextx0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="numberDecimal|numberSigned"
+                android:nextFocusDown="@+id/linestexty0"
+                android:ellipsize="start"
+                android:gravity="center_horizontal"
+                >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/linestexty0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="numberDecimal|numberSigned"
+                android:nextFocusDown="@+id/linestextdx"
+                android:ellipsize="start"
+                android:gravity="center_horizontal"
+                />
+
+            <EditText
+                android:id="@+id/linestextz0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="numberDecimal|numberSigned"
+                android:nextFocusDown="@+id/linestextdx"
+                android:visibility="gone"
+                android:ellipsize="start"
+                android:gravity="center_horizontal"
+                />
+
+            <EditText
+                android:id="@+id/linestextdx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="numberDecimal|numberSigned"
+                android:nextFocusDown="@+id/linestextdy"
+                android:ellipsize="start"
+                android:gravity="center_horizontal"
+                />
+
+            <EditText
+                android:id="@+id/linestextdy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="numberDecimal|numberSigned"
+                android:nextFocusDown="@+id/linestextxp0"
+                android:ellipsize="start"
+                android:gravity="center_horizontal"
+                />
+
+            <EditText
+                android:id="@+id/linestextdz"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="numberDecimal|numberSigned"
+                android:nextFocusDown="@+id/linestextxp0"
+                android:visibility="gone"
+                android:ellipsize="start"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
     </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp">
 
-<LinearLayout
-    android:id="@+id/linesll1"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="4" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/second_line"
+                android:textStyle="bold"
+                android:textColor="@color/mathtoolstheme_color"
+                android:textSize="19sp"/>
 
-    <EditText
-        android:id="@+id/linestextx1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestexty1"
-        >
+            <LinearLayout
+                android:id="@+id/linesll2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4" >
 
-        <requestFocus />
-    </EditText>
+                <EditText
+                    android:id="@+id/linestextxp0"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:nextFocusDown="@+id/linestextyp0"
+                    android:ellipsize="start"
+                    android:gravity="center_horizontal"/>
 
-    <EditText
-        android:id="@+id/linestexty1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestextx2"
-        />
+                <EditText
+                    android:id="@+id/linestextyp0"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:nextFocusDown="@+id/linestextdpx"
+                    android:ellipsize="start"
+                    android:gravity="center_horizontal"
+                    />
 
-    <EditText
-        android:id="@+id/linestextz1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestextx2"
-        android:visibility="gone"
-        />
+                <EditText
+                    android:id="@+id/linestextzp0"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:nextFocusDown="@+id/linestextdpx"
+                    android:visibility="gone"
+                    android:ellipsize="start"
+                    android:gravity="center_horizontal"
+                    />
 
-    <EditText
-        android:id="@+id/linestextx2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestexty2"
-        />
+                <EditText
+                    android:id="@+id/linestextdpx"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:nextFocusDown="@+id/linestextdpy"
+                    android:ellipsize="start"
+                    android:gravity="center_horizontal"
+                    />
 
-    <EditText
-        android:id="@+id/linestexty2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestextx3"
-        />
+                <EditText
+                    android:id="@+id/linestextdpy"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:ellipsize="start"
+                    android:gravity="center_horizontal"
+                    />
 
-    <EditText
-        android:id="@+id/linestextz2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestextx3"
-        android:visibility="gone"
-        />
-</LinearLayout>
+                <EditText
+                    android:id="@+id/linestextdpz"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:visibility="gone"
+                    android:ellipsize="start"
+                    android:gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </LinearLayout>
 
-<LinearLayout
-    android:id="@+id/linesll2"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="4" >
+    <Button
+        android:id="@+id/btnlinesclear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_marginTop="12dp"
+        android:text="@string/clear" />
 
-    <EditText
-        android:id="@+id/linestextx3"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestexty3"
-        >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/linestexty3"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestextx4"
-        />
-
-    <EditText
-        android:id="@+id/linestextz3"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestextx4"
-        android:visibility="gone"
-        />
-
-    <EditText
-        android:id="@+id/linestextx4"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:nextFocusDown="@+id/linestexty4"
-        />
-
-    <EditText
-        android:id="@+id/linestexty4"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        />
-
-    <EditText
-        android:id="@+id/linestextz4"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:inputType="numberDecimal|numberSigned"
-        android:visibility="gone"
-        />
-</LinearLayout>
-
-<Button
-    android:id="@+id/btnproductsclear"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:enabled="false"
-    android:layout_marginTop="12dp"
-    android:text="@string/clear" />
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:textAppearanceMedium"
-    android:fontFamily="sans-serif-light"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:layout_marginLeft="4dp"
-    android:id="@+id/result"/>
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="4dp"
+        android:id="@+id/result"/>
+    </LinearLayout>
+</ScrollView>

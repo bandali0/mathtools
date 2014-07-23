@@ -24,7 +24,7 @@
     <string name="mt_on_gplay">Google Play</string>
     <string name="mt_on_gplay_desc">Leave a review/comment</string>
     <string name="sendmeanemail">Email</string>
-    <string name="sendmeanemail_desc">me\@aminbandali.com</string>
+    <string name="sendmeanemail_desc">me\@aminb.org</string>
     <string name="mytwitter">Twitter</string>
     <string name="mytwitter_desc">\@aminban</string>
     <string name="mygplus">Google+</string>
@@ -37,7 +37,7 @@
     <string name="about_ok">OK</string>
     <string name="about_body"><![CDATA[
         <b><i>MATHTools</i> App</b><br>
-        Author: <a href="http://aminbandali.com">Amin Bandali</a><br>
+        Author: <a href="http://aminb.org">Amin Bandali</a><br>
         Get: <a href="https://github.com/aminb/mathtools">Source on GitHub</a><br>
         <br><br>
         Special thanks to <i>awesome</i> <b>Michael Cook</b><br>
@@ -93,10 +93,23 @@
     <string name="by">b&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="bz">b&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
 
+    <string name="x0">x&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="y0">y&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="z0">z&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="dx">d&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="dy">d&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="dz">d&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="xp0">x&#x2032;&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="yp0">y&#x2032;&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="zp0">z&#x2032;&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="dpx">d&#x2032;&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="dpy">d&#x2032;&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="dpz">d&#x2032;&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
+
     <string-array name="eq_forms_array">
         <item>Vector</item>
-        <item>Parametric</item>
-        <item>Symmetric</item>
+        <!--<item>Parametric</item>-->
+        <!--<item>Symmetric</item>-->
         <item>Standard</item>
     </string-array>
 
@@ -105,6 +118,8 @@
     <string name="vector_multiplication">Vector Multiplication</string>
     <string name="vector_projection">Vector Projection</string>
     <string name="line_analyzer">Line Analyzer</string>
+    <string name="first_line">First Line</string>
+    <string name="second_line">Second Line</string>
 
 
 </resources>

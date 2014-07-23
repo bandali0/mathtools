@@ -1,6 +1,6 @@
 /*
  * Line2D.java
- * Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
+ * Copyright (C) 2014 Amin Bandali <me@aminb.org>
  *
  * MathTools is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.math;
+package org.aminb.mathtools.app.math;
 
 import org.apache.commons.math3.geometry.euclidean.twod.Line;
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;

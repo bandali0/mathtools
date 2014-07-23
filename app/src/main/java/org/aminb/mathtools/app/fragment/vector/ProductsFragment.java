@@ -1,6 +1,6 @@
 /*
- * ProjectionsFragment.java
- * Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
+ * ProductsFragment.java
+ * Copyright (C) 2014 Amin Bandali <me@aminb.org>
  *
  * MathTools is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -16,7 +16,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.fragment.vector;
+package org.aminb.mathtools.app.fragment.vector;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -32,9 +32,8 @@ import android.text.Editable;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.math.VectorHelpers;
-import com.aminbandali.mathtools.app.util.Utils;
+import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.math.VectorHelpers;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class ProjectionsFragment extends Fragment {
+public class ProductsFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -65,23 +64,23 @@ public class ProjectionsFragment extends Fragment {
     @InjectView(R.id.result)
     TextView tVResult;
 
-    @InjectView(R.id.projectionsll1) LinearLayout row1;
-    @InjectView(R.id.projectionstextx1) EditText x1;
-    @InjectView(R.id.projectionstexty1) EditText y1;
-    @InjectView(R.id.projectionstextz1) EditText z1;
-    @InjectView(R.id.projectionstextx2) EditText x2;
-    @InjectView(R.id.projectionstexty2) EditText y2;
-    @InjectView(R.id.projectionstextz2) EditText z2;
+    @InjectView(R.id.productsll1) LinearLayout row1;
+    @InjectView(R.id.productstextx1) EditText x1;
+    @InjectView(R.id.productstexty1) EditText y1;
+    @InjectView(R.id.productstextz1) EditText z1;
+    @InjectView(R.id.productstextx2) EditText x2;
+    @InjectView(R.id.productstexty2) EditText y2;
+    @InjectView(R.id.productstextz2) EditText z2;
 
-    @InjectView(R.id.btnprojectionsclear) Button btnClear;
+    @InjectView(R.id.btnproductsclear) Button btnClear;
 
-    public ProjectionsFragment() {
+    public ProductsFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_vectors_projections, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_vectors_products, container, false);
         ButterKnife.inject(this, rootView);
         doInit();
         return rootView;
@@ -98,7 +97,7 @@ public class ProjectionsFragment extends Fragment {
         x2.setHint(Html.fromHtml(getResources().getString(R.string.bx)));
         y2.setHint(Html.fromHtml(getResources().getString(R.string.by)));
         z2.setHint(Html.fromHtml(getResources().getString(R.string.bz)));
-
+        
         // set up TextWatcher for all EditTexts
         x1.addTextChangedListener(new MTWatcher());
         y1.addTextChangedListener(new MTWatcher());
@@ -112,8 +111,8 @@ public class ProjectionsFragment extends Fragment {
     void chooseR2Space(RadioButton rB) {
         z1.setVisibility(View.GONE);
         z2.setVisibility(View.GONE);
-        y1.setNextFocusDownId(R.id.projectionstextx2);
-        y2.setNextFocusDownId(R.id.btnprojectionsclear);
+        y1.setNextFocusDownId(R.id.productstextx2);
+        y2.setNextFocusDownId(R.id.btnproductsclear);
         row1.setWeightSum(4);
         space = Space.space2D;
         inputChanged();
@@ -123,14 +122,14 @@ public class ProjectionsFragment extends Fragment {
         z1.setVisibility(View.VISIBLE);
         z2.setVisibility(View.VISIBLE);
         tVResult.setText("");
-        y1.setNextFocusDownId(R.id.projectionstextz1);
-        y2.setNextFocusDownId(R.id.projectionstextz2);
+        y1.setNextFocusDownId(R.id.productstextz1);
+        y2.setNextFocusDownId(R.id.productstextz2);
         row1.setWeightSum(6);
         space = Space.space3D;
         inputChanged();
     }
 
-    @OnClick(R.id.btnprojectionsclear)
+    @OnClick(R.id.btnproductsclear)
     void clearAll() {
         x1.setText("");
         x2.setText("");
@@ -164,24 +163,21 @@ public class ProjectionsFragment extends Fragment {
 
     private void analyzeInputs(List<Double> in1, List<Double> in2) {
 
-        String result = "x onto y (scalar):\n" +
-                new DecimalFormat("###.######").format(VectorHelpers.calcScalarProjection(in1, in2));
+        String result = "a . b = " + new DecimalFormat("###.######").format(VectorHelpers.calcDotProduct(in1, in2));
 
+        if ( in1.size() == 3 ) {
+            double[] resultCrossProduct = VectorHelpers.calcCrossProduct(in1, in2);
 
-        double[] resultVectorProjection = VectorHelpers.calcVectorProjection(in1, in2);
+            result += String.format("\n\na x b = (%s, %s, %s)",
+                    new DecimalFormat("###.######").format(resultCrossProduct[0]),
+                    new DecimalFormat("###.######").format(resultCrossProduct[1]),
+                    new DecimalFormat("###.######").format(resultCrossProduct[2]));
+        }
 
-        result += String.format("\n\nx onto y (vector):\n(%s, %s",
-                new DecimalFormat("###.######").format(resultVectorProjection[0]),
-                new DecimalFormat("###.######").format(resultVectorProjection[1]));
-
-        if (in1.size() == 3)
-            result += ", " + new DecimalFormat("###.######").format(resultVectorProjection[2]);
-
-        result += ")";
         tVResult.setText(result);
 
     }
-
+    
     public class MTWatcher implements TextWatcher {
         public void afterTextChanged(Editable s) {}
 
@@ -213,7 +209,7 @@ public class ProjectionsFragment extends Fragment {
                 }
 
                 analyzeInputs(one, two);
-
+                
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }

@@ -1,6 +1,6 @@
 /*
  * MainFragment.java
- * Copyright (C) 2014 Amin Bandali <me@aminbandali.com>
+ * Copyright (C) 2014 Amin Bandali <me@aminb.org>
  *
  * MathTools is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -16,31 +16,22 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aminbandali.mathtools.app.fragment;
+package org.aminb.mathtools.app.fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.TransitionDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.IconTextView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.aminbandali.mathtools.app.R;
-import com.aminbandali.mathtools.app.activity.ContentActivity;
-import com.aminbandali.mathtools.app.activity.FeedbackActivity;
+import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.activity.ContentActivity;
 
 import java.util.ArrayList;
 
@@ -48,7 +39,6 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.view.CardListView;
 
 
 public class MainFragment extends BaseFragment{

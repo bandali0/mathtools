@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.aminbandali.mathtools.app.activity.MainActivity" >
+    tools:context="org.aminb.mathtools.app.activity.MainActivity" >
     <item
         android:id="@+id/action_feedback"
         android:showAsAction="always"

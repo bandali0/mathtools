@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.aminb.mathtools.app.R;
@@ -68,6 +69,9 @@ public class LinesFragment extends Fragment {
 
     @InjectView(R.id.sEqForm)
     TextView eqForm;
+
+    @InjectView(R.id.linesScrollView)
+    ScrollView scrollView;
 
     @InjectView(R.id.linesll1) LinearLayout row1;
     @InjectView(R.id.linestextx1) EditText x1;
@@ -290,6 +294,16 @@ public class LinesFragment extends Fragment {
                 }
 
                 analyzeInputs(one, two);
+
+                final View curFocus = getActivity().getCurrentFocus();
+                scrollView.post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                        curFocus.requestFocus();
+                    }
+                });
 
             } catch (NumberFormatException e) {
                 e.printStackTrace();

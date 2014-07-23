@@ -154,7 +154,7 @@ public class MainFragment extends BaseFragment{
                             Bundle args = new Bundle();
                             args.putInt(ContentActivity.ARG_TITLE_ID, R.string.vectors);
                             args.putStringArray(ContentActivity.ARG_TITLES,
-                                    new String[]{"Products", "Projections", "Lines", "Cheat Sheet"});
+                                    new String[]{"Products", "Projections", "Lines"});
                             intent_content.putExtras(args);
                             startActivity(intent_content);
                         }

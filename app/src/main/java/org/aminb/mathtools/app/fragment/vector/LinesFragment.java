@@ -143,6 +143,53 @@ public class LinesFragment extends Fragment {
         dpz.addTextChangedListener(new MTWatcher());
     }
 
+    private void setVectorMode() {
+        clearAll();
+
+        x0.setHint(Html.fromHtml(getResources().getString(R.string.x0)));
+        y0.setHint(Html.fromHtml(getResources().getString(R.string.y0)));
+        z0.setHint(Html.fromHtml(getResources().getString(R.string.z0)));
+        xp0.setHint(Html.fromHtml(getResources().getString(R.string.xp0)));
+        yp0.setHint(Html.fromHtml(getResources().getString(R.string.yp0)));
+        zp0.setHint(Html.fromHtml(getResources().getString(R.string.zp0)));
+
+        z0.setVisibility(View.GONE);
+        zp0.setVisibility(View.GONE);
+        dx.setVisibility(View.VISIBLE);
+        dy.setVisibility(View.VISIBLE);
+        dz.setVisibility(View.VISIBLE);
+        dpx.setVisibility(View.VISIBLE);
+        dpy.setVisibility(View.VISIBLE);
+        dpz.setVisibility(View.VISIBLE);
+
+        y0.setNextFocusDownId(R.id.linestextdx);
+        dy.setNextFocusDownId(R.id.linestextxp0);
+        yp0.setNextFocusDownId(R.id.linestextdpx);
+        dpy.setNextFocusDownId(R.id.btnlinesclear);
+    }
+
+    private void setStandardMode() {
+        clearAll();
+        x0.setHint("A");
+        y0.setHint("B");
+        z0.setHint("C");
+        xp0.setHint("A\'");
+        yp0.setHint("B\'");
+        zp0.setHint("C\'");
+        z0.setVisibility(View.VISIBLE);
+        zp0.setVisibility(View.VISIBLE);
+        dx.setVisibility(View.GONE);
+        dy.setVisibility(View.GONE);
+        dz.setVisibility(View.GONE);
+        dpx.setVisibility(View.GONE);
+        dpy.setVisibility(View.GONE);
+        dpz.setVisibility(View.GONE);
+        y0.setNextFocusDownId(R.id.linestextz0);
+        z0.setNextFocusDownId(R.id.linestextxp0);
+        yp0.setNextFocusDownId(R.id.linestextzp0);
+        zp0.setNextFocusDownId(R.id.btnlinesclear);
+    }
+
     @OnClick(R.id.sEqForm)
     void chooseEqForm(final TextView tV) {
 
@@ -154,6 +201,11 @@ public class LinesFragment extends Fragment {
                 // of the selected item
                 tV.setText(getResources().getStringArray(R.array.eq_forms_array)[which]);
                 tV.setTag(which);
+
+                if (which == 0) // 0 == Vector
+                    setVectorMode();
+                else // 1 == Standard
+                    setStandardMode();
             }
         });
 
@@ -162,7 +214,7 @@ public class LinesFragment extends Fragment {
     }
 
     @OnClick(R.id.rB2D)
-    void chooseR2Space(RadioButton rB) {
+    void chooseR2Space() {
         z0.setVisibility(View.GONE);
         dz.setVisibility(View.GONE);
         zp0.setVisibility(View.GONE);
@@ -178,15 +230,18 @@ public class LinesFragment extends Fragment {
         inputChanged();
     }
     @OnClick(R.id.rB3D)
-    void chooseR3Space(RadioButton rB) {
+    void chooseR3Space() {
+        setVectorMode();
         z0.setVisibility(View.VISIBLE);
         dz.setVisibility(View.VISIBLE);
         zp0.setVisibility(View.VISIBLE);
         dpz.setVisibility(View.VISIBLE);
         tVResult.setText("");
         y0.setNextFocusDownId(R.id.linestextz0);
+        z0.setNextFocusDownId(R.id.linestextdx);
         dy.setNextFocusDownId(R.id.linestextdz);
         yp0.setNextFocusDownId(R.id.linestextzp0);
+        zp0.setNextFocusDownId(R.id.linestextdpx);
         dpy.setNextFocusDownId(R.id.linestextdpz);
         row1.setWeightSum(6);
         row2.setWeightSum(6);

@@ -41,16 +41,18 @@
         android:fontFamily="sans-serif-light"
         android:layout_marginBottom="16dp"/>
 
-    <LinearLayout
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:textSize="17sp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="6dp"
             android:text="@string/vector_space"/>
         <RadioGroup
             android:layout_width="wrap_content"
@@ -63,11 +65,13 @@
                 android:id="@+id/rB2D"
                 android:textSize="15sp"
                 android:layout_marginRight="8dp"
+                android:fontFamily="sans-serif-light"
                 android:text="@string/twodspace"/>
             <RadioButton
                 android:checked="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/rB3D"
                 android:textSize="15sp"
                 android:text="@string/threedspace"/>
@@ -78,12 +82,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:layout_marginTop="2dp"
-                android:layout_marginRight="12dp"
+                android:layout_marginRight="4dp"
+                android:fontFamily="sans-serif-light"
                 android:text="@string/eq_form"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -91,6 +97,7 @@
                 android:textSize="17sp"
                 android:text="@string/eqvector"
                 style="@android:style/Widget.Holo.Light.Spinner"
+                android:fontFamily="sans-serif-light"
                 android:tag="0"
                 android:id="@+id/sEqForm" />
         </LinearLayout>
@@ -108,7 +115,7 @@
             android:text="@string/first_line"
             android:fontFamily="sans-serif-light"
             android:textColor="@color/mathtoolstheme_color"
-            android:textSize="19sp"/>
+            android:textSize="17sp"/>
 
         <LinearLayout
             android:id="@+id/linesll1"
@@ -126,6 +133,7 @@
                 android:nextFocusDown="@+id/linestexty0"
                 android:ellipsize="start"
                 android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"
                 >
 
                 <requestFocus />
@@ -140,6 +148,7 @@
                 android:nextFocusDown="@+id/linestextdx"
                 android:ellipsize="start"
                 android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"
                 />
 
             <EditText
@@ -152,6 +161,7 @@
                 android:visibility="gone"
                 android:ellipsize="start"
                 android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"
                 />
 
             <EditText
@@ -163,6 +173,7 @@
                 android:nextFocusDown="@+id/linestextdy"
                 android:ellipsize="start"
                 android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"
                 />
 
             <EditText
@@ -174,6 +185,7 @@
                 android:nextFocusDown="@+id/linestextxp0"
                 android:ellipsize="start"
                 android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"
                 />
 
             <EditText
@@ -186,6 +198,7 @@
                 android:visibility="gone"
                 android:ellipsize="start"
                 android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -202,7 +215,7 @@
                 android:text="@string/second_line"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/mathtoolstheme_color"
-                android:textSize="19sp"/>
+                android:textSize="17sp"/>
 
             <LinearLayout
                 android:id="@+id/linesll2"
@@ -219,7 +232,8 @@
                     android:inputType="numberDecimal|numberSigned"
                     android:nextFocusDown="@+id/linestextyp0"
                     android:ellipsize="start"
-                    android:gravity="center_horizontal"/>
+                    android:gravity="center_horizontal"
+                    android:fontFamily="sans-serif-light"/>
 
                 <EditText
                     android:id="@+id/linestextyp0"
@@ -230,6 +244,7 @@
                     android:nextFocusDown="@+id/linestextdpx"
                     android:ellipsize="start"
                     android:gravity="center_horizontal"
+                    android:fontFamily="sans-serif-light"
                     />
 
                 <EditText
@@ -242,6 +257,7 @@
                     android:visibility="gone"
                     android:ellipsize="start"
                     android:gravity="center_horizontal"
+                    android:fontFamily="sans-serif-light"
                     />
 
                 <EditText
@@ -253,6 +269,7 @@
                     android:nextFocusDown="@+id/linestextdpy"
                     android:ellipsize="start"
                     android:gravity="center_horizontal"
+                    android:fontFamily="sans-serif-light"
                     />
 
                 <EditText
@@ -263,6 +280,7 @@
                     android:inputType="numberDecimal|numberSigned"
                     android:ellipsize="start"
                     android:gravity="center_horizontal"
+                    android:fontFamily="sans-serif-light"
                     />
 
                 <EditText
@@ -274,6 +292,7 @@
                     android:visibility="gone"
                     android:ellipsize="start"
                     android:gravity="center_horizontal"
+                    android:fontFamily="sans-serif-light"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -284,6 +303,7 @@
         android:layout_height="wrap_content"
         android:enabled="false"
         android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-light"
         android:text="@string/clear" />
 
     <TextView
@@ -291,6 +311,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:fontFamily="sans-serif-light"
         android:layout_marginLeft="4dp"
         android:id="@+id/result"/>
     </LinearLayout>

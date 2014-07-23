@@ -36,6 +36,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.math.Line2D;
 import org.aminb.mathtools.app.math.VectorHelpers;
 
 import java.text.DecimalFormat;
@@ -74,20 +75,20 @@ public class LinesFragment extends Fragment {
     ScrollView scrollView;
 
     @InjectView(R.id.linesll1) LinearLayout row1;
-    @InjectView(R.id.linestextx1) EditText x1;
-    @InjectView(R.id.linestexty1) EditText y1;
-    @InjectView(R.id.linestextz1) EditText z1;
-    @InjectView(R.id.linestextx2) EditText x2;
-    @InjectView(R.id.linestexty2) EditText y2;
-    @InjectView(R.id.linestextz2) EditText z2;
+    @InjectView(R.id.linestextx0) EditText x0;
+    @InjectView(R.id.linestexty0) EditText y0;
+    @InjectView(R.id.linestextz0) EditText z0;
+    @InjectView(R.id.linestextdx) EditText dx;
+    @InjectView(R.id.linestextdy) EditText dy;
+    @InjectView(R.id.linestextdz) EditText dz;
 
     @InjectView(R.id.linesll2) LinearLayout row2;
-    @InjectView(R.id.linestextx3) EditText x3;
-    @InjectView(R.id.linestexty3) EditText y3;
-    @InjectView(R.id.linestextz3) EditText z3;
-    @InjectView(R.id.linestextx4) EditText x4;
-    @InjectView(R.id.linestexty4) EditText y4;
-    @InjectView(R.id.linestextz4) EditText z4;
+    @InjectView(R.id.linestextxp0) EditText xp0;
+    @InjectView(R.id.linestextyp0) EditText yp0;
+    @InjectView(R.id.linestextzp0) EditText zp0;
+    @InjectView(R.id.linestextdpx) EditText dpx;
+    @InjectView(R.id.linestextdpy) EditText dpy;
+    @InjectView(R.id.linestextdpz) EditText dpz;
 
     @InjectView(R.id.btnlinesclear) Button btnClear;
 
@@ -110,35 +111,35 @@ public class LinesFragment extends Fragment {
         rB2D.setText(Html.fromHtml(getResources().getString(R.string.r2)));
         rB3D.setText(Html.fromHtml(getResources().getString(R.string.r3)));
 
-        x1.setHint(Html.fromHtml(getResources().getString(R.string.x1)));
-        y1.setHint(Html.fromHtml(getResources().getString(R.string.y1)));
-        z1.setHint(Html.fromHtml(getResources().getString(R.string.z1)));
+        x0.setHint(Html.fromHtml(getResources().getString(R.string.x0)));
+        y0.setHint(Html.fromHtml(getResources().getString(R.string.y0)));
+        z0.setHint(Html.fromHtml(getResources().getString(R.string.z0)));
 
-        x2.setHint(Html.fromHtml(getResources().getString(R.string.x2)));
-        y2.setHint(Html.fromHtml(getResources().getString(R.string.y2)));
-        z2.setHint(Html.fromHtml(getResources().getString(R.string.z2)));
+        dx.setHint(Html.fromHtml(getResources().getString(R.string.dx)));
+        dy.setHint(Html.fromHtml(getResources().getString(R.string.dy)));
+        dz.setHint(Html.fromHtml(getResources().getString(R.string.dz)));
 
-        x3.setHint(Html.fromHtml(getResources().getString(R.string.x3)));
-        y3.setHint(Html.fromHtml(getResources().getString(R.string.y3)));
-        z3.setHint(Html.fromHtml(getResources().getString(R.string.z3)));
+        xp0.setHint(Html.fromHtml(getResources().getString(R.string.xp0)));
+        yp0.setHint(Html.fromHtml(getResources().getString(R.string.yp0)));
+        zp0.setHint(Html.fromHtml(getResources().getString(R.string.zp0)));
 
-        x4.setHint(Html.fromHtml(getResources().getString(R.string.x4)));
-        y4.setHint(Html.fromHtml(getResources().getString(R.string.y4)));
-        z4.setHint(Html.fromHtml(getResources().getString(R.string.z4)));
+        dpx.setHint(Html.fromHtml(getResources().getString(R.string.dpx)));
+        dpy.setHint(Html.fromHtml(getResources().getString(R.string.dpy)));
+        dpz.setHint(Html.fromHtml(getResources().getString(R.string.dpz)));
         
         // set up TextWatcher for all EditTexts
-        x1.addTextChangedListener(new MTWatcher());
-        y1.addTextChangedListener(new MTWatcher());
-        z1.addTextChangedListener(new MTWatcher());
-        x2.addTextChangedListener(new MTWatcher());
-        y2.addTextChangedListener(new MTWatcher());
-        z2.addTextChangedListener(new MTWatcher());
-        x3.addTextChangedListener(new MTWatcher());
-        y3.addTextChangedListener(new MTWatcher());
-        z3.addTextChangedListener(new MTWatcher());
-        x4.addTextChangedListener(new MTWatcher());
-        y4.addTextChangedListener(new MTWatcher());
-        z4.addTextChangedListener(new MTWatcher());
+        x0.addTextChangedListener(new MTWatcher());
+        y0.addTextChangedListener(new MTWatcher());
+        z0.addTextChangedListener(new MTWatcher());
+        dx.addTextChangedListener(new MTWatcher());
+        dy.addTextChangedListener(new MTWatcher());
+        dz.addTextChangedListener(new MTWatcher());
+        xp0.addTextChangedListener(new MTWatcher());
+        yp0.addTextChangedListener(new MTWatcher());
+        zp0.addTextChangedListener(new MTWatcher());
+        dpx.addTextChangedListener(new MTWatcher());
+        dpy.addTextChangedListener(new MTWatcher());
+        dpz.addTextChangedListener(new MTWatcher());
     }
 
     @OnClick(R.id.sEqForm)
@@ -161,14 +162,14 @@ public class LinesFragment extends Fragment {
 
     @OnClick(R.id.rB2D)
     void chooseR2Space(RadioButton rB) {
-        z1.setVisibility(View.GONE);
-        z2.setVisibility(View.GONE);
-        z3.setVisibility(View.GONE);
-        z4.setVisibility(View.GONE);
-        y1.setNextFocusDownId(R.id.linestextx2);
-        y2.setNextFocusDownId(R.id.linestextx3);
-        y3.setNextFocusDownId(R.id.linestextx4);
-        y4.setNextFocusDownId(R.id.btnlinesclear);
+        z0.setVisibility(View.GONE);
+        dz.setVisibility(View.GONE);
+        zp0.setVisibility(View.GONE);
+        dpz.setVisibility(View.GONE);
+        y0.setNextFocusDownId(R.id.linestextdx);
+        dy.setNextFocusDownId(R.id.linestextxp0);
+        yp0.setNextFocusDownId(R.id.linestextdpx);
+        dpy.setNextFocusDownId(R.id.btnlinesclear);
         row1.setWeightSum(4);
         row2.setWeightSum(4);
         space = Space.space2D;
@@ -176,15 +177,15 @@ public class LinesFragment extends Fragment {
     }
     @OnClick(R.id.rB3D)
     void chooseR3Space(RadioButton rB) {
-        z1.setVisibility(View.VISIBLE);
-        z2.setVisibility(View.VISIBLE);
-        z3.setVisibility(View.VISIBLE);
-        z4.setVisibility(View.VISIBLE);
+        z0.setVisibility(View.VISIBLE);
+        dz.setVisibility(View.VISIBLE);
+        zp0.setVisibility(View.VISIBLE);
+        dpz.setVisibility(View.VISIBLE);
         tVResult.setText("");
-        y1.setNextFocusDownId(R.id.linestextz1);
-        y2.setNextFocusDownId(R.id.linestextz2);
-        y3.setNextFocusDownId(R.id.linestextz3);
-        y4.setNextFocusDownId(R.id.linestextz4);
+        y0.setNextFocusDownId(R.id.linestextz0);
+        dy.setNextFocusDownId(R.id.linestextdz);
+        yp0.setNextFocusDownId(R.id.linestextzp0);
+        dpy.setNextFocusDownId(R.id.linestextdpz);
         row1.setWeightSum(6);
         row2.setWeightSum(6);
         space = Space.space3D;
@@ -193,14 +194,20 @@ public class LinesFragment extends Fragment {
 
     @OnClick(R.id.btnlinesclear)
     void clearAll() {
-        x1.setText("");
-        x2.setText("");
-        y1.setText("");
-        y2.setText("");
-        z1.setText("");
-        z2.setText("");
+        x0.setText("");
+        dx.setText("");
+        xp0.setText("");
+        dpx.setText("");
+        y0.setText("");
+        dy.setText("");
+        yp0.setText("");
+        dpy.setText("");
+        z0.setText("");
+        dz.setText("");
+        zp0.setText("");
+        dpz.setText("");
         tVResult.setText("");
-        x1.requestFocus();
+        x0.requestFocus();
     }
 
     @Override
@@ -221,45 +228,66 @@ public class LinesFragment extends Fragment {
 
     private boolean allEditTextsFilled() {
         if (space == Space.space2D)
-            return x1.getText().length() > 0 && y1.getText().length() > 0 &&
-                    x2.getText().length() > 0 && y2.getText().length() > 0 &&
-                    x3.getText().length() > 0 && y3.getText().length() > 0 &&
-                    x4.getText().length() > 0 && y4.getText().length() > 0;
+            return x0.getText().length() > 0 && y0.getText().length() > 0 &&
+                    dx.getText().length() > 0 && dy.getText().length() > 0 &&
+                    xp0.getText().length() > 0 && yp0.getText().length() > 0 &&
+                    dpx.getText().length() > 0 && dpy.getText().length() > 0;
 
         // else: space == Space.space3D
-        return x1.getText().length() > 0 && y1.getText().length() > 0 && z1.getText().length() > 0 &&
-                x2.getText().length() > 0 && y2.getText().length() > 0 && z2.getText().length() > 0 &&
-                x3.getText().length() > 0 && y3.getText().length() > 0 && z3.getText().length() > 0 &&
-                x4.getText().length() > 0 && y4.getText().length() > 0 && z4.getText().length() > 0;
+        return x0.getText().length() > 0 && y0.getText().length() > 0 && z0.getText().length() > 0 &&
+                dx.getText().length() > 0 && dy.getText().length() > 0 && dz.getText().length() > 0 &&
+                xp0.getText().length() > 0 && yp0.getText().length() > 0 && zp0.getText().length() > 0 &&
+                dpx.getText().length() > 0 && dpy.getText().length() > 0 && dpz.getText().length() > 0;
     }
 
     private boolean allEditTextsEmpty() {
         if (space == Space.space2D)
-            return !(x1.getText().length() > 0 || y1.getText().length() > 0 ||
-                    x2.getText().length() > 0 || y2.getText().length() > 0);
+            return !(x0.getText().length() > 0 || y0.getText().length() > 0 ||
+                    dx.getText().length() > 0 || dy.getText().length() > 0);
 
         // else: space == Space.space3D
-        return !(x1.getText().length() > 0 || y1.getText().length() > 0 || z1.getText().length() > 0 ||
-                x2.getText().length() > 0 || y2.getText().length() > 0 || z2.getText().length() > 0);
+        return !(x0.getText().length() > 0 || y0.getText().length() > 0 || z0.getText().length() > 0 ||
+                dx.getText().length() > 0 || dy.getText().length() > 0 || dz.getText().length() > 0);
     }
 
-    private void analyzeInputs(List<Double> in1, List<Double> in2) {
+    private void analyzeInputs(List<Double> in1, List<Double> in2, List<Double> in3, List<Double> in4) {
 
-        String result = "x onto y (scalar):\n" +
-                new DecimalFormat("###.######").format(VectorHelpers.calcScalarProjection(in1, in2));
+        if (space == Space.space2D) {
+            Line2D line1 = new Line2D(new double[]{in1.get(0), in1.get(1)},
+                    new double[] {in2.get(0), in2.get(1)});
+            Line2D line2 = new Line2D(new double[]{in3.get(0), in3.get(1)},
+                    new double[] {in4.get(0), in4.get(1)});
 
+            String result = "";
+            if (line1.ifHasIntersection(line2))
+                result += "The two lines intersect.\n\nPoint of intersection:\n(" +
+                        new DecimalFormat("###.######").format(line1.getTmpIntersect()[0]) + ", " +
+                        new DecimalFormat("###.######").format(line1.getTmpIntersect()[1]) + ") ";
+            else
+                result += "The two lines are parallel.\n\nDistance between them: " +
+                    new DecimalFormat("###.######").format(line1.getDistanceFrom(line2)) + " units.";
 
-        double[] resultVectorProjection = VectorHelpers.calcVectorProjection(in1, in2);
+            tVResult.setText(result);
+        }
+        else {
 
-        result += String.format("\n\nx onto y (vector):\n(%s, %s",
-                new DecimalFormat("###.######").format(resultVectorProjection[0]),
-                new DecimalFormat("###.######").format(resultVectorProjection[1]));
+        }
 
-        if (in1.size() == 3)
-            result += ", " + new DecimalFormat("###.######").format(resultVectorProjection[2]);
-
-        result += ")";
-        tVResult.setText(result);
+//        String result = "x onto y (scalar):\n" +
+//                new DecimalFormat("###.######").format(VectorHelpers.calcScalarProjection(in1, in2));
+//
+//
+//        double[] resultVectorProjection = VectorHelpers.calcVectorProjection(in1, in2);
+//
+//        result += String.format("\n\nx onto y (vector):\n(%s, %s",
+//                new DecimalFormat("###.######").format(resultVectorProjection[0]),
+//                new DecimalFormat("###.######").format(resultVectorProjection[1]));
+//
+//        if (in1.size() == 3)
+//            result += ", " + new DecimalFormat("###.######").format(resultVectorProjection[2]);
+//
+//        result += ")";
+//        tVResult.setText(result);
 
     }
 
@@ -281,19 +309,30 @@ public class LinesFragment extends Fragment {
 
             try {
                 List<Double> one = new ArrayList<Double>(),
-                        two = new ArrayList<Double>();
+                        two = new ArrayList<Double>(),
+                        three = new ArrayList<Double>(),
+                        four = new ArrayList<Double>();
 
-                one.add(Double.parseDouble(x1.getText().toString()));
-                one.add(Double.parseDouble(y1.getText().toString()));
-                two.add(Double.parseDouble(x2.getText().toString()));
-                two.add(Double.parseDouble(y2.getText().toString()));
+                // x and d (line 1)
+                one.add(Double.parseDouble(x0.getText().toString()));
+                one.add(Double.parseDouble(y0.getText().toString()));
+                two.add(Double.parseDouble(dx.getText().toString()));
+                two.add(Double.parseDouble(dy.getText().toString()));
+
+                // x' and d' (line 2)
+                three.add(Double.parseDouble(xp0.getText().toString()));
+                three.add(Double.parseDouble(yp0.getText().toString()));
+                four.add(Double.parseDouble(dpx.getText().toString()));
+                four.add(Double.parseDouble(dpy.getText().toString()));
 
                 if (space == Space.space3D) {
-                    one.add(Double.parseDouble(z1.getText().toString()));
-                    two.add(Double.parseDouble(z2.getText().toString()));
+                    one.add(Double.parseDouble(z0.getText().toString()));
+                    two.add(Double.parseDouble(dz.getText().toString()));
+                    three.add(Double.parseDouble(zp0.getText().toString()));
+                    four.add(Double.parseDouble(dpz.getText().toString()));
                 }
 
-                analyzeInputs(one, two);
+                analyzeInputs(one, two, three, four);
 
                 final View curFocus = getActivity().getCurrentFocus();
                 scrollView.post(new Runnable() {

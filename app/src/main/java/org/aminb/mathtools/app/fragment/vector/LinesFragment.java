@@ -26,6 +26,9 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -39,6 +42,7 @@ import org.aminb.mathtools.app.R;
 import org.aminb.mathtools.app.math.Line2D;
 import org.aminb.mathtools.app.math.Line3D;
 import org.aminb.mathtools.app.math.VectorHelpers;
+import org.aminb.mathtools.app.util.Utils;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -325,6 +329,31 @@ public class LinesFragment extends Fragment {
         // else: space == Space.space3D
         return !(x0.getText().length() > 0 || y0.getText().length() > 0 || z0.getText().length() > 0 ||
                 dx.getText().length() > 0 || dy.getText().length() > 0 || dz.getText().length() > 0);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.content, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.action_help:
+                Utils.showHelp(getActivity(), R.string.lines_help_body);
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void analyzeInputs(List<Double> in1, List<Double> in2, List<Double> in3, List<Double> in4) {

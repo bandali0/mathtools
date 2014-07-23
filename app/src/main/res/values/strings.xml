@@ -7,6 +7,7 @@
     <string name="action_feedback">Feedback</string>
     <string name="action_about">About</string>
     <string name="action_cheat_sheet">Cheat Sheet</string>
+    <string name="action_help">Help</string>
 
     <!-- MainFragment Navigation -->
     <string name="vectors">Vectors</string>
@@ -51,6 +52,30 @@
         <i>by Joan Zapata</i><br><br>
         <b><a href="http://commons.apache.org/math/">Apache Commons Math</a></b><br>
         <i>by The Apache Software Foundation</i><br><br>
+
+    ]]></string>
+
+    <string name="title_help"><![CDATA[
+        <b><i><font color="#FFFFFF">MATHTools</font></i></b>&nbsp;<small><font color="#EEEEEE">%1$s</font></small>
+    ]]></string>
+    <string name="lines_help_body"><![CDATA[
+        <b><i>Line Analyzer</i></b><br><br>
+
+        - <i>Vector</i> equation of a line:<br>
+        <b>R<sup><small>2</small></sup>:</b>
+        (x, y) = (<b>x<sub><small>0</small></sub></b>, <b>y<sub><small>0</small></sub></b>) + k (<b>d<sub><small>x</small></sub></b>, <b>d<sub><small>y</small></sub></b>)<br>
+        <b>R<sup><small>3</small></sup>:</b>
+        (x, y, z) = (<b>x<sub><small>0</small></sub></b>, <b>y<sub><small>0</small></sub></b>, <b>z<sub><small>0</small></sub></b>) + k (<b>d<sub><small>x</small></sub></b>, <b>d<sub><small>y</small></sub></b>, <b>d<sub><small>y</small></sub></b>)<br>
+
+        (<b>x<sub><small>0</small></sub></b>, <b>y<sub><small>0</small></sub></b>) - or (<b>x<sub><small>0</small></sub></b>, <b>y<sub><small>0</small></sub></b>, <b>z<sub><small>0</small></sub></b>) - is a point on the line.<br>
+        (<b>d<sub><small>x</small></sub></b>, <b>d<sub><small>y</small></sub></b>) - or (<b>d<sub><small>x</small></sub></b>, <b>d<sub><small>y</small></sub></b>, <b>d<sub><small>y</small></sub></b>) - is the direction vector of the line.<br><br>
+
+        - <i>Standard</i> equation of a line:<br>
+        <b>R<sup><small>2</small></sup>:</b>
+        <b>A</b>x + <b>B</b>y + <b>C</b> = 0<br>
+        <b>R<sup><small>3</small></sup>:</b>
+        -<br>
+        <b>A</b> and <b>B</b> (coefficients of x and y) are the x and y components of the normal vector respectively.
 
     ]]></string>
 

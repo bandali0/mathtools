@@ -55,6 +55,21 @@ public class Utils {
         new AboutDialog().show(ft,"dialog_about");
     }
 
+    public static void showHelp(Activity activity, int stringResId) {
+
+        FragmentManager fm = activity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Fragment prev = fm.findFragmentByTag("dialog_help");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        HelpDialog h = new HelpDialog();
+        h.helpTextResId = stringResId;
+        h.show(ft,"dialog_help");
+    }
+
     /**
      * About Dialog
      */
@@ -92,6 +107,52 @@ public class Utils {
 
             TextView aboutBodyView = (TextView) rootView.findViewById(R.id.about_body);
             aboutBodyView.setText(Html.fromHtml(getString(R.string.about_body)));
+            aboutBodyView.setMovementMethod(new LinkMovementMethod());
+
+            return new AlertDialog.Builder(getActivity())
+                    //.setTitle(R.string.title_about)
+                    .setView(rootView)
+                    .setPositiveButton(R.string.about_ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    dialog.dismiss();
+                                }
+                            }
+                    )
+                    .create();
+        }
+    }
+
+    /**
+     * Help Dialog
+     */
+    public static class HelpDialog extends DialogFragment {
+
+        private static final String VERSION_UNAVAILABLE = "N/A";
+
+        public HelpDialog() {
+        }
+
+        public int helpTextResId;
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+
+            // Build the about body view and append the link to see OSS licenses
+            //SpannableStringBuilder aboutBody = new SpannableStringBuilder();
+            //aboutBody.append(Html.fromHtml(getString(R.string.about_body, versionName)));
+
+
+            LayoutInflater layoutInflater = getActivity().getLayoutInflater();
+            View rootView = layoutInflater.inflate(R.layout.dialog_about, null);
+            TextView nameAndVersionView = (TextView) rootView.findViewById(
+                    R.id.app_name_and_version);
+            nameAndVersionView.setText(Html.fromHtml(
+                    getString(R.string.title_help, "Help")));
+
+            TextView aboutBodyView = (TextView) rootView.findViewById(R.id.about_body);
+            aboutBodyView.setText(Html.fromHtml(getString(helpTextResId)));
             aboutBodyView.setMovementMethod(new LinkMovementMethod());
 
             return new AlertDialog.Builder(getActivity())

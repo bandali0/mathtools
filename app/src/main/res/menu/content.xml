@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item-->
+        <!--android:id="@+id/action_cheat_sheet"-->
+        <!--android:showAsAction="always"-->
+        <!--android:title="@string/action_cheat_sheet"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:icon="@drawable/ic_action_cheat_sheet"/>-->
     <item
-        android:id="@+id/action_cheat_sheet"
+        android:id="@+id/action_help"
         android:showAsAction="always"
-        android:title="@string/action_cheat_sheet"
+        android:title="@string/action_help"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_action_cheat_sheet"/>
+        android:icon="@android:drawable/ic_menu_help"/>
 </menu>

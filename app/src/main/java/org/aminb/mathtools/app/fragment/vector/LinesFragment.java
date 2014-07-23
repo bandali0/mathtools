@@ -63,6 +63,11 @@ public class LinesFragment extends Fragment {
     }
     private Space space = Space.space2D;
 
+    private enum EqForm{
+        vector, standard
+    }
+    private EqForm equationForm = EqForm.vector;
+
     @InjectView(R.id.rB2D)
     RadioButton rB2D;
 
@@ -166,16 +171,20 @@ public class LinesFragment extends Fragment {
         dy.setNextFocusDownId(R.id.linestextxp0);
         yp0.setNextFocusDownId(R.id.linestextdpx);
         dpy.setNextFocusDownId(R.id.btnlinesclear);
+
+        equationForm = EqForm.vector;
     }
 
     private void setStandardMode() {
         clearAll();
+
         x0.setHint("A");
         y0.setHint("B");
         z0.setHint("C");
         xp0.setHint("A\'");
         yp0.setHint("B\'");
         zp0.setHint("C\'");
+
         z0.setVisibility(View.VISIBLE);
         zp0.setVisibility(View.VISIBLE);
         dx.setVisibility(View.GONE);
@@ -184,10 +193,13 @@ public class LinesFragment extends Fragment {
         dpx.setVisibility(View.GONE);
         dpy.setVisibility(View.GONE);
         dpz.setVisibility(View.GONE);
+
         y0.setNextFocusDownId(R.id.linestextz0);
         z0.setNextFocusDownId(R.id.linestextxp0);
         yp0.setNextFocusDownId(R.id.linestextzp0);
         zp0.setNextFocusDownId(R.id.btnlinesclear);
+
+        equationForm = EqForm.standard;
     }
 
     @OnClick(R.id.sEqForm)
@@ -287,17 +299,22 @@ public class LinesFragment extends Fragment {
     }
 
     private boolean allEditTextsFilled() {
-        if (space == Space.space2D)
-            return x0.getText().length() > 0 && y0.getText().length() > 0 &&
-                    dx.getText().length() > 0 && dy.getText().length() > 0 &&
-                    xp0.getText().length() > 0 && yp0.getText().length() > 0 &&
-                    dpx.getText().length() > 0 && dpy.getText().length() > 0;
+        if (equationForm == EqForm.vector) {
+            if (space == Space.space2D)
+                return x0.getText().length() > 0 && y0.getText().length() > 0 &&
+                        dx.getText().length() > 0 && dy.getText().length() > 0 &&
+                        xp0.getText().length() > 0 && yp0.getText().length() > 0 &&
+                        dpx.getText().length() > 0 && dpy.getText().length() > 0;
 
-        // else: space == Space.space3D
-        return x0.getText().length() > 0 && y0.getText().length() > 0 && z0.getText().length() > 0 &&
-                dx.getText().length() > 0 && dy.getText().length() > 0 && dz.getText().length() > 0 &&
-                xp0.getText().length() > 0 && yp0.getText().length() > 0 && zp0.getText().length() > 0 &&
-                dpx.getText().length() > 0 && dpy.getText().length() > 0 && dpz.getText().length() > 0;
+            // else: space == Space.space3D
+            return x0.getText().length() > 0 && y0.getText().length() > 0 && z0.getText().length() > 0 &&
+                    dx.getText().length() > 0 && dy.getText().length() > 0 && dz.getText().length() > 0 &&
+                    xp0.getText().length() > 0 && yp0.getText().length() > 0 && zp0.getText().length() > 0 &&
+                    dpx.getText().length() > 0 && dpy.getText().length() > 0 && dpz.getText().length() > 0;
+        }
+        else
+            return x0.getText().length() > 0 && y0.getText().length() > 0 && z0.getText().length() > 0 &&
+                    xp0.getText().length() > 0 && yp0.getText().length() > 0 && zp0.getText().length() > 0;
     }
 
     private boolean allEditTextsEmpty() {
@@ -314,20 +331,41 @@ public class LinesFragment extends Fragment {
 
         String result = "";
 
-        if (space == Space.space2D) {
-            Line2D line1 = new Line2D(new double[]{in1.get(0), in1.get(1)},
-                    new double[] {in2.get(0), in2.get(1)});
-            Line2D line2 = new Line2D(new double[]{in3.get(0), in3.get(1)},
-                    new double[] {in4.get(0), in4.get(1)});
+        if (space == Space.space2D)
+            if (equationForm == EqForm.vector) {
+                Line2D line1 = new Line2D(new double[]{in1.get(0), in1.get(1)},
+                        new double[] {in2.get(0), in2.get(1)});
+                Line2D line2 = new Line2D(new double[]{in3.get(0), in3.get(1)},
+                        new double[] {in4.get(0), in4.get(1)});
 
-            if (line1.ifHasIntersection(line2))
-                result += "The two lines intersect.\n\nPoint of intersection:\n(" +
-                        new DecimalFormat("###.######").format(line1.getTmpIntersect()[0]) + ", " +
-                        new DecimalFormat("###.######").format(line1.getTmpIntersect()[1]) + ") ";
-            else
-                result += "The two lines are parallel.\n\nDistance between them: " +
-                    new DecimalFormat("###.######").format(line1.getDistanceFrom(line2)) + " units.";
-        }
+                if (line1.ifHasIntersection(line2))
+                    result += "The two lines intersect.\n\nPoint of intersection:\n(" +
+                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[0]) + ", " +
+                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[1]) + ") ";
+                else
+                    result += "The two lines are parallel.\n\nDistance between them: " +
+                        new DecimalFormat("###.######").format(line1.getDistanceFrom(line2)) + " units.";
+            }
+
+            else { // equationForm == EqForm.standard
+                Line2D line1 = new Line2D(new double[]{in1.get(0), in1.get(1), in1.get(2)});
+                Line2D line2 = new Line2D(new double[]{in3.get(0), in3.get(1), in3.get(2)});
+
+                if (line1.ifHasIntersection(line2))
+                    result += "The two lines intersect.\n\nPoint of intersection:\n(" +
+                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[0]) + ", " +
+                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[1]) + ") ";
+                else {
+                    double dist = line1.getDistanceFrom(line2);
+                    String distString = new DecimalFormat("###.######").format(dist);
+
+                    if (distString.equals("0"))
+                        result += "The two lines are identical.";
+                    else
+                        result += "The two lines are parallel.\n\nDistance between them: " +
+                                distString + " units.";
+                }
+            }
 
         else {
             Line3D line1 = new Line3D(new double[]{in1.get(0), in1.get(1), in1.get(2)},
@@ -388,26 +426,41 @@ public class LinesFragment extends Fragment {
                         three = new ArrayList<Double>(),
                         four = new ArrayList<Double>();
 
-                // x and d (line 1)
-                one.add(Double.parseDouble(x0.getText().toString()));
-                one.add(Double.parseDouble(y0.getText().toString()));
-                two.add(Double.parseDouble(dx.getText().toString()));
-                two.add(Double.parseDouble(dy.getText().toString()));
+                if (equationForm == EqForm.vector) {
+                    // x and d (line 1)
+                    one.add(Double.parseDouble(x0.getText().toString()));
+                    one.add(Double.parseDouble(y0.getText().toString()));
+                    two.add(Double.parseDouble(dx.getText().toString()));
+                    two.add(Double.parseDouble(dy.getText().toString()));
 
-                // x' and d' (line 2)
-                three.add(Double.parseDouble(xp0.getText().toString()));
-                three.add(Double.parseDouble(yp0.getText().toString()));
-                four.add(Double.parseDouble(dpx.getText().toString()));
-                four.add(Double.parseDouble(dpy.getText().toString()));
+                    // x' and d' (line 2)
+                    three.add(Double.parseDouble(xp0.getText().toString()));
+                    three.add(Double.parseDouble(yp0.getText().toString()));
+                    four.add(Double.parseDouble(dpx.getText().toString()));
+                    four.add(Double.parseDouble(dpy.getText().toString()));
 
-                if (space == Space.space3D) {
-                    one.add(Double.parseDouble(z0.getText().toString()));
-                    two.add(Double.parseDouble(dz.getText().toString()));
-                    three.add(Double.parseDouble(zp0.getText().toString()));
-                    four.add(Double.parseDouble(dpz.getText().toString()));
+                    if (space == Space.space3D) {
+                        one.add(Double.parseDouble(z0.getText().toString()));
+                        two.add(Double.parseDouble(dz.getText().toString()));
+                        three.add(Double.parseDouble(zp0.getText().toString()));
+                        four.add(Double.parseDouble(dpz.getText().toString()));
+                    }
+
+                    analyzeInputs(one, two, three, four);
                 }
+                else { // equationForm == EqForm.standard
+                    // line 1
+                    one.add(Double.parseDouble(x0.getText().toString()));
+                    one.add(Double.parseDouble(y0.getText().toString()));
+                    one.add(Double.parseDouble(z0.getText().toString()));
 
-                analyzeInputs(one, two, three, four);
+                    // line 2
+                    three.add(Double.parseDouble(xp0.getText().toString()));
+                    three.add(Double.parseDouble(yp0.getText().toString()));
+                    three.add(Double.parseDouble(zp0.getText().toString()));
+
+                    analyzeInputs(one, null, three, null);
+                }
 
                 final View curFocus = getActivity().getCurrentFocus();
                 scrollView.post(new Runnable() {

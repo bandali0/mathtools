@@ -173,6 +173,7 @@ public class LinesFragment extends Fragment {
         dpy.setNextFocusDownId(R.id.btnlinesclear);
         row1.setWeightSum(4);
         row2.setWeightSum(4);
+        eqForm.setEnabled(true);
         space = Space.space2D;
         inputChanged();
     }
@@ -189,6 +190,9 @@ public class LinesFragment extends Fragment {
         dpy.setNextFocusDownId(R.id.linestextdpz);
         row1.setWeightSum(6);
         row2.setWeightSum(6);
+        eqForm.setText(R.string.eqvector);
+        eqForm.setTag(0);
+        eqForm.setEnabled(false);
         space = Space.space3D;
         inputChanged();
     }

@@ -37,6 +37,7 @@ import android.widget.TextView;
 
 import org.aminb.mathtools.app.R;
 import org.aminb.mathtools.app.math.Line2D;
+import org.aminb.mathtools.app.math.Line3D;
 import org.aminb.mathtools.app.math.VectorHelpers;
 
 import java.text.DecimalFormat;
@@ -252,13 +253,14 @@ public class LinesFragment extends Fragment {
 
     private void analyzeInputs(List<Double> in1, List<Double> in2, List<Double> in3, List<Double> in4) {
 
+        String result = "";
+
         if (space == Space.space2D) {
             Line2D line1 = new Line2D(new double[]{in1.get(0), in1.get(1)},
                     new double[] {in2.get(0), in2.get(1)});
             Line2D line2 = new Line2D(new double[]{in3.get(0), in3.get(1)},
                     new double[] {in4.get(0), in4.get(1)});
 
-            String result = "";
             if (line1.ifHasIntersection(line2))
                 result += "The two lines intersect.\n\nPoint of intersection:\n(" +
                         new DecimalFormat("###.######").format(line1.getTmpIntersect()[0]) + ", " +
@@ -266,28 +268,42 @@ public class LinesFragment extends Fragment {
             else
                 result += "The two lines are parallel.\n\nDistance between them: " +
                     new DecimalFormat("###.######").format(line1.getDistanceFrom(line2)) + " units.";
-
-            tVResult.setText(result);
         }
+
         else {
+            Line3D line1 = new Line3D(new double[]{in1.get(0), in1.get(1), in1.get(2)},
+                    new double[] {in2.get(0), in2.get(1), in2.get(2)});
+            Line3D line2 = new Line3D(new double[]{in3.get(0), in3.get(1), in3.get(2)},
+                    new double[] {in4.get(0), in4.get(1), in4.get(2)});
+
+            // Analyzing part
+            if (line1.isParallelTo(line2)) {
+                double dist = line1.getDistanceFrom(line2);
+                String distString = new DecimalFormat("###.######").format(dist);
+                if (distString.equals("0"))
+                    result += "The two lines are identical.";
+                else
+                    result += "The two lines are parallel.\n\nDistance between them: " +
+                        distString + " units.";
+            }
+            else if (line1.areSkew(line2)) {
+                double dist = line1.getDistanceFrom(line2);
+                result += "The two lines are skew.\n\nDistance between them: " +
+                        new DecimalFormat("###.######").format(dist) + " units.";
+            }
+            else { // intersecting
+                if (line1.ifHasIntersection(line2)) {
+                    double[] intersectpt = line1.getTmpIntersect();
+                    result += "The two lines are not parallel and are not skew.\n\nThey intersect at\n(" +
+                            new DecimalFormat("###.######").format(intersectpt[0]) + ", " +
+                            new DecimalFormat("###.######").format(intersectpt[1]) + ", " +
+                            new DecimalFormat("###.######").format(intersectpt[2]) + ").";
+                }
+            }
 
         }
 
-//        String result = "x onto y (scalar):\n" +
-//                new DecimalFormat("###.######").format(VectorHelpers.calcScalarProjection(in1, in2));
-//
-//
-//        double[] resultVectorProjection = VectorHelpers.calcVectorProjection(in1, in2);
-//
-//        result += String.format("\n\nx onto y (vector):\n(%s, %s",
-//                new DecimalFormat("###.######").format(resultVectorProjection[0]),
-//                new DecimalFormat("###.######").format(resultVectorProjection[1]));
-//
-//        if (in1.size() == 3)
-//            result += ", " + new DecimalFormat("###.######").format(resultVectorProjection[2]);
-//
-//        result += ")";
-//        tVResult.setText(result);
+        tVResult.setText(result);
 
     }
 

@@ -147,7 +147,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
-        android:fontFamily="sans-serif-light"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginLeft="4dp"
         android:id="@+id/result"/>

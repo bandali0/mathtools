@@ -38,13 +38,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:textSize="17sp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginRight="6dp"
             android:text="@string/vector_space"/>
         <RadioGroup
             android:layout_width="wrap_content"
@@ -55,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:id="@+id/rB2D"
+                android:fontFamily="sans-serif-light"
                 android:textSize="15sp"
                 android:layout_marginRight="8dp"
                 android:text="@string/twodspace"/>
@@ -62,6 +64,7 @@
                 android:checked="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/rB3D"
                 android:textSize="15sp"
                 android:text="@string/threedspace"/>
@@ -82,6 +85,9 @@
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
             android:nextFocusDown="@+id/projectionstexty1"
+            android:ellipsize="start"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif-light"
             >
 
             <requestFocus />
@@ -94,6 +100,9 @@
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
             android:nextFocusDown="@+id/projectionstextx2"
+            android:ellipsize="start"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif-light"
             />
 
         <EditText
@@ -104,6 +113,9 @@
             android:inputType="numberDecimal|numberSigned"
             android:nextFocusDown="@+id/projectionstextx2"
             android:visibility="gone"
+            android:ellipsize="start"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif-light"
             />
 
         <EditText
@@ -113,6 +125,9 @@
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
             android:nextFocusDown="@+id/projectionstexty2"
+            android:ellipsize="start"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif-light"
             />
 
         <EditText
@@ -122,6 +137,9 @@
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
             android:nextFocusDown="@+id/projectionstextx3"
+            android:ellipsize="start"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif-light"
             />
 
         <EditText
@@ -131,6 +149,9 @@
             android:layout_weight="1"
             android:inputType="numberDecimal|numberSigned"
             android:nextFocusDown="@+id/projectionstextx3"
+            android:ellipsize="start"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif-light"
             android:visibility="gone"
             />
     </LinearLayout>
@@ -139,6 +160,7 @@
         android:id="@+id/btnprojectionsclear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
         android:enabled="false"
         android:layout_marginTop="12dp"
         android:text="@string/clear" />

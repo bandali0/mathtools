@@ -59,7 +59,7 @@
                 android:id="@+id/rB2D"
                 android:textSize="17sp"
                 android:layout_marginRight="8dp"
-                android:text="@string/twodspace"/>
+                android:text="@string/two_d_space"/>
             <RadioButton
                 android:checked="false"
                 android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
                 android:fontFamily="sans-serif-light"
                 android:id="@+id/rB3D"
                 android:textSize="17sp"
-                android:text="@string/threedspace"/>
+                android:text="@string/three_d_space"/>
         </RadioGroup>
         </LinearLayout>
 

@@ -63,14 +63,14 @@
                 android:id="@+id/rB2D"
                 android:textSize="15sp"
                 android:layout_marginRight="8dp"
-                android:text="@string/twodspace"/>
+                android:text="@string/two_d_space"/>
             <RadioButton
                 android:checked="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rB3D"
                 android:textSize="15sp"
-                android:text="@string/threedspace"/>
+                android:text="@string/three_d_space"/>
         </RadioGroup>
     </LinearLayout>
 
@@ -84,12 +84,12 @@
                 android:textSize="17sp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="12dp"
-                android:text="@string/eq_form"/>
+                android:text="@string/equation_form"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
-                android:text="@string/eqvector"
+                android:text="@string/vector"
                 style="@android:style/Widget.Holo.Light.Spinner"
                 android:tag="0"
                 android:id="@+id/sEqForm" />

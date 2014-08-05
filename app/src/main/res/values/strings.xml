@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- General / Menu -->
-    <string name="app_name">MATHTools</string>
+    <!-- Menu -->
     <string name="action_settings">Settings</string>
     <string name="action_feedback">Feedback</string>
     <string name="action_about">About</string>
     <string name="action_cheat_sheet">Cheat Sheet</string>
     <string name="action_help">Help</string>
 
-    <!-- MainFragment Navigation -->
+    <!-- General -->
+    <string name="app_name">MATHTools</string>
+    <string name="cheat_sheet">Cheat Sheet</string>
+    <string name="got_it">Got It</string>
+
+    <!-- Main Fragment Navigation -->
     <string name="vectors">Vectors</string>
-    <string name="fa_vectors">{fa-arrow-up}</string>
     <string name="geometry">Geometry</string>
-    <string name="fa_geometry">{fa-cube}</string>
     <string name="trigonometry">Trigonometry</string>
-    <string name="fa_trigonometry">{fa-circle-thin}</string>
     <string name="calculus">Calculus</string>
+
+    <!-- Font Awesome icon strings (DO NOT TRANSLATE) -->
+    <string name="fa_vectors">{fa-arrow-up}</string>
+    <string name="fa_geometry">{fa-cube}</string>
+    <string name="fa_trigonometry">{fa-circle-thin}</string>
     <string name="fa_calculus">{fa-book}</string>
 
-    <!-- FeedbackFragment -->
-    <string name="getintouch">Get in touch!</string>
+    <!-- Feedback Fragment -->
+    <string name="get_in_touch">Get in touch!</string>
     <string name="feedback_desc">If you spotted a problem, there is a specific functionality that\'s missing and you think it fits well in the app or you simply got a suggestion, feel free to shoot me an email or leave a review/comment on app\'s page on Google Play!</string>
-    <string name="mt_on_gplay">Google Play</string>
-    <string name="mt_on_gplay_desc">Leave a review/comment</string>
-    <string name="sendmeanemail">Email</string>
-    <string name="sendmeanemail_desc">me\@aminb.org</string>
-    <string name="mytwitter">Twitter</string>
-    <string name="mytwitter_desc">\@aminban</string>
-    <string name="mygplus">Google+</string>
-    <string name="mygplus_desc">+AminBandali</string>
+    <string name="google_play">Google Play</string>
+    <string name="leave_a_review">Leave a review/comment</string>
+    <string name="email">Email</string>
+    <string name="my_email">me\@aminb.org</string>
+    <string name="twitter">Twitter</string>
+    <string name="my_twitter">\@aminban</string>
+    <string name="google_plus">Google+</string>
+    <string name="my_google_plus">+AminBandali</string>
+    <string name="email_subject">MATHTools Feedback</string>
+    <string name="email_body">Hi Amin, I\'m using MATHTools v%1$s and here\'s my feedback:\n\n</string>
+    <string name="shoot_me_an_email">Shoot me an Email!</string>
+    <string name="no_email_apps_installed">There are no email apps installed.</string>
 
-    <!-- About -->
+    <!-- About Dialog -->
     <string name="title_about"><![CDATA[
         <b><i><font color="#FFFFFF">MATHTools</font></i></b>&nbsp;<small><font color="#EEEEEE">v%1$s</font></small>
     ]]></string>
@@ -55,9 +65,13 @@
 
     ]]></string>
 
+
+    <!-- Help Dialog -->
     <string name="title_help"><![CDATA[
         <b><i><font color="#FFFFFF">MATHTools</font></i></b>&nbsp;<small><font color="#EEEEEE">%1$s</font></small>
     ]]></string>
+
+    <!-- Lines Help -->
     <string name="lines_help_body"><![CDATA[
         <b><i>Line Analyzer</i></b><br><br>
 
@@ -79,32 +93,36 @@
 
     ]]></string>
 
-    <string name="twodspace">2D Space</string>
-    <string name="threedspace">3D Space</string>
-    <string name="clear">Clear</string>
-    <string name="eq_form">Equation Form:</string>
-    <string name="eqvector">Vector</string>
-    <string name="eqparametric">Parametric</string>
-    <string name="eqsymmetric">Symmetric</string>
-    <string name="eqstandard">Standard</string>
-
+    <!-- Vectors section titles -->
     <string name="vectors_products">Products</string>
     <string name="vectors_projections">Projections</string>
     <string name="vectors_lines">Lines</string>
     <string name="vectors_planes">Planes</string>
-    <string name="cheat_sheet">Cheat Sheet</string>
 
+    <!-- Strings Common in "Vectors" sections -->
     <string name="vector_space">Vector Space:</string>
+    <string name="two_d_space">2D Space</string>
+    <string name="three_d_space">3D Space</string>
     <string name="r2">R&lt;sup&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sup&gt;</string>
     <string name="r3">R&lt;sup&gt;&lt;small&gt;3&lt;/small&gt;&lt;/sup&gt;</string>
-
     <string name="ax">a&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="ay">a&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="az">a&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="bx">b&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="by">b&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="bz">b&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
+    <string name="clear">Clear</string>
 
+    <!-- Products Fragment -->
+    <string name="vector_multiplication">Vector Multiplication</string>
+
+    <!-- Projections Fragment -->
+    <string name="vector_projection">Vector Projection</string>
+
+    <!-- Lines Fragment -->
+    <string name="line_analyzer">Line Analyzer</string>
+    <string name="first_line">First Line</string>
+    <string name="second_line">Second Line</string>
     <string name="x0">x&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="y0">y&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="z0">z&lt;sub&gt;&lt;small&gt;0&lt;/small&gt;&lt;/sub&gt;</string>
@@ -117,21 +135,16 @@
     <string name="dpx">d&#x2032;&lt;sub&gt;&lt;small&gt;x&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="dpy">d&#x2032;&lt;sub&gt;&lt;small&gt;y&lt;/small&gt;&lt;/sub&gt;</string>
     <string name="dpz">d&#x2032;&lt;sub&gt;&lt;small&gt;z&lt;/small&gt;&lt;/sub&gt;</string>
-
-    <string-array name="eq_forms_array">
-        <item>Vector</item>
-        <!--<item>Parametric</item>-->
-        <!--<item>Symmetric</item>-->
-        <item>Standard</item>
+    <string name="equation_form">Equation Form:</string>
+    <string name="vector">Vector</string>
+    <string name="parametric">Parametric</string>
+    <string name="symmetric">Symmetric</string>
+    <string name="standard">Standard</string>
+    <string-array name="equation_forms_array">
+        <item>@string/vector</item>
+        <!--<item>@string/parametric</item>-->
+        <!--<item>@string/symmetric</item>-->
+        <item>@string/standard</item>
     </string-array>
-
-    <string name="got_it">Got It</string>
-
-    <string name="vector_multiplication">Vector Multiplication</string>
-    <string name="vector_projection">Vector Projection</string>
-    <string name="line_analyzer">Line Analyzer</string>
-    <string name="first_line">First Line</string>
-    <string name="second_line">Second Line</string>
-
 
 </resources>

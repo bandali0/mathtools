@@ -21,6 +21,7 @@ package org.aminb.mathtools.app.fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.util.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -79,37 +81,44 @@ public class FeedbackFragment extends BaseFragment
                          int position, long id) {
         switch (position) {
             case 0:
-                Uri uri = Uri.parse("market://details?id=" + getActivity().getApplicationContext().getPackageName());
+                Uri uri = Uri.parse("market://details?id=" +
+                        getActivity().getApplicationContext().getPackageName());
                 Intent playintent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(playintent);
                 break;
             case 1:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com/+AminBandali")));
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://google.com/" + getString(R.string.my_google_plus))));
                 break;
             case 2:
                 Intent twttrintent = null;
                 try {
                     // get the Twitter app if possible
                     getActivity().getPackageManager().getPackageInfo("com.twitter.android", 0);
-                    twttrintent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?user_id=1254283670"));
+                    twttrintent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("twitter://user?user_id=1254283670"));
                     twttrintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 } catch (Exception e) {
                     // no Twitter app, revert to browser
-                    twttrintent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/aminban"));
+                    twttrintent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://twitter.com/" + getString(R.string.my_twitter)));
                 }
                 startActivity(twttrintent);
                 break;
             case 3:
                 Intent emailintent = new Intent(Intent.ACTION_SEND);
                 emailintent.setType("message/rfc822");
-                emailintent.putExtra(Intent.EXTRA_EMAIL, new String[]{"me@aminb.org"});
-                emailintent.putExtra(Intent.EXTRA_SUBJECT, "Math Tools Feedback");
-                emailintent.putExtra(Intent.EXTRA_TEXT, "Hi Amin, I use Math Tools and here's my feedback:\n\n");
+                emailintent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.my_email)});
+                emailintent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
+                emailintent.putExtra(Intent.EXTRA_TEXT, getString(R.string.email_body,
+                                                        Utils.GetAppVersion(getActivity())));
                 try {
-                    startActivity(Intent.createChooser(emailintent, "Shoot me an Email!"));
+                    startActivity(Intent.createChooser(emailintent,
+                                                        getString(R.string.shoot_me_an_email)));
                 } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                    Uri mailuri = Uri.parse("mailto://me@aminb.org");
+                    Toast.makeText(getActivity(), getString(R.string.no_email_apps_installed),
+                                                                Toast.LENGTH_SHORT).show();
+                    Uri mailuri = Uri.parse("mailto://" + getString(R.string.my_email));
                     Intent emailbrowserintent = new Intent(Intent.ACTION_VIEW, mailuri);
                     startActivity(emailbrowserintent);
                     break;
@@ -121,10 +130,10 @@ public class FeedbackFragment extends BaseFragment
 
     private ArrayList<Map<String, String>> buildData() {
         ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        list.add(putData(getString(R.string.mt_on_gplay), getString(R.string.mt_on_gplay_desc)));
-        list.add(putData(getString(R.string.mygplus), getString(R.string.mygplus_desc)));
-        list.add(putData(getString(R.string.mytwitter), getString(R.string.mytwitter_desc)));
-        list.add(putData(getString(R.string.sendmeanemail), getString(R.string.sendmeanemail_desc)));
+        list.add(putData(getString(R.string.google_play), getString(R.string.leave_a_review)));
+        list.add(putData(getString(R.string.google_plus), getString(R.string.my_google_plus)));
+        list.add(putData(getString(R.string.twitter), getString(R.string.my_twitter)));
+        list.add(putData(getString(R.string.email), getString(R.string.my_email)));
         return list;
     }
 

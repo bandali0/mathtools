@@ -41,7 +41,6 @@ import android.widget.TextView;
 import org.aminb.mathtools.app.R;
 import org.aminb.mathtools.app.math.Line2D;
 import org.aminb.mathtools.app.math.Line3D;
-import org.aminb.mathtools.app.math.VectorHelpers;
 import org.aminb.mathtools.app.util.Utils;
 
 import java.text.DecimalFormat;
@@ -211,11 +210,11 @@ public class LinesFragment extends Fragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setItems(R.array.eq_forms_array, new DialogInterface.OnClickListener() {
+        builder.setItems(R.array.equation_forms_array, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 // The 'which' argument contains the index position
                 // of the selected item
-                tV.setText(getResources().getStringArray(R.array.eq_forms_array)[which]);
+                tV.setText(getResources().getStringArray(R.array.equation_forms_array)[which]);
                 tV.setTag(which);
 
                 if (which == 0) // 0 == Vector
@@ -261,7 +260,7 @@ public class LinesFragment extends Fragment {
         dpy.setNextFocusDownId(R.id.linestextdpz);
         row1.setWeightSum(6);
         row2.setWeightSum(6);
-        eqForm.setText(R.string.eqvector);
+        eqForm.setText(R.string.vector);
         eqForm.setTag(0);
         eqForm.setEnabled(false);
         space = Space.space3D;

@@ -75,23 +75,13 @@ public class Utils {
      */
     public static class AboutDialog extends DialogFragment {
 
-        private static final String VERSION_UNAVAILABLE = "N/A";
-
         public AboutDialog() {
         }
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Get app version
-            PackageManager pm = getActivity().getPackageManager();
-            String packageName = getActivity().getPackageName();
-            String versionName;
-            try {
-                PackageInfo info = pm.getPackageInfo(packageName, 0);
-                versionName = info.versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                versionName = VERSION_UNAVAILABLE;
-            }
+            String versionName = Utils.GetAppVersion(getActivity());
 
             // Build the about body view and append the link to see OSS licenses
             //SpannableStringBuilder aboutBody = new SpannableStringBuilder();
@@ -121,6 +111,23 @@ public class Utils {
                     )
                     .create();
         }
+    }
+
+    private static final String VERSION_UNAVAILABLE = "N/A";
+    public static String GetAppVersion(Activity activity) {
+        // Get app version
+        PackageManager pm = activity.getPackageManager();
+        String packageName = activity.getPackageName();
+        String versionName;
+
+        try {
+            PackageInfo info = pm.getPackageInfo(packageName, 0);
+            versionName = info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            versionName = VERSION_UNAVAILABLE;
+        }
+
+        return versionName;
     }
 
     /**

@@ -163,18 +163,18 @@ public class ProjectionsFragment extends Fragment {
 
     private void analyzeInputs(List<Double> in1, List<Double> in2) {
 
-        String result = "a onto b (scalar):\n" +
-                new DecimalFormat("###.######").format(VectorHelpers.calcScalarProjection(in1, in2));
+        String result = getString(R.string.a_on_b_scalar) +
+                new DecimalFormat(getString(R.string.precision_pattern)).format(VectorHelpers.calcScalarProjection(in1, in2));
 
 
         double[] resultVectorProjection = VectorHelpers.calcVectorProjection(in1, in2);
 
-        result += String.format("\n\na onto b (vector):\n(%s, %s",
-                new DecimalFormat("###.######").format(resultVectorProjection[0]),
-                new DecimalFormat("###.######").format(resultVectorProjection[1]));
+        result += String.format(getString(R.string.a_on_b_vector),
+                new DecimalFormat(getString(R.string.precision_pattern)).format(resultVectorProjection[0]),
+                new DecimalFormat(getString(R.string.precision_pattern)).format(resultVectorProjection[1]));
 
         if (in1.size() == 3)
-            result += ", " + new DecimalFormat("###.######").format(resultVectorProjection[2]);
+            result += ", " + new DecimalFormat(getString(R.string.precision_pattern)).format(resultVectorProjection[2]);
 
         result += ")";
         tVResult.setText(result);

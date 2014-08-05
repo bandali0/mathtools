@@ -135,8 +135,6 @@ public class Utils {
      */
     public static class HelpDialog extends DialogFragment {
 
-        private static final String VERSION_UNAVAILABLE = "N/A";
-
         public HelpDialog() {
         }
 
@@ -156,7 +154,7 @@ public class Utils {
             TextView nameAndVersionView = (TextView) rootView.findViewById(
                     R.id.app_name_and_version);
             nameAndVersionView.setText(Html.fromHtml(
-                    getString(R.string.title_help, "Help")));
+                    getString(R.string.title_help, getString(R.string.action_help))));
 
             TextView aboutBodyView = (TextView) rootView.findViewById(R.id.about_body);
             aboutBodyView.setText(Html.fromHtml(getString(helpTextResId)));

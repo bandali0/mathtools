@@ -163,15 +163,16 @@ public class ProductsFragment extends Fragment {
 
     private void analyzeInputs(List<Double> in1, List<Double> in2) {
 
-        String result = "a . b = " + new DecimalFormat("###.######").format(VectorHelpers.calcDotProduct(in1, in2));
+        String result = getString(R.string.a_dot_b) +
+                new DecimalFormat(getString(R.string.precision_pattern)).format(VectorHelpers.calcDotProduct(in1, in2));
 
         if ( in1.size() == 3 ) {
             double[] resultCrossProduct = VectorHelpers.calcCrossProduct(in1, in2);
 
-            result += String.format("\n\na x b = (%s, %s, %s)",
-                    new DecimalFormat("###.######").format(resultCrossProduct[0]),
-                    new DecimalFormat("###.######").format(resultCrossProduct[1]),
-                    new DecimalFormat("###.######").format(resultCrossProduct[2]));
+            result += String.format(getString(R.string.a_cross_b),
+                    new DecimalFormat(getString(R.string.precision_pattern)).format(resultCrossProduct[0]),
+                    new DecimalFormat(getString(R.string.precision_pattern)).format(resultCrossProduct[1]),
+                    new DecimalFormat(getString(R.string.precision_pattern)).format(resultCrossProduct[2]));
         }
 
         tVResult.setText(result);

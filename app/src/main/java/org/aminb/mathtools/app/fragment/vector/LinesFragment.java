@@ -367,12 +367,13 @@ public class LinesFragment extends Fragment {
                         new double[] {in4.get(0), in4.get(1)});
 
                 if (line1.ifHasIntersection(line2))
-                    result += "The two lines intersect.\n\nPoint of intersection:\n(" +
-                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[0]) + ", " +
-                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[1]) + ") ";
+                    result += getString(R.string.lines_intersecting) +
+                            new DecimalFormat(getString(R.string.precision_pattern)).format(line1.getTmpIntersect()[0]) + ", " +
+                            new DecimalFormat(getString(R.string.precision_pattern)).format(line1.getTmpIntersect()[1]) + ") ";
                 else
-                    result += "The two lines are parallel.\n\nDistance between them: " +
-                        new DecimalFormat("###.######").format(line1.getDistanceFrom(line2)) + " units.";
+                    result += getString(R.string.lines_parallel) +
+                        new DecimalFormat(getString(R.string.precision_pattern)).format(line1.getDistanceFrom(line2)) +
+                        getString(R.string.units);
             }
 
             else { // equationForm == EqForm.standard
@@ -380,18 +381,18 @@ public class LinesFragment extends Fragment {
                 Line2D line2 = new Line2D(new double[]{in3.get(0), in3.get(1), in3.get(2)});
 
                 if (line1.ifHasIntersection(line2))
-                    result += "The two lines intersect.\n\nPoint of intersection:\n(" +
-                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[0]) + ", " +
-                            new DecimalFormat("###.######").format(line1.getTmpIntersect()[1]) + ") ";
+                    result += getString(R.string.lines_intersecting) +
+                            new DecimalFormat(getString(R.string.precision_pattern)).format(line1.getTmpIntersect()[0]) + ", " +
+                            new DecimalFormat(getString(R.string.precision_pattern)).format(line1.getTmpIntersect()[1]) + ") ";
                 else {
                     double dist = line1.getDistanceFrom(line2);
-                    String distString = new DecimalFormat("###.######").format(dist);
+                    String distString = new DecimalFormat(getString(R.string.precision_pattern)).format(dist);
 
                     if (distString.equals("0"))
-                        result += "The two lines are identical.";
+                        result += getString(R.string.lines_identical);
                     else
-                        result += "The two lines are parallel.\n\nDistance between them: " +
-                                distString + " units.";
+                        result += getString(R.string.lines_parallel) +
+                                distString + getString(R.string.units);
                 }
             }
 
@@ -404,25 +405,25 @@ public class LinesFragment extends Fragment {
             // Analyzing part
             if (line1.isParallelTo(line2)) {
                 double dist = line1.getDistanceFrom(line2);
-                String distString = new DecimalFormat("###.######").format(dist);
+                String distString = new DecimalFormat(getString(R.string.precision_pattern)).format(dist);
                 if (distString.equals("0"))
-                    result += "The two lines are identical.";
+                    result += getString(R.string.lines_identical);
                 else
-                    result += "The two lines are parallel.\n\nDistance between them: " +
-                        distString + " units.";
+                    result += getString(R.string.lines_parallel) +
+                        distString + getString(R.string.units);
             }
             else if (line1.areSkew(line2)) {
                 double dist = line1.getDistanceFrom(line2);
-                result += "The two lines are skew.\n\nDistance between them: " +
-                        new DecimalFormat("###.######").format(dist) + " units.";
+                result += getString(R.string.lines_skew) +
+                        new DecimalFormat(getString(R.string.precision_pattern)).format(dist) + getString(R.string.units);
             }
             else { // intersecting
                 if (line1.ifHasIntersection(line2)) {
                     double[] intersectpt = line1.getTmpIntersect();
-                    result += "The two lines are not parallel and are not skew.\n\nThey intersect at\n(" +
-                            new DecimalFormat("###.######").format(intersectpt[0]) + ", " +
-                            new DecimalFormat("###.######").format(intersectpt[1]) + ", " +
-                            new DecimalFormat("###.######").format(intersectpt[2]) + ").";
+                    result += getString(R.string.lines_intersecting_r3) +
+                            new DecimalFormat(getString(R.string.precision_pattern)).format(intersectpt[0]) + ", " +
+                            new DecimalFormat(getString(R.string.precision_pattern)).format(intersectpt[1]) + ", " +
+                            new DecimalFormat(getString(R.string.precision_pattern)).format(intersectpt[2]) + ").";
                 }
             }
 

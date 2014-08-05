@@ -11,6 +11,8 @@
     <!-- General -->
     <string name="app_name">MATHTools</string>
     <string name="cheat_sheet">Cheat Sheet</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="coming_soon_sections_desc">Gray sections will be gradually added in future releases.</string>
     <string name="got_it">Got It</string>
 
     <!-- Main Fragment Navigation -->
@@ -115,9 +117,13 @@
 
     <!-- Products Fragment -->
     <string name="vector_multiplication">Vector Multiplication</string>
+    <string name="a_dot_b">a . b = </string>
+    <string name="a_cross_b" formatted="false">\n\na x b = (%s, %s, %s)</string>
 
     <!-- Projections Fragment -->
     <string name="vector_projection">Vector Projection</string>
+    <string name="a_on_b_scalar">a onto b (scalar):\n</string>
+    <string name="a_on_b_vector" formatted="false">\n\na onto b (vector):\n(%s, %s</string>
 
     <!-- Lines Fragment -->
     <string name="line_analyzer">Line Analyzer</string>
@@ -146,5 +152,12 @@
         <!--<item>@string/symmetric</item>-->
         <item>@string/standard</item>
     </string-array>
+    <string name="lines_intersecting">The two lines intersect.\n\nPoint of intersection:\n(</string>
+    <string name="lines_parallel">The two lines are parallel.\n\nDistance between them: </string>
+    <string name="lines_identical">The two lines are identical.</string>
+    <string name="lines_skew">The two lines are skew.\n\nDistance between them: </string>
+    <string name="lines_intersecting_r3">The two lines are not parallel and are not skew.\n\nThey intersect at\n(</string>
+    <string name="units"> units</string>
+    <string name="precision_pattern">###.######</string>
 
 </resources>

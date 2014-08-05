@@ -154,7 +154,9 @@ public class MainFragment extends BaseFragment{
                             Bundle args = new Bundle();
                             args.putInt(ContentActivity.ARG_TITLE_ID, R.string.vectors);
                             args.putStringArray(ContentActivity.ARG_TITLES,
-                                    new String[]{"Products", "Projections", "Lines"});
+                                    new String[]{getString(R.string.vectors_products),
+                                            getString(R.string.vectors_projections),
+                                            getString(R.string.vectors_lines)});
                             intent_content.putExtras(args);
                             startActivity(intent_content);
                         }
@@ -207,11 +209,10 @@ public class MainFragment extends BaseFragment{
                         @Override
                         public void onClick(Card card, View view) {
                             new AlertDialog.Builder(getContext())
-                                    .setTitle("Coming Soon")
-                                    .setMessage("Gray sections will be gradually added in future releases.")
+                                    .setTitle(getString(R.string.coming_soon))
+                                    .setMessage(getString(R.string.coming_soon_sections_desc))
                                     .setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            // continue with delete
                                         }
                                     })
                                     .show();

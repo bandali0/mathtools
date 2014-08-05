@@ -1,3 +1,5 @@
+import groovy.swing.SwingBuilder
+
 apply plugin: 'android'
 
 android {
@@ -10,9 +12,24 @@ android {
         versionCode 1
         versionName "0.1"
     }
+
+    signingConfigs {
+        release {
+            storeFile file(System.getenv("MT_RELEASE_STORE_FILE") + "")
+            keyAlias System.getenv("MT_RELEASE_KEY_ALIAS") + ""
+            // These two lines make gradle believe that the signingConfigs
+            // section is complete. Without them, tasks like installRelease
+            // will not be available!
+            storePassword 'empty'
+            keyPassword 'empty'
+        }
+    }
     buildTypes {
         release {
             runProguard false
+            zipAlign true
+            debuggable false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
@@ -25,4 +42,69 @@ dependencies {
     compile 'com.joanzapata.android:android-iconify:1.0.+'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.jakewharton:butterknife:5.1.0'
+}
+
+project.task('askForPasswords') << {
+    def passKeystore = ''
+    def passKey = ''
+    if (System.console() == null) {
+        new SwingBuilder().dialog(
+                modal: true,
+                title: 'Enter sign config:',
+                alwaysOnTop: true,
+                resizable: false,
+                locationRelativeTo: null,
+                pack: true,
+                show: true
+        ) {
+            panel(constraints: BorderLayout.CENTER) {
+                tableLayout(cellpadding: 4) {
+                    tr {
+                        td { label(text: "Keystore password:") }
+                        td { passwordField(columns: 20, id: 'inputKeystore') }
+                    }
+                    tr {
+                        td { label(text: "Key password:") }
+                        td { passwordField(columns: 20, id: 'inputKey') }
+                    }
+                }
+            }
+            panel(constraints: BorderLayout.SOUTH) {
+                button(defaultButton: true, text: "OK", actionPerformed: {
+                    passKeystore = inputKeystore.password;
+                    passKey = inputKey.password;
+                    dispose(); // Close dialog
+                })
+            }
+        } // dialog end
+    } else {
+        Console console = System.console();
+        console.printf("\n\n\u001B[36m\u001B[1mSigning config\u001B[0m\n")
+
+
+        passKeystore = new String(console.readPassword("Please enter store password: "))
+        passKey = new String(console.readPassword("Please enter key password: "))
+
+    }
+
+    if (passKeystore.size() <= 0 || passKey.size() <= 0) {
+        throw new InvalidUserDataException("You must enter a password to proceed.")
+    }
+
+    android.signingConfigs.release.storePassword = passKeystore
+    android.signingConfigs.release.keyPassword = passKey
+}
+
+project.configure(project) {
+    if (it.hasProperty("android")) {
+        tasks.whenTaskAdded { theTask ->
+            if ((theTask.name ==~ /package.*Release/)
+                    && it.android.hasProperty("signingConfigs")
+                    && it.android.signingConfigs.hasProperty("release")) {
+                it.android.signingConfigs.release.storePassword = "-"
+                it.android.signingConfigs.release.keyPassword = "-"
+                theTask.dependsOn "askForPasswords"
+            }
+        }
+    }
 }

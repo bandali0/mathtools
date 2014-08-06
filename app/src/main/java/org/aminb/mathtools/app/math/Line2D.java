@@ -93,8 +93,15 @@ public class Line2D {
 		dirxn[0] = standard[1];
 		dirxn[1] = (-1)*standard[0];
 		double[] pta = {0,0};
-		pta[0] = 2;
-		pta[1] = (-1)*(standard[2] +(2 * standard[0])) / standard[1];
+        if(standard[0] != 0) { //check if the coefficient of x is not 0 to avoid errors
+            pta[0] = (standard[2] - 2 * standard[1]) / standard[0];
+            pta[1] = 2;
+        }
+        else if(standard[1] != 0) { //check if the coefficient of y is not 0 to avoid errors
+            pta[0] = 2;
+            pta[1] = (standard[2] - 2*standard[0]) / standard[1];
+        }
+        //else x and y are both 0, show that the equation is invalid
 		doInit(pta, dirxn);
 	}
 

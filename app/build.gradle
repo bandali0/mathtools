@@ -42,6 +42,7 @@ dependencies {
     compile 'com.joanzapata.android:android-iconify:1.0.+'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.jakewharton:butterknife:5.1.0'
+    compile 'com.github.gabrielemariotti.changeloglib:library:1.5.1'
 }
 
 project.task('askForPasswords') << {

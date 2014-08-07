@@ -39,6 +39,8 @@ import android.widget.TextView;
 
 import org.aminb.mathtools.app.R;
 
+import it.gmariotti.changelibs.library.view.ChangeLogListView;
+
 
 public class Utils {
 
@@ -174,6 +176,41 @@ public class Utils {
         }
     }
 
+    public static void showChangeLog(Activity activity) {
+        FragmentManager fm = activity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Fragment prev = fm.findFragmentByTag("changelog_about");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+        new ChangeLogDialog().show(ft,"changeLog_about");
+    }
+
+    /**
+     * ChangeLogDialog
+     */
+    public static class ChangeLogDialog extends DialogFragment {
+        public ChangeLogDialog() {
+        }
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE);
+            ChangeLogListView chgList=(ChangeLogListView)layoutInflater.inflate(R.layout.dialog_changelog, null);
+            return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.changelog)
+                    .setView(chgList)
+                    .setPositiveButton(R.string.about_ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    dialog.dismiss();
+                                }
+                            }
+                    )
+                    .create();
+        }
+    }
 
 
     public static boolean isTablet(Context context) {

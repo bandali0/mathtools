@@ -8,9 +8,19 @@
         android:orderInCategory="100"
         android:icon="@drawable/ic_menu_start_conversation"/>
     <item
-        android:id="@+id/action_about"
         android:showAsAction="always"
         android:title="@string/action_about"
         android:orderInCategory="200"
-        android:icon="@android:drawable/ic_menu_info_details"/>
+        android:icon="@android:drawable/ic_menu_info_details">
+        <menu>
+            <item
+                android:id="@+id/action_about"
+                android:title="@string/action_about"
+                android:orderInCategory="100" />
+            <item
+                android:id="@+id/action_changelog"
+                android:title="@string/changelog"
+                android:orderInCategory="200" />
+        </menu>
+    </item>
 </menu>

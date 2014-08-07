@@ -63,6 +63,9 @@ public class MainActivity extends BaseActivity {
             case R.id.action_about:
                 Utils.showAbout(this);
                 return true;
+            case R.id.action_changelog:
+                Utils.showChangeLog(this);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

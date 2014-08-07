@@ -14,6 +14,7 @@
     <string name="coming_soon">Coming Soon</string>
     <string name="coming_soon_sections_desc">Gray sections will be gradually added in future releases.</string>
     <string name="got_it">Got It</string>
+    <string name="changelog">Change Log</string>
 
     <!-- Main Fragment Navigation -->
     <string name="vectors">Vectors</string>
@@ -58,7 +59,8 @@
         <b><a href="https://www.google.com/+michaelcook">+MichaelCook</a></b><br>
         <b><a href="https://plus.google.com/102718493746376292361">+Cookicons</a></b><br><br>
         <b>Thanks to these open source tools:</b><br>
-        <b><a href="https://github.com/gabrielemariotti/cardslib">Card Library</a></b><br>
+        <b><a href="https://github.com/gabrielemariotti/cardslib">Card Library</a></b> and
+        <b><a href="https://github.com/gabrielemariotti/changeloglib">ChangeLog Library</a></b><br>
         <i>by Gabriele Mariotti</i><br><br>
         <b><a href="https://github.com/JoanZapata/android-iconify/">Android Iconify</a></b><br>
         <i>by Joan Zapata</i><br><br>

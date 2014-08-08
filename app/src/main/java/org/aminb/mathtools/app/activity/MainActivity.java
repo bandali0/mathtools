@@ -19,6 +19,7 @@
 package org.aminb.mathtools.app.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
@@ -30,10 +31,21 @@ import org.aminb.mathtools.app.util.Utils;
 
 
 public class MainActivity extends BaseActivity {
+    String prefsTAG = "MATHToolsPrefs";
+    String appVersionTAG = "appVersion";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences prefs = getSharedPreferences(prefsTAG, MODE_PRIVATE);
+        String appVersionPref = prefs.getString(appVersionTAG, "");
+        String appVersion = Utils.GetAppVersion(this);
+        if (!appVersionPref.equals(appVersion)) {
+            Utils.showChangeLog(this);
+            prefs.edit().putString(appVersionTAG, appVersion).commit();
+        }
+
         setContentView(R.layout.activity_main);
         FragmentTransaction tx = getSupportFragmentManager()
                 .beginTransaction();

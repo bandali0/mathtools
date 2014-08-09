@@ -1,6 +1,6 @@
 # MATHTools
 
-<img src="https://raw.githubusercontent.com/aminb/mathtools/dev/MATHTools_logo.png"
+<img src="https://raw.githubusercontent.com/aminb/mathtools/master/MATHTools_logo.png"
  alt="MATHTools logo" title="MATHTools" align="right" />
 
 MATHTools is a collection of handy tools for high school (and early university) students who deal with math.

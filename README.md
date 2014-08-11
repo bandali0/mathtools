@@ -10,6 +10,10 @@ MATHTools is a collection of handy tools for high school (and early university) 
        src="http://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
 </a>
 
+## Quick links
+- [MATHTools Translations (on Crowdin)](https://crowdin.net/project/mathtools)
+- [MATHTools on F-Droid](https://f-droid.org/repository/browse/?fdid=org.aminb.mathtools.app)
+
 ## FAQ
 - **I have an amazing idea for this app, what should I do?** - First make sure that the same or similar idea is not already planned/done/rejected by checking everything [here](https://github.com/aminb/mathtools/issues?state=open) and [here](https://github.com/aminb/mathtools/issues?page=1&state=closed). If it is already in there, and you have something to add, feel free to write a comment under that issue. If your idea is unique, then [create a new issue](https://github.com/aminb/mathtools/issues/new) describing it.
 - **I have found a bug, what should I do?** - Same rules apply as for *amazing idea* described above.

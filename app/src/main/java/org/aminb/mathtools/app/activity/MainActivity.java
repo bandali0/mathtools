@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
         String appVersion = Utils.GetAppVersion(this);
         if (!appVersionPref.equals(appVersion)) {
             Utils.showChangeLog(this);
-            prefs.edit().putString(appVersionTAG, appVersion).commit();
+            prefs.edit().putString(appVersionTAG, appVersion).apply();
         }
 
         setContentView(R.layout.activity_main);

@@ -19,10 +19,13 @@
 
 <changelog bulletedList="true">
 
-    <changelogversion versionName="0.2">
+    <changelogversion versionName="0.2" changeDate="31/08/2014">
+        <changelogtext>[b]Added[/b] Turkish translation (thanks to mesutormanli)</changelogtext>
+        <changelogtext>[b]Added[/b] Kurdish translation (thanks to zhiyarzhika)</changelogtext>
         <changelogtext>[b]Added[/b] Italian translation (thanks to danux88)</changelogtext>
         <changelogtext>[b]Added[/b] Persian translation</changelogtext>
         <changelogtext>[b]Fixed[/b] NaN bug when analyzing a vertical line (thanks to danux88)</changelogtext>
+        <changelogtext>[b]Added[/b] Change log</changelogtext>
     </changelogversion>
 
     <changelogversion versionName="0.1" changeDate="23/07/2014">

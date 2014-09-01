@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ changelog.xml
+  ~ Copyright (C) 2014 Amin Bandali <me@aminb.org>
+  ~
+  ~ MathTools is free software: you can redistribute it and/or modify it
+  ~ under the terms of the GNU General Public License as published by the
+  ~ Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ MathTools is distributed in the hope that it will be useful, but
+  ~ WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along
+  ~ with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<changelog bulletedList="true">
+
+    <changelogversion versionName="0.2" changeDate="31/08/2014">
+        <changelogtext>Türkçe tercüme [b]eklendi[/b] (çeviri: mesutormanli)</changelogtext>
+        <changelogtext>Kürtçe tercüme [b]eklendi[/b] (çeviri: zhiyarzhika)</changelogtext>
+        <changelogtext>İtalyanca tercüme [b]eklendi[/b] (çeviri: danux88)</changelogtext>
+        <changelogtext>Farsça tercüme [b]eklendi[/b]</changelogtext>
+        <changelogtext>Dikey bir doğrunun analizindeki NaN hatası [b]düzeltildi[/b] (danux88'e teşekkürler)</changelogtext>
+        <changelogtext>Değişiklik kaydı [b]eklendi[/b]</changelogtext>
+    </changelogversion>
+
+    <changelogversion versionName="0.1" changeDate="23/07/2014">
+        <changelogtext>Kamuya açık ilk sürüm</changelogtext>
+    </changelogversion>
+
+</changelog>

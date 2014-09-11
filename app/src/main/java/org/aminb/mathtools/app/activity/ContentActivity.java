@@ -22,20 +22,17 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.SparseArray;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 
 import org.aminb.mathtools.app.R;
+import org.aminb.mathtools.app.fragment.trigonometry.CalculatorFragment;
 import org.aminb.mathtools.app.fragment.vector.LinesFragment;
 import org.aminb.mathtools.app.fragment.vector.ProductsFragment;
 import org.aminb.mathtools.app.fragment.vector.ProjectionsFragment;
-import org.aminb.mathtools.app.util.Utils;
 
 import java.util.Locale;
 
@@ -161,18 +158,35 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
             // Return a Fragment (defined as a static inner class below).
             Fragment fragment;
 
-            switch (position) {
-                case 0:
-                    fragment = new ProductsFragment();
+            switch (titleId) {
+                case R.string.vectors:
+                    switch (position) {
+                        case 0:
+                            fragment = new ProductsFragment();
+                            break;
+                        case 1:
+                            fragment = new ProjectionsFragment();
+                            break;
+                        case 2:
+                            fragment = new LinesFragment();
+                            break;
+                        default:
+                            fragment = new ProductsFragment();
+                    }
                     break;
-                case 1:
-                    fragment = new ProjectionsFragment();
+
+                case R.string.trigonometry:
+                    switch (position) {
+                        case 0:
+                            fragment = new CalculatorFragment();
+                            break;
+                        default:
+                            fragment = new CalculatorFragment();
+                    }
                     break;
-                case 2:
-                    fragment = new LinesFragment();
-                    break;
+
                 default:
-                    fragment = new ProductsFragment();
+                    return null;
             }
 
             Bundle args = new Bundle();

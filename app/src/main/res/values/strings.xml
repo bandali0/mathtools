@@ -162,4 +162,7 @@
     <string name="units"> units</string>
     <string name="precision_pattern">###.######</string>
 
+    <!-- Trigonometry section titles -->
+    <string name="trigonometry_calculator">Calculator</string>
+
 </resources>

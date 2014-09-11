@@ -103,8 +103,7 @@ public class MainFragment extends BaseFragment{
         card.setTitle(getString(R.string.trigonometry));
         card.count = 3;
         card.setIconTextViewTextResource(R.string.fa_trigonometry);
-//        card.setIconTextViewTextColor(0xFFFFBB33);
-        card.setIconTextViewTextColor(0xFF777777);
+        card.setIconTextViewTextColor(0xFFFFBB33);
         card.init();
         cards.add(card);
 
@@ -177,19 +176,19 @@ public class MainFragment extends BaseFragment{
 //                    });
 //                    break;
 //
-//                case 3: // Trigonometry
-//                    // Add ClickListener
-//                    setOnClickListener(new OnCardClickListener() {
-//                        @Override
-//                        public void onClick(Card card, View view) {
-//                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.trigonometry);
-//                            args.putStringArray(ContentActivity.ARG_TITLES,
-//                                    new String[]{"Cheat Sheet"});
-//                            intent_content.putExtras(args);
-//                            startActivity(intent_content);
-//                        }
-//                    });
-//                    break;
+                case 3: // Trigonometry
+                    // Add ClickListener
+                    setOnClickListener(new OnCardClickListener() {
+                        @Override
+                        public void onClick(Card card, View view) {
+                            args.putInt(ContentActivity.ARG_TITLE_ID, R.string.trigonometry);
+                            args.putStringArray(ContentActivity.ARG_TITLES,
+                                    new String[]{getString(R.string.trigonometry_calculator)});
+                            intent_content.putExtras(args);
+                            startActivity(intent_content);
+                        }
+                    });
+                    break;
 //
 //                case 4: // Calculus
 //                    // Add ClickListener

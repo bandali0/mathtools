@@ -44,11 +44,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class ProjectionsFragment extends Fragment {
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
-    public static final String ARG_SECTION_NUMBER = "section_number";
 
     private enum Space{
         space2D, space3D

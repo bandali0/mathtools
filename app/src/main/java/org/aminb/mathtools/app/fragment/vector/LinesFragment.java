@@ -52,11 +52,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class LinesFragment extends Fragment {
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
-    public static final String ARG_SECTION_NUMBER = "section_number";
 
     private static final String STATE_EQ_FORM_TEXT = "eq_form_text";
     private static final String STATE_EQ_FORM_TAG = "eq_form_tag";

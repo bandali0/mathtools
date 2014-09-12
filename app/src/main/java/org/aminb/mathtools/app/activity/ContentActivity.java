@@ -33,6 +33,7 @@ import org.aminb.mathtools.app.fragment.trigonometry.CalculatorFragment;
 import org.aminb.mathtools.app.fragment.vector.LinesFragment;
 import org.aminb.mathtools.app.fragment.vector.ProductsFragment;
 import org.aminb.mathtools.app.fragment.vector.ProjectionsFragment;
+import org.aminb.mathtools.app.util.Fragments;
 
 import java.util.Locale;
 
@@ -155,42 +156,11 @@ public class ContentActivity extends BaseActivity implements ActionBar.TabListen
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a Fragment (defined as a static inner class below).
-            Fragment fragment;
-
-            switch (titleId) {
-                case R.string.vectors:
-                    switch (position) {
-                        case 0:
-                            fragment = new ProductsFragment();
-                            break;
-                        case 1:
-                            fragment = new ProjectionsFragment();
-                            break;
-                        case 2:
-                            fragment = new LinesFragment();
-                            break;
-                        default:
-                            fragment = new ProductsFragment();
-                    }
-                    break;
-
-                case R.string.trigonometry:
-                    switch (position) {
-                        case 0:
-                            fragment = new CalculatorFragment();
-                            break;
-                        default:
-                            fragment = new CalculatorFragment();
-                    }
-                    break;
-
-                default:
-                    return null;
-            }
+            // Instantiate and return a Fragment.
+            Fragment fragment = Fragments.getFragment(titleId, position);
 
             Bundle args = new Bundle();
-            args.putInt(ProductsFragment.ARG_SECTION_NUMBER, position + 1);
+            args.putInt(Fragments.ARG_SECTION_NUMBER, position + 1);
             fragment.setArguments(args);
             return fragment;
 

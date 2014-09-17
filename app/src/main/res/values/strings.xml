@@ -181,6 +181,9 @@
     <string name="precision_pattern">###.######</string>
 
     <!-- Trigonometry section titles -->
-    <string name="trigonometry_calculator">Calculator</string>
+    <string name="trig_calculator">Calculator</string>
+
+    <!-- Calculator Fragment -->
+    <string name="trigonometry_calculator">Trigonometry Calculator</string>
 
 </resources>

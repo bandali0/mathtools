@@ -183,7 +183,7 @@ public class MainFragment extends BaseFragment{
                         public void onClick(Card card, View view) {
                             args.putInt(ContentActivity.ARG_TITLE_ID, R.string.trigonometry);
                             args.putStringArray(ContentActivity.ARG_TITLES,
-                                    new String[]{getString(R.string.trigonometry_calculator)});
+                                    new String[]{getString(R.string.trig_calculator)});
                             intent_content.putExtras(args);
                             startActivity(intent_content);
                         }

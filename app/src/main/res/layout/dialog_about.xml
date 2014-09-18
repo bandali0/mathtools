@@ -30,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_launcher"
+        android:drawableStart="@drawable/ic_launcher"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:fontFamily="sans-serif-condensed"

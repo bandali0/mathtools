@@ -53,6 +53,7 @@
             android:textSize="17sp"
             android:layout_marginTop="4dp"
             android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             android:text="@string/vector_space"/>
         <RadioGroup
             android:layout_width="wrap_content"
@@ -65,6 +66,7 @@
                 android:id="@+id/rB2D"
                 android:textSize="15sp"
                 android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/two_d_space"/>
             <RadioButton
@@ -313,6 +315,7 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:fontFamily="sans-serif-light"
         android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:id="@+id/result"/>
     </LinearLayout>
 </ScrollView>

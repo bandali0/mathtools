@@ -22,6 +22,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_marginLeft="3dp"
+    android:layout_marginStart="3dp"
     android:gravity="center_vertical"
     android:layout_height="72dp">
 
@@ -33,6 +34,7 @@
         android:shadowDy="3"
         android:shadowRadius="1"
         android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         android:textSize="48sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -42,6 +44,7 @@
         style="@style/carddemo_myapps_main_inner_title"
         android:fontFamily="sans-serif-light"
         android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         android:textSize="19sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

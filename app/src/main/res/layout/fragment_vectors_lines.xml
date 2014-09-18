@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:textSize="17sp"
             android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
             android:text="@string/vector_space"/>
         <RadioGroup
             android:layout_width="wrap_content"
@@ -63,6 +64,7 @@
                 android:id="@+id/rB2D"
                 android:textSize="15sp"
                 android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/two_d_space"/>
             <RadioButton
                 android:checked="false"
@@ -292,6 +294,7 @@
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:id="@+id/result"/>
     </LinearLayout>
 </ScrollView>

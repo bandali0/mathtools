@@ -22,9 +22,9 @@
     <changelogversion versionName="0.2" changeDate="31/08/2014">
         <changelogtext>[b]Aggiunta[/b] traduzione turca (grazie a mesutormanli)</changelogtext>
         <changelogtext>[b]Aggiunta[/b] traduzione curda (grazie a zhiyarzhika)</changelogtext>
-        <changelogtext>[b]Aggiunta[/b] traduzione italiana (grazie a danux88)</changelogtext>
+        <changelogtext>[b]Aggiunta[/b] traduzione italiana (grazie a dslul)</changelogtext>
         <changelogtext>[b]Aggiunta[/b] traduzione persiana</changelogtext>
-        <changelogtext>[b]Corretto[/b] il bug che restituiva NaN quando si analizzava una retta verticale (grazie a danux88)</changelogtext>
+        <changelogtext>[b]Corretto[/b] il bug che restituiva NaN quando si analizzava una retta verticale (grazie a dslul)</changelogtext>
         <changelogtext>[b]Aggiunto[/b] Changelog</changelogtext>
     </changelogversion>
 
